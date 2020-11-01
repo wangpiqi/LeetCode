@@ -18,28 +18,20 @@ class Solution {
 public:
 	//21. 合并两个有序链表
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-		//是否l1<l2
-		auto compare = [](ListNode* l1, ListNode* l2) -> bool {
-			if (!l1) return false;
-			if (!l2) return true;
-			return l1->val < l2->val;
-		};
-
-		ListNode* head{ compare(l1, l2) ? l1 : l2 };
-
-		ListNode* last{ nullptr };
-		while (l1 || l2)
-		{
-			ListNode*& node = compare(l1, l2) ? l1 : l2;
-			if (last)
-			{
-				last->next = node;
-			}
-			last = node;
-			node = node->next;
+		if (l1 == nullptr) {
+			return l2;
 		}
-		
-		return head;
+		else if (l2 == nullptr) {
+			return l1;
+		}
+		else if (l1->val < l2->val) {
+			l1->next = mergeTwoLists(l1->next, l2);
+			return l1;
+		}
+		else {
+			l2->next = mergeTwoLists(l1, l2->next);
+			return l2;
+		}
 	}
 
 	//1502. 判断能否形成等差数列
