@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <string>
 #include <sstream>
+#include <mutex>
 
 using namespace std;
 
@@ -131,4 +132,41 @@ public:
 		}
 		return count;
 	}
+};
+
+//1114. ∞¥–Ú¥Ú”°
+class Foo {
+public:
+	Foo() {
+
+	}
+
+	void first(function<void()> printFirst) {
+
+		// printFirst() outputs "first". Do not change or remove this line.
+		printFirst();
+		++m_flag;
+		m_cv.notify_all();
+	}
+
+	void second(function<void()> printSecond) {
+		std::unique_lock<std::mutex> lk(m_mutex);
+		m_cv.wait(lk, [this] {return m_flag == 1; });
+		// printSecond() outputs "second". Do not change or remove this line.
+		printSecond();
+		++m_flag;
+		m_cv.notify_all();
+	}
+
+	void third(function<void()> printThird) {
+		std::unique_lock<std::mutex> lk(m_mutex);
+		m_cv.wait(lk, [this] {return m_flag == 2; });
+		// printThird() outputs "third". Do not change or remove this line.
+		printThird();
+	}
+
+private:
+	std::mutex m_mutex;
+	std::condition_variable m_cv;
+	int m_flag{0};
 };
