@@ -3,6 +3,10 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <numeric>
+#include <ctype.h>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -14,8 +18,46 @@ struct ListNode {
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+#pragma region
+void trimLeftTrailingSpaces(string &input) {
+	input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
+		return !isspace(ch);
+	}));
+}
+
+void trimRightTrailingSpaces(string &input) {
+	input.erase(find_if(input.rbegin(), input.rend(), [](int ch) {
+		return !isspace(ch);
+	}).base(), input.end());
+}
+
+vector<int> stringToIntegerVector(string input) {
+	vector<int> output;
+	trimLeftTrailingSpaces(input);
+	trimRightTrailingSpaces(input);
+	input = input.substr(1, input.length() - 2);
+	stringstream ss;
+	ss.str(input);
+	string item;
+	char delim = ',';
+	while (getline(ss, item, delim)) {
+		output.push_back(stoi(item));
+	}
+	return output;
+}
+#pragma endregion
+
 class Solution {
 public:
+	//1619. 删除某些元素后的数组均值
+	double trimMean(vector<int>& arr) {
+		sort(arr.begin(), arr.end());
+		int size = arr.size();
+		int num = size * 0.05;
+		double sum = accumulate(arr.begin() + num, arr.end() - num, 0);
+		return sum / (size - 2 * num);
+	}
+
 	//剑指 Offer 25. 合并两个排序的链表
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 		ListNode* head{ new ListNode() };
