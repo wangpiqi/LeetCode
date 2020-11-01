@@ -16,8 +16,30 @@ struct ListNode {
 
 class Solution {
 public:
-	//21. 合并两个有序链表
+	//剑指 Offer 25. 合并两个排序的链表
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+		ListNode* head{ new ListNode() };
+		ListNode* node{ head };
+		while (l1 && l2)
+		{
+			if (l1->val < l2->val)
+			{
+				node->next = l1;
+				l1 = l1->next;
+			}
+			else
+			{
+				node->next = l2;
+				l2 = l2->next;
+			}
+			node = node->next;
+		}
+		node->next = l1 ? l1 : l2;
+		return head->next;
+	}
+
+	//21. 合并两个有序链表
+	/*ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 		if (l1 == nullptr) {
 			return l2;
 		}
@@ -32,7 +54,7 @@ public:
 			l2->next = mergeTwoLists(l1, l2->next);
 			return l2;
 		}
-	}
+	}*/
 
 	//1502. 判断能否形成等差数列
 	bool canMakeArithmeticProgression(vector<int>& arr) {
