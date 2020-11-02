@@ -51,6 +51,24 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//5539. 按照频率将数组升序排序
+	vector<int> frequencySort(vector<int>& nums) {
+		map<int, int> temp;
+		for (auto e : nums)
+		{
+			++temp[e];
+		}
+
+		sort(nums.begin(), nums.end(), [&temp](int a, int b) {
+			if (temp[a] == temp[b])
+			{
+				return a > b;
+			}
+			return temp[a] < temp[b];
+		});
+		return nums;
+	}
+
 	//1480. 一维数组的动态和
 	vector<int> runningSum(vector<int>& nums) {
 		for (int i = 1; i < nums.size(); i++)
