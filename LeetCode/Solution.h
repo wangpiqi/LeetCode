@@ -10,6 +10,7 @@
 #include <mutex>
 #include <map>
 #include <bitset>
+#include <set>
 
 using namespace std;
 
@@ -54,15 +55,13 @@ class Solution {
 public:
 	//219. ´æÔÚÖØ¸´ÔªËØ II
 	bool containsNearbyDuplicate(vector<int>& nums, int k) {
-		map<int, int> temp;
+		set<int> temp;
 		for (int i = 0; i < (int)nums.size(); i++)
 		{
-			int value = nums[i];
-			int index = temp[value];
-			temp[value] = i + 1;
-			if (index > 0 && i - (index - 1) <= k)
-			{
-				return true;
+			if (temp.find(nums[i]) != temp.end()) return true;
+			temp.emplace(nums[i]);
+			if (temp.size() > k) {
+				temp.erase(nums[i - k]);
 			}
 		}
 		return false;
