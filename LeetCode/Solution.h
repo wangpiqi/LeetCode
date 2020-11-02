@@ -50,6 +50,20 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//349. 两个数组的交集
+	vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+		std::sort(nums1.begin(), nums1.end());
+		std::sort(nums2.begin(), nums2.end());
+
+		std::vector<int> v_intersection;
+		std::set_intersection(nums1.begin(), nums1.end(), nums2.begin(), nums2.end(), std::back_inserter(v_intersection));
+
+		auto last = std::unique(v_intersection.begin(), v_intersection.end());
+		v_intersection.erase(last, v_intersection.end());
+
+		return v_intersection;
+	}
+
 	//1619. 删除某些元素后的数组均值
 	double trimMean(vector<int>& arr) {
 		sort(arr.begin(), arr.end());
