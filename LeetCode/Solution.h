@@ -51,6 +51,12 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//面试题 02.03. 删除中间节点
+	void deleteNode(ListNode* node) {
+		node->val = node->next->val;
+		node->next = node->next->next;
+	}
+
 	//5539. 按照频率将数组升序排序
 	vector<int> frequencySort(vector<int>& nums) {
 		map<int, int> temp;
