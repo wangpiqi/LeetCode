@@ -52,6 +52,21 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//1475. 商品折扣后的最终价格
+	vector<int> finalPrices(vector<int>& prices) {
+		for (int i = 0; i < prices.size(); i++)
+		{
+			for (int j = i + 1; j < prices.size(); j++) {
+				if (prices[j] <= prices[i])
+				{
+					prices[i] -= prices[j];
+					break;
+				}
+			}
+		}
+		return prices;
+	}
+
 	//1342. 将数字变成 0 的操作次数
 	int numberOfSteps(int num) {
 		bitset<32> bs(num);
