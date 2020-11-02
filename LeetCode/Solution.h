@@ -52,6 +52,20 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//219. 存在重复元素 II
+	bool containsNearbyDuplicate(vector<int>& nums, int k) {
+		for (int i = 0; i < (int)nums.size(); i++)
+		{
+			for (int j = i + 1; j < (int)nums.size() && j <= i + k; j++) {
+				if (nums[j] == nums[i])
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	//217. 存在重复元素
 	bool containsDuplicate(vector<int>& nums) {
 		sort(nums.begin(), nums.end());
@@ -60,9 +74,9 @@ public:
 
 	//1475. 商品折扣后的最终价格
 	vector<int> finalPrices(vector<int>& prices) {
-		for (int i = 0; i < prices.size(); i++)
+		for (int i = 0; i < (int)prices.size(); i++)
 		{
-			for (int j = i + 1; j < prices.size(); j++) {
+			for (int j = i + 1; j < (int)prices.size(); j++) {
 				if (prices[j] <= prices[i])
 				{
 					prices[i] -= prices[j];
@@ -115,7 +129,7 @@ public:
 
 	//1480. 一维数组的动态和
 	vector<int> runningSum(vector<int>& nums) {
-		for (int i = 1; i < nums.size(); i++)
+		for (int i = 1; i < (int)nums.size(); i++)
 		{
 			nums[i] += nums[i - 1];
 		}
@@ -158,7 +172,7 @@ public:
 	double trimMean(vector<int>& arr) {
 		sort(arr.begin(), arr.end());
 		int size = arr.size();
-		int num = size * 0.05;
+		int num = (int)(size * 0.05);
 		double sum = accumulate(arr.begin() + num, arr.end() - num, 0);
 		return sum / (size - 2 * num);
 	}
