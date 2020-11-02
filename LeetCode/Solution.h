@@ -9,6 +9,7 @@
 #include <sstream>
 #include <mutex>
 #include <map>
+#include <bitset>
 
 using namespace std;
 
@@ -51,6 +52,22 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//1342. 将数字变成 0 的操作次数
+	int numberOfSteps(int num) {
+		bitset<32> bs(num);
+
+		int count{ 0 };
+		while (bs.count())
+		{
+			if (bs.test(0))
+				bs.reset(0);
+			else
+				bs >>= 1;
+			++count;
+		}
+		return count;
+	}
+
 	//面试题 02.03. 删除中间节点
 	void deleteNode(ListNode* node) {
 		node->val = node->next->val;
