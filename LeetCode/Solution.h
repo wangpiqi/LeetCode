@@ -52,6 +52,12 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//217. 存在重复元素
+	bool containsDuplicate(vector<int>& nums) {
+		sort(nums.begin(), nums.end());
+		return std::unique(nums.begin(), nums.end()) != nums.end();
+	}
+
 	//1475. 商品折扣后的最终价格
 	vector<int> finalPrices(vector<int>& prices) {
 		for (int i = 0; i < prices.size(); i++)
