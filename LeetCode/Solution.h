@@ -8,6 +8,7 @@
 #include <string>
 #include <sstream>
 #include <mutex>
+#include <map>
 
 using namespace std;
 
@@ -50,6 +51,24 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//1394. 找出数组中的幸运数
+	int findLucky(vector<int>& arr) {
+		map<int, int> temp;
+		for (auto e : arr)
+		{
+			++temp[e];
+		}
+
+		for (auto it = temp.rbegin();it != temp.rend();++it)
+		{
+			if (it->first == it->second)
+			{
+				return it->first;
+			}
+		}
+		return -1;
+	}
+
 	//349. 两个数组的交集
 	vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
 		std::sort(nums1.begin(), nums1.end());
