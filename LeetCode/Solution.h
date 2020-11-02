@@ -51,6 +51,15 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//1480. 一维数组的动态和
+	vector<int> runningSum(vector<int>& nums) {
+		for (int i = 1; i < nums.size(); i++)
+		{
+			nums[i] += nums[i - 1];
+		}
+		return nums;
+	}
+
 	//1394. 找出数组中的幸运数
 	int findLucky(vector<int>& arr) {
 		map<int, int> temp;
