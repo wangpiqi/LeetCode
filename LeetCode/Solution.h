@@ -11,6 +11,7 @@
 #include <map>
 #include <bitset>
 #include <set>
+#include <unordered_set>
 
 using namespace std;
 
@@ -55,7 +56,7 @@ class Solution {
 public:
 	//219. ´æÔÚÖØ¸´ÔªËØ II
 	bool containsNearbyDuplicate(vector<int>& nums, int k) {
-		set<int> temp;
+		unordered_set<int> temp;
 		for (int i = 0; i < (int)nums.size(); i++)
 		{
 			if (temp.find(nums[i]) != temp.end()) return true;
