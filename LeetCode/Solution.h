@@ -54,6 +54,31 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//941. 有效的山脉数组
+	bool validMountainArray(vector<int>& A) {
+		if (A.size() < 3)
+			return false;
+
+		if (A[0] >= A[1])
+			return false;
+
+		bool rise{ true };
+		for (int i = 1; i < A.size() - 1; ++i)
+		{
+			if (A[i] == A[i + 1])
+				return false;
+			else if (A[i] > A[i + 1])
+				rise = false;
+			else
+			{
+				if (!rise)
+					return false;
+			}
+		}
+
+		return !rise;
+	}
+
 	//219. 存在重复元素 II
 	bool containsNearbyDuplicate(vector<int>& nums, int k) {
 		unordered_set<int> temp;
@@ -61,7 +86,7 @@ public:
 		{
 			if (temp.find(nums[i]) != temp.end()) return true;
 			temp.emplace(nums[i]);
-			if (temp.size() > k) {
+			if ((int)temp.size() > k) {
 				temp.erase(nums[i - k]);
 			}
 		}
