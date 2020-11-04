@@ -54,6 +54,21 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//70. 爬楼梯
+	int climbStairs(int n) {
+		int a{ 0 };
+		int b{ 1 };
+
+		int sum{ 0 };
+		for (int i = 1; i <= n; i++)
+		{
+			sum = (a + b);
+			a = b;
+			b = sum;
+		}
+		return sum;
+	}
+
 	//941. 有效的山脉数组
 	bool validMountainArray(vector<int>& A) {
 		if (A.size() < 3)
