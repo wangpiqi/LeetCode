@@ -54,6 +54,30 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//643. 子数组最大平均数 I
+	double findMaxAverage(vector<int>& nums, int k) {
+		double sum = accumulate(nums.begin(), nums.begin() + k, 0);
+		double avg = sum / k;
+
+		for (int i = 1; i <= (int)nums.size() - k; i++)
+		{
+			sum = sum - nums[i - 1] + nums[i - 1 + k];
+			avg = std::max(sum / k, avg);
+		}
+
+		return avg;
+	}
+
+	//1486. 数组异或操作
+	int xorOperation(int n, int start) {
+		int result{ start };
+		for (int i = 1; i < n; i++)
+		{
+			result ^= (start + 2 * i);
+		}
+		return result;
+	}
+
 	//剑指 Offer 10- II. 青蛙跳台阶问题
 	int numWays(int n) {
 		int a{ 0 };
@@ -94,7 +118,7 @@ public:
 			return false;
 
 		bool rise{ true };
-		for (int i = 1; i < A.size() - 1; ++i)
+		for (int i = 1; i < (int)A.size() - 1; ++i)
 		{
 			if (A[i] == A[i + 1])
 				return false;
