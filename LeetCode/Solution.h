@@ -50,6 +50,16 @@ vector<int> stringToIntegerVector(string input) {
 	}
 	return output;
 }
+
+int factorial(int n)
+{
+	if (n < 2)
+	{
+		return 1;
+	}
+	return n * factorial(n - 1);
+}
+
 #pragma endregion
 
 class Solution {
