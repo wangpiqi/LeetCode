@@ -54,6 +54,18 @@ vector<int> stringToIntegerVector(string input) {
 
 class Solution {
 public:
+	//1431. 拥有最多糖果的孩子
+	vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+		int maxCandies = *std::max_element(candies.begin(), candies.end());
+
+		vector<bool> result;
+		for (const auto& e : candies)
+		{
+			result.emplace_back(e + extraCandies >= maxCandies);
+		}
+		return result;
+	}
+
 	//643. 子数组最大平均数 I
 	double findMaxAverage(vector<int>& nums, int k) {
 		double sum = accumulate(nums.begin(), nums.begin() + k, 0);
