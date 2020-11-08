@@ -64,6 +64,25 @@ int factorial(int n)
 
 class Solution {
 public:
+	//121. 买卖股票的最佳时机
+	//122. 买卖股票的最佳时机 II
+	int maxProfit(vector<int>& prices) {
+		if (prices.empty())
+		{
+			return 0;
+		}
+
+		int minPrice = prices[0];
+
+		int result{ 0 };
+		for (int i = 1; i < (int)prices.size(); i++)
+		{
+			result = std::max(prices[i] - minPrice, result);
+			minPrice = std::min(prices[i], minPrice);
+		}
+		return result;
+	}
+
 	//1431. 拥有最多糖果的孩子
 	vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
 		int maxCandies = *std::max_element(candies.begin(), candies.end());
