@@ -65,7 +65,6 @@ int factorial(int n)
 class Solution {
 public:
 	//121. 买卖股票的最佳时机
-	//122. 买卖股票的最佳时机 II
 	int maxProfit(vector<int>& prices) {
 		if (prices.empty())
 		{
