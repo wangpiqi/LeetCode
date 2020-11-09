@@ -51,7 +51,7 @@ vector<int> stringToIntegerVector(string input) {
 	return output;
 }
 
-int factorial(int n)
+unsigned long long factorial(int n)
 {
 	if (n < 2)
 	{
@@ -60,10 +60,39 @@ int factorial(int n)
 	return n * factorial(n - 1);
 }
 
+unsigned long long permutation(int n, int m)
+{
+	return factorial(n) / factorial(n - m);
+}
+
+unsigned long long combination(int n, int m)
+{
+	return permutation(n, m) / factorial(m);
+}
+
 #pragma endregion
 
 class Solution {
 public:
+	//1512. 好数对的数目
+	int numIdenticalPairs(vector<int>& nums) {
+		std::map<int, int> temp;
+		for (auto e : nums)
+		{
+			++temp[e];
+		}
+
+		int result{0};
+		for (auto p : temp)
+		{
+			if (p.second >= 2)
+			{
+				result += p.second * (p.second - 1) / 2;
+			}
+		}
+		return result;
+	}
+
 	//121. 买卖股票的最佳时机
 	int maxProfit(vector<int>& prices) {
 		if (prices.empty())
