@@ -75,6 +75,16 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//LCP 01. 猜数字
+	int game(vector<int>& guess, vector<int>& answer) {
+		int result{};
+		for (int i = 0; i < 3; ++i)
+		{
+			result += (guess[i] == answer[i] ? 1 : 0);
+		}
+		return result;
+	}
+
 	//1572. 矩阵对角线元素的和
 	int diagonalSum(vector<vector<int>>& mat) {
 		int sum{ 0 };
