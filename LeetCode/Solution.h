@@ -12,6 +12,7 @@
 #include <bitset>
 #include <set>
 #include <unordered_set>
+#include <iostream>
 
 using namespace std;
 
@@ -74,6 +75,20 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1572. 矩阵对角线元素的和
+	int diagonalSum(vector<vector<int>>& mat) {
+		int sum{ 0 };
+		for (int i = 0; i < (int)mat.size(); i++)
+		{
+			int size = (int)mat[i].size();
+			for (int j = 0; j < size; j++) {
+				if (i == j || i == size - 1 - j)
+					sum += mat[i][j];
+			}
+		}
+		return sum;
+	}
+
 	//面试题 01.01. 判定字符是否唯一
 	bool isUnique(string astr) {
 		std::sort(astr.begin(), astr.end());
