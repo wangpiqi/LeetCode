@@ -75,6 +75,19 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//LCP 17. 速算机器人
+	int calculate(string s) {
+		int x{ 1 }; int y{ 0 };
+		for (const auto& c : s)
+		{
+			if (c == 'A')
+				x = 2 * x + y;
+			else if (c == 'B')
+				y = 2 * y + x;
+		}
+		return x + y;
+	}
+
 	//LCP 01. 猜数字
 	int game(vector<int>& guess, vector<int>& answer) {
 		int result{};
