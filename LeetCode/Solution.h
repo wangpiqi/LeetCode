@@ -439,3 +439,20 @@ private:
 	std::condition_variable m_cv;
 	int m_flag{0};
 };
+
+//1603. 设计停车系统
+class ParkingSystem {
+public:
+	ParkingSystem(int big, int medium, int small) {
+		m_data[0] = big;
+		m_data[1] = medium;
+		m_data[2] = small;
+	}
+
+	bool addCar(int carType) {
+		return m_data[carType - 1]-- > 0;
+	}
+
+private:
+	vector<int> m_data{ 0, 0, 0 };
+};
