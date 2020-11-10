@@ -74,6 +74,12 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 01.01. 判定字符是否唯一
+	bool isUnique(string astr) {
+		std::sort(astr.begin(), astr.end());
+		return std::unique(astr.begin(), astr.end()) == astr.end();
+	}
+
 	//1512. 好数对的数目
 	int numIdenticalPairs(vector<int>& nums) {
 		std::map<int, int> temp;
