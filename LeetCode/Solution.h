@@ -75,6 +75,13 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1491. 去掉最低工资和最高工资后的工资平均值
+	double average(vector<int>& salary) {
+		sort(salary.begin(), salary.end());
+		double sum = accumulate(salary.begin() + 1, salary.end() - 1, 0);
+		return sum / (salary.size() - 2);
+	}
+
 	//LCP 17. 速算机器人
 	int calculate(string s) {
 		int x{ 1 }; int y{ 0 };
