@@ -77,9 +77,21 @@ class Solution {
 public:
 	//剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
 	vector<int> exchange(vector<int>& nums) {
-		sort(nums.begin(), nums.end(), [](int a, int b) {
+		/*sort(nums.begin(), nums.end(), [](int a, int b) {
 			return (a & 1) > (b & 1);
 		});
+		return nums;*/
+
+		int i = 0; int j = nums.size() - 1;
+		while (i < j)
+		{
+			if ((nums[i] & 1) == 1)
+				++i;
+			else if ((nums[j] & 1) == 0)
+				--j;
+			else
+				swap(nums[i], nums[j]);
+		}
 		return nums;
 	}
 
