@@ -75,6 +75,30 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//804. 唯一摩尔斯密码词
+	int uniqueMorseRepresentations(vector<string>& words) {
+		static const char* const password[] =
+		{
+			".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..",
+		};
+
+		auto func = [](const string& str) -> string {
+			string ret = "";
+			for (const auto& c : str)
+			{
+				ret += password[c - 'a'];
+			}
+			return ret;
+		};
+
+		set<string> set;
+		for (const auto& s : words)
+		{
+			set.emplace(func(s));
+		}
+		return set.size();
+	}
+
 	//剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
 	vector<int> exchange(vector<int>& nums) {
 		/*sort(nums.begin(), nums.end(), [](int a, int b) {
