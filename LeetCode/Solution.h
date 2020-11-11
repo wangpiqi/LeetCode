@@ -75,6 +75,14 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
+	vector<int> exchange(vector<int>& nums) {
+		sort(nums.begin(), nums.end(), [](int a, int b) {
+			return (a & 1) > (b & 1);
+		});
+		return nums;
+	}
+
 	//1491. 去掉最低工资和最高工资后的工资平均值
 	double average(vector<int>& salary) {
 		sort(salary.begin(), salary.end());
