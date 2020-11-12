@@ -89,12 +89,18 @@ public:
 	{
 		if (!root)
 			return;
-		search(root->left, low, high, sum);
+		if (root->val >= low)
+		{
+			search(root->left, low, high, sum);
+		}
 		if (root->val >= low && root->val <= high)
 		{
 			sum += root->val;
 		}
-		search(root->right, low, high, sum);
+		if (root->val <= high)
+		{
+			search(root->right, low, high, sum);
+		}
 	}
 
 	int rangeSumBST(TreeNode* root, int low, int high) {
