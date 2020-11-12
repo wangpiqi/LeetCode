@@ -89,7 +89,7 @@ public:
 	{
 		if (!root)
 			return;
-		if (root->val >= low)
+		if (root->val > low)
 		{
 			search(root->left, low, high, sum);
 		}
@@ -97,7 +97,7 @@ public:
 		{
 			sum += root->val;
 		}
-		if (root->val <= high)
+		if (root->val < high)
 		{
 			search(root->right, low, high, sum);
 		}
