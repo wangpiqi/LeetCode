@@ -75,6 +75,21 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//922. 按奇偶排序数组 II
+	vector<int> sortArrayByParityII(vector<int>& A) {
+		int i = 0; int j = 1;
+		while (i < A.size() && j < A.size())
+		{
+			if ((A[i] & 1) == 0)
+				i += 2;
+			else if ((A[j] & 1) == 1)
+				j += 2;
+			else
+				swap(A[i], A[j]);
+		}
+		return A;
+	}
+
 	//804. 唯一摩尔斯密码词
 	int uniqueMorseRepresentations(vector<string>& words) {
 		static const char* const password[] =
