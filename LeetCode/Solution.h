@@ -85,24 +85,28 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//938. 二叉搜索树的范围和
-	void search(TreeNode* root)
+	void search(TreeNode* root, int low, int high, int& sum)
 	{
 		if (!root)
 			return;
-		search(root->left);
-		cout<<root->val<<endl;
-		search(root->right);
+		search(root->left, low, high, sum);
+		if (root->val >= low && root->val <= high)
+		{
+			sum += root->val;
+		}
+		search(root->right, low, high, sum);
 	}
 
 	int rangeSumBST(TreeNode* root, int low, int high) {
-		search(root);
-		return 0;
+		int sum{ 0 };
+		search(root, low, high, sum);
+		return sum;
 	}
 
 	//922. 按奇偶排序数组 II
 	vector<int> sortArrayByParityII(vector<int>& A) {
 		int i = 0; int j = 1;
-		while (i < A.size() && j < A.size())
+		while (i < (int)A.size() && j < (int)A.size())
 		{
 			if ((A[i] & 1) == 0)
 				i += 2;
