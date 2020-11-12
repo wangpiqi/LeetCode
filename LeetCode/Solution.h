@@ -16,6 +16,7 @@
 
 using namespace std;
 
+#pragma region
 struct ListNode {
 	int val;
 	ListNode *next;
@@ -24,7 +25,15 @@ struct ListNode {
 	ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-#pragma region
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
 void trimLeftTrailingSpaces(string &input) {
 	input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch) {
 		return !isspace(ch);
@@ -75,6 +84,21 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//938. 二叉搜索树的范围和
+	void search(TreeNode* root)
+	{
+		if (!root)
+			return;
+		search(root->left);
+		cout<<root->val<<endl;
+		search(root->right);
+	}
+
+	int rangeSumBST(TreeNode* root, int low, int high) {
+		search(root);
+		return 0;
+	}
+
 	//922. 按奇偶排序数组 II
 	vector<int> sortArrayByParityII(vector<int>& A) {
 		int i = 0; int j = 1;
