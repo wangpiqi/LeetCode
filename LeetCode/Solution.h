@@ -84,6 +84,21 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//832. ·­×ªÍ¼Ïñ
+	vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A)
+	{
+		for (int i = 0; i < (int)A.size(); ++i)
+		{
+			vector<int>& temp = A[i];
+			reverse(temp.begin(), temp.end());
+			for (int j = 0; j < (int)temp.size(); ++j)
+			{
+				temp[j] = !temp[j];
+			}
+		}
+		return A;
+	}
+
 	//938. ¶þ²æËÑË÷Ê÷µÄ·¶Î§ºÍ
 	void search(TreeNode* root, int low, int high, int& sum)
 	{
