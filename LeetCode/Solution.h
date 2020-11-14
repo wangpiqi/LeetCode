@@ -13,6 +13,7 @@
 #include <set>
 #include <unordered_set>
 #include <iostream>
+#include <unordered_map>
 
 using namespace std;
 
@@ -84,6 +85,24 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1122. 数组的相对排序
+	vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+		std::unordered_map<int, int> temp;
+		int size = (int)arr2.size();
+		for (int i = 0; i < size; i++)
+		{
+			temp[arr2[i]] = size - i;
+		}
+		std::sort(arr1.begin(), arr1.end(), [&temp](int a, int b) {
+			if (temp[a] == temp[b])
+			{
+				return a < b;
+			}
+			return temp[a] > temp[b];
+		});
+		return arr1;
+	}
+
 	//832. 翻转图像
 	vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A)
 	{
