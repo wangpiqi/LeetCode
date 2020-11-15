@@ -85,6 +85,21 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 17.04. 消失的数字
+	int missingNumber(vector<int>& nums) {
+		std::sort(nums.begin(), nums.end());
+
+		int size = (int)nums.size();
+		for (int i = 0; i < size; i++)
+		{
+			if (i != nums[i])
+			{
+				return i;
+			}
+		}
+		return size;
+	}
+
 	//226. 翻转二叉树
 	TreeNode* invertTree(TreeNode* root) {
 		if (root == nullptr) {
