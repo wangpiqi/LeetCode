@@ -85,6 +85,15 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//226. 翻转二叉树
+	TreeNode* invertTree(TreeNode* root) {
+		if (!root) return root;
+		swap(root->left, root->right);
+		invertTree(root->left);
+		invertTree(root->right);
+		return root;
+	}
+
 	//1122. 数组的相对排序
 	vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
 		std::unordered_map<int, int> temp;
