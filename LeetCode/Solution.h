@@ -87,20 +87,20 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//剑指 Offer 54. 二叉搜索树的第k大节点
-	void kthLargest(TreeNode* root, int k, std::queue<int>& q) {
+	void kthLargest(TreeNode* root, int k, std::vector<int>& q) {
 		if (!root) return;
 		kthLargest(root->right, k, q);
 		if ((int)q.size() < k)
-			q.push(root->val);
+			q.emplace_back(root->val);
 		else
 			return;
 		kthLargest(root->left, k, q);
 	}
 
 	int kthLargest(TreeNode* root, int k) {
-		std::queue<int> q;
+		std::vector<int> q;
 		kthLargest(root, k, q);
-		return q.back();
+		return *q.rbegin();
 	}
 
 	//面试题 17.04. 消失的数字
