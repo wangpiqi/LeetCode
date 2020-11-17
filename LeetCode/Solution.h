@@ -88,7 +88,7 @@ class Solution {
 public:
 	//剑指 Offer 54. 二叉搜索树的第k大节点
 	void kthLargest(TreeNode* root, int k, std::vector<int>& q) {
-		if (!root) return;
+		if (!root || (int)q.size() >= k) return;
 		kthLargest(root->right, k, q);
 		if ((int)q.size() < k)
 			q.emplace_back(root->val);
