@@ -14,6 +14,7 @@
 #include <unordered_set>
 #include <iostream>
 #include <unordered_map>
+#include <queue>
 
 using namespace std;
 
@@ -85,10 +86,27 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 54. 二叉搜索树的第k大节点
+	void kthLargest(TreeNode* root, int k, std::queue<int>& q) {
+		if (!root) return;
+		kthLargest(root->right, k, q);
+		if ((int)q.size() < k)
+			q.push(root->val);
+		else
+			return;
+		kthLargest(root->left, k, q);
+	}
+
+	int kthLargest(TreeNode* root, int k) {
+		std::queue<int> q;
+		kthLargest(root, k, q);
+		return q.back();
+	}
+
 	//面试题 17.04. 消失的数字
 	int missingNumber(vector<int>& nums) {
 		int size = (int)nums.size();
-		return size * (size + 1) * 0.5 - accumulate(nums.begin(), nums.end(), 0);
+		return int(size * (size + 1) * 0.5) - accumulate(nums.begin(), nums.end(), 0);
 	}
 
 	//226. 翻转二叉树
