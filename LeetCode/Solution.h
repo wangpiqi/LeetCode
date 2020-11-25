@@ -88,29 +88,29 @@ class Solution {
 public:
 	//1370. ÉÏÉıÏÂ½µ×Ö·û´®
 	string sortString(string s) {
-		std::map<char, int> temp;
-		for (auto c : s)
+		int arr[26] = { 0 };
+		for (const auto& c : s)
 		{
-			++temp[c];
+			++arr[c - 'a'];
 		}
 
 		string ret;
-		while (ret.length() != s.length())
+		while (ret.length() < s.length())
 		{
-			for (auto it = temp.begin();it != temp.end();++it)
+			for (int i = 0; i < 26 ; i++)
 			{
-				if (it->second == 0)
+				if (arr[i] == 0)
 					continue;
-				ret.push_back(it->first);
-				--it->second;
+				ret.push_back(i + 'a');
+				--arr[i];
 			}
 
-			for (auto it = temp.rbegin(); it != temp.rend(); ++it)
+			for (int i = 25; i >= 0 ; i--)
 			{
-				if (it->second == 0)
+				if (arr[i] == 0)
 					continue;
-				ret.push_back(it->first);
-				--it->second;
+				ret.push_back(i + 'a');
+				--arr[i];
 			}
 		}
 		return ret;

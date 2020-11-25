@@ -12,9 +12,10 @@ int main()
 	//s.numberOfSteps(14);
 	/*auto temp = stringToIntegerVector("[8, 4, 6, 2, 3]");
 	s.finalPrices(temp);*/
-	auto temp = stringToIntegerVector("[1,12,-5,-6,50,3]");
+	//auto temp = stringToIntegerVector("[1,12,-5,-6,50,3]");
 	//s.validMountainArray(temp);
-	s.findMaxAverage(temp, 4);
+	//s.findMaxAverage(temp, 4);
+	s.sortString("aaaabbbbcccc");
 
 	system("pause");
 	return 0;
