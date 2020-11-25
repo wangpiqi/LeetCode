@@ -86,6 +86,36 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1370. 上升下降字符串
+	string sortString(string s) {
+		std::map<char, int> temp;
+		for (auto c : s)
+		{
+			++temp[c];
+		}
+
+		string ret;
+		while (ret.length() != s.length())
+		{
+			for (auto it = temp.begin();it != temp.end();++it)
+			{
+				if (it->second == 0)
+					continue;
+				ret.push_back(it->first);
+				--it->second;
+			}
+
+			for (auto it = temp.rbegin(); it != temp.rend(); ++it)
+			{
+				if (it->second == 0)
+					continue;
+				ret.push_back(it->first);
+				--it->second;
+			}
+		}
+		return ret;
+	}
+
 	//剑指 Offer 54. 二叉搜索树的第k大节点
 	void kthLargest(TreeNode* root, int k, std::vector<int>& q) {
 		if (!root || (int)q.size() >= k) return;
