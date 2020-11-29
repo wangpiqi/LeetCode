@@ -86,6 +86,23 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//976. 三角形的最大周长
+	int largestPerimeter(vector<int>& A) {
+		std::sort(A.begin(), A.end(), std::greater<int>());
+		for (int i = 0; i < (int)A.size() - 2 ; i++)
+		{
+			int a = A[i];
+			int b = A[i + 1];
+			int c = A[i + 2];
+
+			if (a < b + c)
+			{
+				return a + b + c;
+			}
+		}
+		return 0;
+	}
+
 	//1370. 上升下降字符串
 	string sortString(string s) {
 		int arr[26] = { 0 };
