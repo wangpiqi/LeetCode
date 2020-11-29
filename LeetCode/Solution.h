@@ -86,6 +86,18 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1266. 访问所有点的最小时间
+	int minTimeToVisitAllPoints(vector<vector<int>>& points) {
+		int ret{};
+		for (int i = 0; i < (int)points.size() - 1; i++)
+		{
+			const auto& pointA = points[i];
+			const auto& pointB = points[i + 1];
+			ret += std::max(std::abs(pointB[0] - pointA[0]), std::abs(pointB[1] - pointA[1]));
+		}
+		return ret;
+	}
+
 	//1108. IP 地址无效化
 	string defangIPaddr(string address) {
 		string str;
