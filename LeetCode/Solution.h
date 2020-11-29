@@ -86,6 +86,16 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//5613. 最富有客户的资产总量
+	int maximumWealth(vector<vector<int>>& accounts) {
+		std::set<int> set;
+		for (const auto& account : accounts)
+		{
+			set.insert(accumulate(account.begin(), account.end(), 0));
+		}
+		return *set.rbegin();
+	}
+
 	//976. 三角形的最大周长
 	int largestPerimeter(vector<int>& A) {
 		std::sort(A.begin(), A.end(), std::greater<int>());
