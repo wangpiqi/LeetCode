@@ -86,6 +86,16 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1389. 按既定顺序创建目标数组
+	vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
+		vector<int> ret;
+		for (int i = 0; i < (int)nums.size(); i++)
+		{
+			ret.emplace(ret.begin() + index[i], nums[i]);
+		}
+		return ret;
+	}
+
 	//5613. 最富有客户的资产总量
 	int maximumWealth(vector<vector<int>>& accounts) {
 		std::set<int> set;
