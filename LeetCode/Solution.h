@@ -86,6 +86,23 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1108. IP 地址无效化
+	string defangIPaddr(string address) {
+		string str;
+		for (const char& c : address)
+		{
+			if (c == '.')
+			{
+				str.push_back('[');
+				str.push_back('.');
+				str.push_back(']');
+			}
+			else
+				str.push_back(c);
+		}
+		return str;
+	}
+
 	//1389. 按既定顺序创建目标数组
 	vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
 		vector<int> ret;
