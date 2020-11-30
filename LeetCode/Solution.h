@@ -86,6 +86,28 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1652. 拆炸弹
+	vector<int> decrypt(vector<int>& code, int k) {
+		int size = (int)code.size();
+		vector<int> ret(size);
+		code.insert(code.end(), code.begin(), code.end());
+		if (k > 0)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				ret[i] = accumulate(code.begin() + 1 + i, code.begin() + 1 + i + k, 0);
+			}
+		}
+		else if (k < 0)
+		{
+			for (int i = size - 1; i >= 0 ; i--)
+			{
+				ret[i] = accumulate(code.rbegin() + size - i, code.rbegin() + size - i - k, 0);
+			}
+		}
+		return ret;
+	}
+
 	//1266. 访问所有点的最小时间
 	int minTimeToVisitAllPoints(vector<vector<int>>& points) {
 		int ret{};
