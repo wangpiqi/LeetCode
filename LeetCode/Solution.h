@@ -86,6 +86,23 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1662. 检查两个字符串数组是否相等
+	bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+		string str1 = "";
+		for (auto str : word1)
+		{
+			str1 += str;
+		}
+
+		string str2 = "";
+		for (auto str : word2)
+		{
+			str2 += str;
+		}
+
+		return str1 == str2;
+	}
+
 	//1266. 访问所有点的最小时间
 	int minTimeToVisitAllPoints(vector<vector<int>>& points) {
 		int ret{};
