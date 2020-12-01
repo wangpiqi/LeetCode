@@ -333,7 +333,7 @@ public:
 		{
 			set.emplace(func(s));
 		}
-		return set.size();
+		return (int)set.size();
 	}
 
 	//剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
@@ -343,7 +343,7 @@ public:
 		});
 		return nums;*/
 
-		int i = 0; int j = nums.size() - 1;
+		int i = 0; int j = (int)nums.size() - 1;
 		while (i < j)
 		{
 			if ((nums[i] & 1) == 1)
@@ -654,7 +654,7 @@ public:
 	//1619. 删除某些元素后的数组均值
 	double trimMean(vector<int>& arr) {
 		sort(arr.begin(), arr.end());
-		int size = arr.size();
+		int size = (int)arr.size();
 		int num = (int)(size * 0.05);
 		double sum = accumulate(arr.begin() + num, arr.end() - num, 0);
 		return sum / (size - 2 * num);
