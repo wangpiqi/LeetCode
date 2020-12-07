@@ -86,6 +86,45 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 08.01. 三步问题
+	/*执行用时：4 ms, 在所有 C++ 提交中击败了98.76%的用户
+	内存消耗：6.2 MB, 在所有 C++ 提交中击败了65.83%的用户*/
+	int waysToStep(int n) {
+		if (n == 1)
+			return 1;
+
+		if (n == 2)
+			return 2;
+
+		if (n == 3)
+			return 4;
+
+		unsigned long long a = 1; unsigned long long b = 2; unsigned long long c = 4;
+
+		unsigned long long ret{ 0 };
+		for (int i = 4;i <= n;++i)
+		{
+			ret = (a + b + c) % 1000000007;
+			a = b;
+			b = c;
+			c = ret;
+		}
+		return (int)ret;
+	}
+
+	/*int waysToStep(int n) {
+		if (n == 1)
+			return 1;
+
+		if (n == 2)
+			return 2;
+
+		if (n == 3)
+			return 4;
+
+		return waysToStep(n - 1) + waysToStep(n - 2) + waysToStep(n - 3);
+	}*/
+
 	//1652. 拆炸弹
 	/*执行用时：
 		4 ms
