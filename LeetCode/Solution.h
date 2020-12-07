@@ -87,6 +87,16 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//1652. 拆炸弹
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		87.81%
+		的用户
+		内存消耗：
+		8.7 MB
+		, 在所有 C++ 提交中击败了
+		5.07%
+		的用户*/
 	vector<int> decrypt(vector<int>& code, int k) {
 		int size = (int)code.size();
 		vector<int> ret(size);
@@ -109,6 +119,16 @@ public:
 	}
 
 	//1266. 访问所有点的最小时间
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		82.35%
+		的用户
+		内存消耗：
+		9.8 MB
+		, 在所有 C++ 提交中击败了
+		23.53%
+		的用户*/
 	int minTimeToVisitAllPoints(vector<vector<int>>& points) {
 		int ret{};
 		for (int i = 0; i < (int)points.size() - 1; i++)
@@ -121,6 +141,16 @@ public:
 	}
 
 	//1108. IP 地址无效化
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		14.88%
+		的用户*/
 	string defangIPaddr(string address) {
 		string str;
 		for (const char& c : address)
