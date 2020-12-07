@@ -258,6 +258,16 @@ public:
 	}
 
 	//832. 翻转图像
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		97.72%
+		的用户
+		内存消耗：
+		8.6 MB
+		, 在所有 C++ 提交中击败了
+		54.41%
+		的用户*/
 	vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A)
 	{
 		for (int i = 0; i < (int)A.size(); ++i)
@@ -273,6 +283,16 @@ public:
 	}
 
 	//938. 二叉搜索树的范围和
+	/*执行用时：
+		208 ms
+		, 在所有 C++ 提交中击败了
+		90.06%
+		的用户
+		内存消耗：
+		63.7 MB
+		, 在所有 C++ 提交中击败了
+		36.20%
+		的用户*/
 	void search(TreeNode* root, int low, int high, int& sum)
 	{
 		if (!root)
@@ -298,6 +318,16 @@ public:
 	}
 
 	//922. 按奇偶排序数组 II
+	/*执行用时：
+		32 ms
+		, 在所有 C++ 提交中击败了
+		99.05%
+		的用户
+		内存消耗：
+		20.5 MB
+		, 在所有 C++ 提交中击败了
+		29.90%
+		的用户*/
 	vector<int> sortArrayByParityII(vector<int>& A) {
 		int i = 0; int j = 1;
 		while (i < (int)A.size() && j < (int)A.size())
@@ -313,6 +343,16 @@ public:
 	}
 
 	//804. 唯一摩尔斯密码词
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		9 MB
+		, 在所有 C++ 提交中击败了
+		13.23%
+		的用户*/
 	int uniqueMorseRepresentations(vector<string>& words) {
 		static const char* const password[] =
 		{
@@ -337,6 +377,16 @@ public:
 	}
 
 	//剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
+	/*执行用时：
+		36 ms
+		, 在所有 C++ 提交中击败了
+		92.57%
+		的用户
+		内存消耗：
+		18.1 MB
+		, 在所有 C++ 提交中击败了
+		25.92%
+		的用户*/
 	vector<int> exchange(vector<int>& nums) {
 		/*sort(nums.begin(), nums.end(), [](int a, int b) {
 			return (a & 1) > (b & 1);
@@ -357,6 +407,16 @@ public:
 	}
 
 	//1491. 去掉最低工资和最高工资后的工资平均值
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		7.3 MB
+		, 在所有 C++ 提交中击败了
+		39.40%
+		的用户*/
 	double average(vector<int>& salary) {
 		sort(salary.begin(), salary.end());
 		double sum = accumulate(salary.begin() + 1, salary.end() - 1, 0);
@@ -364,6 +424,16 @@ public:
 	}
 
 	//LCP 17. 速算机器人
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		10.74%
+		的用户*/
 	int calculate(string s) {
 		int x{ 1 }; int y{ 0 };
 		for (const auto& c : s)
@@ -377,6 +447,16 @@ public:
 	}
 
 	//LCP 01. 猜数字
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.7 MB
+		, 在所有 C++ 提交中击败了
+		5.41%
+		的用户*/
 	int game(vector<int>& guess, vector<int>& answer) {
 		int result{};
 		for (int i = 0; i < 3; ++i)
@@ -387,6 +467,16 @@ public:
 	}
 
 	//1572. 矩阵对角线元素的和
+	/*执行用时：
+		24 ms
+		, 在所有 C++ 提交中击败了
+		99.85%
+		的用户
+		内存消耗：
+		11.6 MB
+		, 在所有 C++ 提交中击败了
+		5.25%
+		的用户*/
 	int diagonalSum(vector<vector<int>>& mat) {
 		int sum{ 0 };
 		for (int i = 0; i < (int)mat.size(); i++)
@@ -401,12 +491,32 @@ public:
 	}
 
 	//面试题 01.01. 判定字符是否唯一
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		42.31%
+		的用户*/
 	bool isUnique(string astr) {
 		std::sort(astr.begin(), astr.end());
 		return std::unique(astr.begin(), astr.end()) == astr.end();
 	}
 
 	//1512. 好数对的数目
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		7.5 MB
+		, 在所有 C++ 提交中击败了
+		32.68%
+		的用户*/
 	int numIdenticalPairs(vector<int>& nums) {
 		std::map<int, int> temp;
 		for (auto e : nums)
@@ -426,6 +536,16 @@ public:
 	}
 
 	//121. 买卖股票的最佳时机
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		94.76%
+		的用户
+		内存消耗：
+		13 MB
+		, 在所有 C++ 提交中击败了
+		18.14%
+		的用户*/
 	int maxProfit(vector<int>& prices) {
 		if (prices.empty())
 		{
@@ -444,6 +564,16 @@ public:
 	}
 
 	//1431. 拥有最多糖果的孩子
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		84.61%
+		的用户
+		内存消耗：
+		9.3 MB
+		, 在所有 C++ 提交中击败了
+		6.24%
+		的用户*/
 	vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
 		int maxCandies = *std::max_element(candies.begin(), candies.end());
 
@@ -456,6 +586,16 @@ public:
 	}
 
 	//643. 子数组最大平均数 I
+	/*执行用时：
+		256 ms
+		, 在所有 C++ 提交中击败了
+		88.19%
+		的用户
+		内存消耗：
+		70.4 MB
+		, 在所有 C++ 提交中击败了
+		15.61%
+		的用户*/
 	double findMaxAverage(vector<int>& nums, int k) {
 		double sum = accumulate(nums.begin(), nums.begin() + k, 0);
 		double avg = sum / k;
@@ -470,6 +610,16 @@ public:
 	}
 
 	//1486. 数组异或操作
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		17.35%
+		的用户*/
 	int xorOperation(int n, int start) {
 		int result{ start };
 		for (int i = 1; i < n; i++)
@@ -480,6 +630,16 @@ public:
 	}
 
 	//剑指 Offer 10- II. 青蛙跳台阶问题
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		15.72%
+		的用户*/
 	int numWays(int n) {
 		int a{ 0 };
 		int b{ 1 };
@@ -496,6 +656,16 @@ public:
 	}
 
 	//70. 爬楼梯
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		21.95%
+		的用户*/
 	int climbStairs(int n) {
 		int a{ 0 };
 		int b{ 1 };
@@ -511,6 +681,16 @@ public:
 	}
 
 	//941. 有效的山脉数组
+	/*执行用时：
+		52 ms
+		, 在所有 C++ 提交中击败了
+		90.83%
+		的用户
+		内存消耗：
+		22.2 MB
+		, 在所有 C++ 提交中击败了
+		5.15%
+		的用户*/
 	bool validMountainArray(vector<int>& A) {
 		if (A.size() < 3)
 			return false;
@@ -536,6 +716,16 @@ public:
 	}
 
 	//219. 存在重复元素 II
+	/*执行用时：
+		72 ms
+		, 在所有 C++ 提交中击败了
+		34.73%
+		的用户
+		内存消耗：
+		15.6 MB
+		, 在所有 C++ 提交中击败了
+		90.79%
+		的用户*/
 	bool containsNearbyDuplicate(vector<int>& nums, int k) {
 		unordered_set<int> temp;
 		for (int i = 0; i < (int)nums.size(); i++)
@@ -550,12 +740,32 @@ public:
 	}
 
 	//217. 存在重复元素
+	/*执行用时：
+		56 ms
+		, 在所有 C++ 提交中击败了
+		97.26%
+		的用户
+		内存消耗：
+		14.8 MB
+		, 在所有 C++ 提交中击败了
+		91.53%
+		的用户*/
 	bool containsDuplicate(vector<int>& nums) {
 		sort(nums.begin(), nums.end());
 		return std::unique(nums.begin(), nums.end()) != nums.end();
 	}
 
 	//1475. 商品折扣后的最终价格
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		98.24%
+		的用户
+		内存消耗：
+		10 MB
+		, 在所有 C++ 提交中击败了
+		45.91%
+		的用户*/
 	vector<int> finalPrices(vector<int>& prices) {
 		for (int i = 0; i < (int)prices.size(); i++)
 		{
@@ -571,6 +781,16 @@ public:
 	}
 
 	//1342. 将数字变成 0 的操作次数
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		8.92%
+		的用户*/
 	int numberOfSteps(int num) {
 		bitset<32> bs(num);
 
@@ -587,12 +807,32 @@ public:
 	}
 
 	//面试题 02.03. 删除中间节点
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		95.32%
+		的用户
+		内存消耗：
+		8.2 MB
+		, 在所有 C++ 提交中击败了
+		5.53%
+		的用户*/
 	void deleteNode(ListNode* node) {
 		node->val = node->next->val;
 		node->next = node->next->next;
 	}
 
 	//5539. 按照频率将数组升序排序
+	/*执行用时：
+		36 ms
+		, 在所有 C++ 提交中击败了
+		15.56%
+		的用户
+		内存消耗：
+		11.2 MB
+		, 在所有 C++ 提交中击败了
+		90.58%
+		的用户*/
 	vector<int> frequencySort(vector<int>& nums) {
 		map<int, int> temp;
 		for (auto e : nums)
@@ -611,6 +851,16 @@ public:
 	}
 
 	//1480. 一维数组的动态和
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		89.33%
+		的用户
+		内存消耗：
+		8.7 MB
+		, 在所有 C++ 提交中击败了
+		12.23%
+		的用户*/
 	vector<int> runningSum(vector<int>& nums) {
 		for (int i = 1; i < (int)nums.size(); i++)
 		{
@@ -620,6 +870,16 @@ public:
 	}
 
 	//1394. 找出数组中的幸运数
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		88.72%
+		的用户
+		内存消耗：
+		10.3 MB
+		, 在所有 C++ 提交中击败了
+		63.12%
+		的用户*/
 	int findLucky(vector<int>& arr) {
 		map<int, int> temp;
 		for (auto e : arr)
@@ -638,6 +898,16 @@ public:
 	}
 
 	//349. 两个数组的交集
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		96.25%
+		的用户
+		内存消耗：
+		10.3 MB
+		, 在所有 C++ 提交中击败了
+		79.93%
+		的用户*/
 	vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
 		std::sort(nums1.begin(), nums1.end());
 		std::sort(nums2.begin(), nums2.end());
@@ -652,6 +922,16 @@ public:
 	}
 
 	//1619. 删除某些元素后的数组均值
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		92.65%
+		的用户
+		内存消耗：
+		9.5 MB
+		, 在所有 C++ 提交中击败了
+		75.66%
+		的用户*/
 	double trimMean(vector<int>& arr) {
 		sort(arr.begin(), arr.end());
 		int size = (int)arr.size();
@@ -661,6 +941,16 @@ public:
 	}
 
 	//剑指 Offer 25. 合并两个排序的链表
+	/*执行用时：
+		32 ms
+		, 在所有 C++ 提交中击败了
+		98.48%
+		的用户
+		内存消耗：
+		19.2 MB
+		, 在所有 C++ 提交中击败了
+		41.90%
+		的用户*/
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 		ListNode* head{ new ListNode() };
 		ListNode* node{ head };
@@ -701,6 +991,16 @@ public:
 	}*/
 
 	//1502. 判断能否形成等差数列
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		85.00%
+		的用户
+		内存消耗：
+		9.1 MB
+		, 在所有 C++ 提交中击败了
+		34.72%
+		的用户*/
 	bool canMakeArithmeticProgression(vector<int>& arr) {
 		if (arr.size() < 3)
 		{
@@ -719,12 +1019,24 @@ public:
 	}
 
 	//1464. 数组中两元素的最大乘积
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		94.42%
+		的用户
+		内存消耗：
+		10 MB
+		, 在所有 C++ 提交中击败了
+		50.88%
+		的用户*/
 	int maxProduct(vector<int>& nums) {
 		nth_element(nums.begin(), nums.begin() + 2, nums.end(), std::greater<int>());
 		return (nums[0] - 1) * (nums[1] - 1);
 	}
 
 	//LCP 06. 拿硬币
+	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户
+	内存消耗：8.4 MB, 在所有 C++ 提交中击败了12.28%的用户*/
 	int minCount(vector<int>& coins) {
 		int count{0};
 		for (auto coin : coins)
@@ -736,6 +1048,8 @@ public:
 };
 
 //1114. 按序打印
+//执行用时：128 ms, 在所有 C++ 提交中击败了84.99%的用户
+//内存消耗：7.7 MB, 在所有 C++ 提交中击败了14.63%的用户
 class Foo {
 public:
 	Foo() {
@@ -773,6 +1087,8 @@ private:
 };
 
 //1603. 设计停车系统
+//执行用时：116 ms, 在所有 C++ 提交中击败了82.20%的用户
+//内存消耗：32.7 MB, 在所有 C++ 提交中击败了36.14%的用户
 class ParkingSystem {
 public:
 	ParkingSystem(int big, int medium, int small) {
