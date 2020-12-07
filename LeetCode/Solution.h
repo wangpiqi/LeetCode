@@ -240,8 +240,18 @@ public:
 	}
 
 	//1122. 数组的相对排序
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		90.26%
+		的用户
+		内存消耗：
+		8.1 MB
+		, 在所有 C++ 提交中击败了
+		21.61%
+		的用户*/
 	vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
-		std::unordered_map<int, int> temp;
+		vector<int> temp(1001);
 		int size = (int)arr2.size();
 		for (int i = 0; i < size; i++)
 		{
