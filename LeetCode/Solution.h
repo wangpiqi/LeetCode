@@ -138,9 +138,20 @@ public:
 	}
 
 	//1389. 按既定顺序创建目标数组
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		8.7 MB
+		, 在所有 C++ 提交中击败了
+		7.07%
+		的用户*/
 	vector<int> createTargetArray(vector<int>& nums, vector<int>& index) {
 		vector<int> ret;
-		for (int i = 0; i < (int)nums.size(); i++)
+		int size = (int)nums.size();
+		for (int i = 0; i < size; ++i)
 		{
 			ret.emplace(ret.begin() + index[i], nums[i]);
 		}
@@ -148,6 +159,16 @@ public:
 	}
 
 	//5613. 最富有客户的资产总量
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		66.09%
+		的用户
+		内存消耗：
+		8 MB
+		, 在所有 C++ 提交中击败了
+		94.68%
+		的用户*/
 	int maximumWealth(vector<vector<int>>& accounts) {
 		std::set<int> set;
 		for (const auto& account : accounts)
@@ -158,6 +179,16 @@ public:
 	}
 
 	//976. 三角形的最大周长
+	/*执行用时：
+		100 ms
+		, 在所有 C++ 提交中击败了
+		84.63%
+		的用户
+		内存消耗：
+		20.6 MB
+		, 在所有 C++ 提交中击败了
+		10.99%
+		的用户*/
 	int largestPerimeter(vector<int>& A) {
 		std::sort(A.begin(), A.end(), std::greater<int>());
 		for (int i = 0; i < (int)A.size() - 2 ; i++)
@@ -175,6 +206,16 @@ public:
 	}
 
 	//1370. 上升下降字符串
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		93.95%
+		的用户
+		内存消耗：
+		7.8 MB
+		, 在所有 C++ 提交中击败了
+		69.86%
+		的用户*/
 	string sortString(string s) {
 		int arr[26] = { 0 };
 		for (const auto& c : s)
@@ -205,6 +246,16 @@ public:
 	}
 
 	//剑指 Offer 54. 二叉搜索树的第k大节点
+	/*执行用时：
+		24 ms
+		, 在所有 C++ 提交中击败了
+		94.89%
+		的用户
+		内存消耗：
+		24.2 MB
+		, 在所有 C++ 提交中击败了
+		15.41%
+		的用户*/
 	void kthLargest(TreeNode* root, int k, std::vector<int>& q) {
 		if (!root || (int)q.size() >= k) return;
 		kthLargest(root->right, k, q);
@@ -222,12 +273,32 @@ public:
 	}
 
 	//面试题 17.04. 消失的数字
+	/*执行用时：
+		32 ms
+		, 在所有 C++ 提交中击败了
+		96.88%
+		的用户
+		内存消耗：
+		17.3 MB
+		, 在所有 C++ 提交中击败了
+		10.53%
+		的用户*/
 	int missingNumber(vector<int>& nums) {
 		int size = (int)nums.size();
 		return int(size * (size + 1) * 0.5) - accumulate(nums.begin(), nums.end(), 0);
 	}
 
 	//226. 翻转二叉树
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		9.3 MB
+		, 在所有 C++ 提交中击败了
+		35.65%
+		的用户*/
 	TreeNode* invertTree(TreeNode* root) {
 		if (root == nullptr) {
 			return nullptr;
