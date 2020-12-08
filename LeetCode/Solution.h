@@ -86,6 +86,22 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1033. 移动石子直到连续
+	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户
+	内存消耗：6.6 MB, 在所有 C++ 提交中击败了18.48%的用户*/
+	vector<int> numMovesStones(int a, int b, int c) {
+		vector<int> pos{ a, b, c };
+		sort(pos.begin(), pos.end());
+
+		int left = pos[1] - pos[0] - 1;
+		int right = pos[2] - pos[1] - 1;
+		int minimum_moves = (left > 0 ? 1 : 0) + (right > 0 ? 1 : 0);
+		if (left == 1 || right == 1)
+			minimum_moves = 1;
+		int maximum_moves = left + right;
+		return { minimum_moves, maximum_moves };
+	}
+
 	//面试题 08.01. 三步问题
 	/*执行用时：4 ms, 在所有 C++ 提交中击败了98.76%的用户
 	内存消耗：6.2 MB, 在所有 C++ 提交中击败了65.83%的用户*/
