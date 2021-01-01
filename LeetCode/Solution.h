@@ -86,6 +86,32 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//605. 种花问题
+	/*执行用时：36 ms, 在所有 C++ 提交中击败了85.15%的用户
+	内存消耗：20.3 MB, 在所有 C++ 提交中击败了35.64%的用户*/
+	bool canPlaceFlowers(vector<int>& flowerbed, int n) {
+		int count{ 0 };
+		int size = (int)flowerbed.size();
+		for (int i = 0; i < size; ++i)
+		{
+			if (flowerbed[i] == 0)
+			{
+				int left = i == 0 ? 0 : flowerbed[i - 1];
+				int right = i == size - 1 ? 0 : flowerbed[i + 1];
+				if (left == 0 && right == 0)
+				{
+					++count;
+					++i;
+				}
+			}
+			else
+			{
+				++i;
+			}
+		}
+		return count >= n;
+	}
+
 	//1033. 移动石子直到连续
 	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户
 	内存消耗：6.6 MB, 在所有 C++ 提交中击败了18.48%的用户*/
