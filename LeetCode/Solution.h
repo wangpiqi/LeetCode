@@ -86,6 +86,24 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1720. 解码异或后的数组
+	/*执行用时：
+		80 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		25.8 MB
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户*/
+	vector<int> decode(vector<int>& encoded, int first) {
+		vector<int> result{ first };
+		for (auto e : encoded)
+			result.emplace_back(first ^= e);
+		return result;
+	}
+
 	//605. 种花问题
 	/*执行用时：36 ms, 在所有 C++ 提交中击败了85.15%的用户
 	内存消耗：20.3 MB, 在所有 C++ 提交中击败了35.64%的用户*/
