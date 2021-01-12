@@ -86,6 +86,29 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1684. 统计一致字符串的数目
+	/*执行用时：
+		136 ms
+		, 在所有 C++ 提交中击败了
+		44.81%
+		的用户
+		内存消耗：
+		29.8 MB
+		, 在所有 C++ 提交中击败了
+		86.51%
+		的用户*/
+	int countConsistentStrings(string allowed, vector<string>& words) {
+		int result{};
+		for (const auto& word : words)
+		{
+			if (std::find_if(word.begin(), word.end(), [&allowed](char c) {
+				return allowed.find(c) == std::string::npos;
+			}) == word.end())
+				++result;
+		}
+		return result;
+	}
+
 	//1720. 解码异或后的数组
 	/*执行用时：
 		80 ms
