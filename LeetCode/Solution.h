@@ -86,6 +86,27 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1450. 在既定时间做作业的学生人数
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		11.1 MB
+		, 在所有 C++ 提交中击败了
+		63.30%
+		的用户*/
+	int busyStudent(vector<int>& startTime, vector<int>& endTime, int queryTime) {
+		int result{};
+		for (int i = 0; i < (int)startTime.size(); i++)
+		{
+			if (queryTime >= startTime[i] && queryTime <= endTime[i])
+				++result;
+		}
+		return result;
+	}
+
 	//1678. 设计 Goal 解析器
 	/*执行用时：
 		0 ms
