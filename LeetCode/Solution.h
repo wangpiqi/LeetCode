@@ -86,6 +86,41 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1678. 设计 Goal 解析器
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		98.90%
+		的用户*/
+	string interpret(string command) {
+		string result;
+		for (int i = 0; i < (int)command.length();)
+		{
+			if (command[i] == 'G')
+			{
+				result.push_back('G');
+				++i;
+			}
+			else if (command[i] == '(' && command[i + 1] == ')')
+			{
+				result.push_back('o');
+				i += 2;
+			}
+			else
+			{
+				result.push_back('a');
+				result.push_back('l');
+				i += 4;
+			}
+		}
+		return result;
+	}
+
 	//1684. 统计一致字符串的数目
 	/*执行用时：
 		136 ms
