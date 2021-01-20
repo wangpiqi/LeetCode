@@ -86,6 +86,32 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1710. 卡车上的最大单元数
+	/*执行用时：
+		52 ms
+		, 在所有 C++ 提交中击败了
+		98.92%
+		的用户
+		内存消耗：
+		15.6 MB
+		, 在所有 C++ 提交中击败了
+		98.01%
+		的用户*/
+	int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+		std::sort(boxTypes.begin(), boxTypes.end(), [](vector<int>& boxTypeA, vector<int>& boxTypeB) -> bool {
+			return boxTypeA[1] > boxTypeB[1];
+		});
+
+		int result{};
+		for (const auto& boxType : boxTypes)
+		{
+			result += std::min(boxType[0], truckSize) * boxType[1];
+			if ((truckSize -= boxType[0]) <= 0)
+				break;
+		}
+		return result;
+	}
+
 	//628. 三个数的最大乘积
 	/*执行用时：
 		52 ms
