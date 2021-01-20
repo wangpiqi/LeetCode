@@ -86,6 +86,29 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1356. 根据数字二进制下 1 的数目排序
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		99.99%
+		的用户
+		内存消耗：
+		9.7 MB
+		, 在所有 C++ 提交中击败了
+		99.90%
+		的用户*/
+	vector<int> sortByBits(vector<int>& arr) {
+		sort(arr.begin(), arr.end(), [](int a, int b) {
+			int countA = bitset<14>(a).count();
+			int countB = bitset<14>(b).count();
+			if (countA == countB)
+				return a < b;
+			else
+				return countA < countB;
+		});
+		return arr;
+	}
+
 	//1374. 生成每种字符都是奇数个的字符串
 	/*执行用时：
 		0 ms
