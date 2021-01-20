@@ -86,6 +86,28 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1374. 生成每种字符都是奇数个的字符串
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.4 MB
+		, 在所有 C++ 提交中击败了
+		75.27%
+		的用户*/
+	string generateTheString(int n) {
+		if (n & 1)
+			return string(n, 'a');
+		else
+		{
+			string s(n - 1, 'a');
+			s.push_back('b');
+			return s;
+		}
+	}
+
 	//1704. 判断字符串的两半是否相似
 	/*执行用时：
 		4 ms
