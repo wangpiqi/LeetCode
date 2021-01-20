@@ -86,6 +86,25 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//628. 三个数的最大乘积
+	/*执行用时：
+		52 ms
+		, 在所有 C++ 提交中击败了
+		92.07%
+		的用户
+		内存消耗：
+		26.9 MB
+		, 在所有 C++ 提交中击败了
+		83.92%
+		的用户*/
+	int maximumProduct(vector<int>& nums) {
+		sort(nums.begin(), nums.end());
+		int size = (int)nums.size();
+		return std::max(std::max(nums[size - 1] * nums[size - 2] * nums[size - 3],
+			nums[0] * nums[1] * nums[2]),
+			nums[0] * nums[1] * nums[size - 1]);
+	}
+
 	//1688. 比赛中的配对次数
 	/*执行用时：
 		0 ms
