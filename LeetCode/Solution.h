@@ -86,6 +86,23 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1460. 通过翻转子数组使两个数组相等
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		99.81%
+		的用户
+		内存消耗：
+		13.6 MB
+		, 在所有 C++ 提交中击败了
+		99.81%
+		的用户*/
+	bool canBeEqual(vector<int>& target, vector<int>& arr) {
+		sort(target.begin(), target.end());
+		sort(arr.begin(), arr.end());
+		return target == arr;
+	}
+
 	//1710. 卡车上的最大单元数
 	/*执行用时：
 		52 ms
