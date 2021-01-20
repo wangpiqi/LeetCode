@@ -86,6 +86,27 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1528. 重新排列字符串
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		96.78%
+		的用户
+		内存消耗：
+		14.8 MB
+		, 在所有 C++ 提交中击败了
+		96.24%
+		的用户*/
+	string restoreString(string s, vector<int>& indices) {
+		vector<char> result;
+		result.resize(s.length());
+		for (int i = 0; i < (int)indices.size(); i++)
+		{
+			result[indices[i]] = s[i];
+		}
+		return string{ result.begin(), result.end() };
+	}
+
 	//1460. 通过翻转子数组使两个数组相等
 	/*执行用时：
 		8 ms
