@@ -86,6 +86,35 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1688. 比赛中的配对次数
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		5.9 MB
+		, 在所有 C++ 提交中击败了
+		97.10%
+		的用户*/
+	int numberOfMatches(int n) {
+		int result{};
+		while (n > 1)
+		{
+			if (n % 2 == 0)
+			{
+				n /= 2;
+				result += n;
+			}
+			else
+			{
+				n = (n - 1) / 2;
+				result += n + 1;
+			}
+		}
+		return result;
+	}
+
 	//1450. 在既定时间做作业的学生人数
 	/*执行用时：
 		0 ms
