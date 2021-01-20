@@ -86,6 +86,29 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1704. 判断字符串的两半是否相似
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		82.51%
+		的用户
+		内存消耗：
+		6.4 MB
+		, 在所有 C++ 提交中击败了
+		99.66%
+		的用户*/
+	bool halvesAreAlike(string s) {
+		auto func = [](char c) -> bool {
+			return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' 
+				|| c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+		};
+
+		int length = (int)s.length() >> 1;
+		int a = count_if(s.begin(), s.begin() + length, func);
+		int b = count_if(s.begin() + length, s.end(), func);
+		return a == b;
+	}
+
 	//1528. 重新排列字符串
 	/*执行用时：
 		8 ms
