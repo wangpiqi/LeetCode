@@ -86,6 +86,26 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1716. 计算力扣银行的钱
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		92.86%
+		的用户*/
+	int totalMoney(int n) {
+		int result{};
+		for (int i = 0; i < n ; i++)
+		{
+			result += (i % 7 + 1) + (i / 7);
+		}
+		return result;
+	}
+
 	//1436. 旅行终点站
 	/*执行用时：
 		16 ms
