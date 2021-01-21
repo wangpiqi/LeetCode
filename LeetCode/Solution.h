@@ -86,6 +86,38 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1436. 旅行终点站
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		97.49%
+		的用户
+		内存消耗：
+		10.9 MB
+		, 在所有 C++ 提交中击败了
+		69.72%
+		的用户*/
+	string destCity(vector<vector<string>>& paths) {
+		std::unordered_set<string> cityA;
+		std::unordered_set<string> cityB;
+
+		for (const auto& path : paths)
+		{
+			cityA.insert(path[0]);
+			cityB.insert(path[1]);
+		}
+
+		for (auto it = cityB.begin();it != cityB.end();)
+		{
+			if (cityA.find(*it) != cityA.end())
+				it = cityB.erase(it);
+			else
+				++it;
+		}
+
+		return *cityB.begin();
+	}
+
 	//1356. 根据数字二进制下 1 的数目排序
 	/*执行用时：
 		4 ms
