@@ -86,6 +86,28 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 17. 打印从1到最大的n位数
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		99.03%
+		的用户
+		内存消耗：
+		10.3 MB
+		, 在所有 C++ 提交中击败了
+		99.45%
+		的用户*/
+	vector<int> printNumbers(int n) {
+		n = stoi(string(n, '9'));
+		vector<int> result;
+		result.resize(n);
+		for (int i = 1; i <= n ; i++)
+		{
+			result[i - 1] = i;
+		}
+		return result;
+	}
+
 	//1232. 缀点成线
 	/*执行用时：
 		8 ms
