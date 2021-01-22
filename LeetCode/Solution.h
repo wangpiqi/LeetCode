@@ -86,6 +86,16 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1725. 可以形成最大正方形的矩形数目
+	int countGoodRectangles(vector<vector<int>>& rectangles) {
+		std::map<int, int> result;
+		for (const auto& rectangle : rectangles)
+		{
+			++result[std::min(rectangle[0], rectangle[1])];
+		}
+		return (*result.rbegin()).second;
+	}
+
 	//剑指 Offer 17. 打印从1到最大的n位数
 	/*执行用时：
 		4 ms
