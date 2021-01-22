@@ -86,6 +86,26 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1232. 缀点成线
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		92.01%
+		的用户
+		内存消耗：
+		9.8 MB
+		, 在所有 C++ 提交中击败了
+		68.49%
+		的用户*/
+	bool checkStraightLine(vector<vector<int>>& coordinates) {
+		int deltaX = coordinates[1][0] - coordinates[0][0]; //x1 - x0
+		int deltaY = coordinates[1][1] - coordinates[0][1]; //y1 - y0
+		return find_if(coordinates.begin() + 2, coordinates.end(), [&](const vector<int>& coordinate) {
+			//(x - x0) * (y1 - y0) != (y - y0) * (x1 - x0)
+			return (coordinate[0] - coordinates[0][0]) * deltaY != (coordinate[1] - coordinates[0][1]) * deltaX;
+		}) == coordinates.end();
+	}
+
 	//1716. 计算力扣银行的钱
 	/*执行用时：
 		0 ms
