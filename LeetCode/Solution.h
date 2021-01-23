@@ -87,6 +87,16 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//1725. 可以形成最大正方形的矩形数目
+	/*执行用时：
+		44 ms
+		, 在所有 C++ 提交中击败了
+		87.37%
+		的用户
+		内存消耗：
+		18 MB
+		, 在所有 C++ 提交中击败了
+		50.89%
+		的用户*/
 	int countGoodRectangles(vector<vector<int>>& rectangles) {
 		std::map<int, int> result;
 		for (const auto& rectangle : rectangles)
