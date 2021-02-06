@@ -86,6 +86,28 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1732. 找到最高海拔
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		7.8 MB
+		, 在所有 C++ 提交中击败了
+		35.65%
+		的用户*/
+	int largestAltitude(vector<int>& gain) {
+		int result{};
+		int sum{};
+		for (int i = 0; i < (int)gain.size(); i++)
+		{
+			sum += gain[i];
+			result = std::max(sum, result);
+		}
+		return result;
+	}
+
 	//1725. 可以形成最大正方形的矩形数目
 	/*执行用时：
 		44 ms
