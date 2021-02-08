@@ -86,6 +86,46 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//766. 托普利茨矩阵
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		94.22%
+		的用户
+		内存消耗：
+		16.9 MB
+		, 在所有 C++ 提交中击败了
+		93.84%
+		的用户*/
+	bool isToeplitzMatrix(vector<vector<int>>& matrix, int m, int n) {
+		for (int i = m, j = n; i < (int)matrix.size() && j < (int)matrix[0].size(); i++, j++)
+		{
+			if (matrix[i][j] != matrix[m][n])
+				return false;
+		}
+		return true;
+	}
+
+	bool isToeplitzMatrix(vector<vector<int>>& matrix) {
+		for (int i = 0; i < (int)matrix.size(); i++)
+		{
+			if (!isToeplitzMatrix(matrix, i, 0))
+			{
+				return false;
+			}
+		}
+
+		for (int j = 1; j < (int)matrix[0].size(); j++)
+		{
+			if (!isToeplitzMatrix(matrix, 0, j))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	//1337. 矩阵中战斗力最弱的 K 行
 	/*执行用时：
 		16 ms
