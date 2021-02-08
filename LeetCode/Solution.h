@@ -86,6 +86,53 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1337. 矩阵中战斗力最弱的 K 行
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		86.74%
+		的用户
+		内存消耗：
+		10.1 MB
+		, 在所有 C++ 提交中击败了
+		96.58%
+		的用户*/
+	vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+		vector<int> result;
+		for (int j = 0; j < (int)mat[0].size(); j++)
+		{
+			for (int i = 0; i < (int)mat.size(); i++)
+			{
+				//cout<<mat[i][j]<<" ";
+				if (mat[i][j] == 0 && find_if(result.begin(), result.end(), [&i](int index) {
+					return index == i;
+				}) == result.end())
+				{
+					result.emplace_back(i);
+					if ((int)result.size() == k)
+					{
+						return result;
+					}
+				}
+			}
+			//cout << endl;
+		}
+		for (int i = 0; i < (int)mat.size(); i++)
+		{
+			if (find_if(result.begin(), result.end(), [&i](int index) {
+				return index == i;
+			}) == result.end())
+			{
+				result.emplace_back(i);
+				if ((int)result.size() == k)
+				{
+					return result;
+				}
+			}
+		}
+		return result;
+	}
+
 	//1732. 找到最高海拔
 	/*执行用时：
 		0 ms
