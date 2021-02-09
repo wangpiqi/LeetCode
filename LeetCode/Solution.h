@@ -86,6 +86,32 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1550. 存在连续三个奇数的数组
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		91.73%
+		的用户
+		内存消耗：
+		8.1 MB
+		, 在所有 C++ 提交中击败了
+		81.98%
+		的用户*/
+	bool threeConsecutiveOdds(vector<int>& arr) {
+		int count{};
+		for (int i = 0; i < (int)arr.size(); i++)
+		{
+			if (arr[i] & 1)
+				++count; 
+			else
+				count = 0;
+
+			if (count >= 3)
+				return true;
+		}
+		return false;
+	}
+
 	//766. 托普利茨矩阵
 	/*执行用时：
 		16 ms
