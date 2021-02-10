@@ -16,8 +16,9 @@ int main()
 	//s.validMountainArray(temp);
 	//s.findMaxAverage(temp, 4);
 	//s.sortString("aaaabbbbcccc");
-	auto temp = stringToIntegerVector("[2, 4, 9, 3]");
-	s.decrypt(temp, -2);
+	/*auto temp = stringToIntegerVector("[2, 4, 9, 3]");
+	s.decrypt(temp, -2);*/
+	s.isLongPressedName("alex", "aaleex");
 
 	system("pause");
 	return 0;

@@ -86,7 +86,52 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//925. 长按键入
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		84.57%
+		的用户*/
+	bool isLongPressedName(string name, string typed) {
+		int i = 0, j = 0;
+		for (; i < (int)name.length() && j < (int)typed.length();)
+		{
+			char a = name[i]; char b = typed[j];
+			if (a != b)
+				return false;
+			else if (i < (int)name.length() - 1 && a == name[i + 1])
+			{
+				++i; ++j;
+			}
+			else //最长匹配
+			{
+				++i;
+
+				do
+				{
+					++j;
+				} while (j < (int)typed.length() && a == typed[j]);
+			}
+		}
+		return (i == (int)name.length()) && (j == (int)typed.length());
+	}
+
 	//剑指 Offer 61. 扑克牌中的顺子
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		9.9 MB
+		, 在所有 C++ 提交中击败了
+		84.85%
+		的用户*/
 	bool isStraight(vector<int>& nums) {
 		sort(nums.begin(), nums.end());
 		int zero{};
