@@ -86,6 +86,29 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 61. 扑克牌中的顺子
+	bool isStraight(vector<int>& nums) {
+		sort(nums.begin(), nums.end());
+		int zero{};
+		for (int i = 0; i < (int)nums.size() - 1; i++)
+		{
+			if (nums[i] == 0)
+				++zero;
+			else
+			{
+				if (nums[i] == nums[i + 1])
+					return false;
+
+				zero -= (nums[i + 1] - nums[i] - 1);
+				if (zero < 0)
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	//1550. 存在连续三个奇数的数组
 	/*执行用时：
 		4 ms
