@@ -1832,6 +1832,23 @@ public:
 		return count;
 	}
 
+	//面试题 01.02. 判定是否互为字符重排
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		76.20%
+		的用户*/
+	bool CheckPermutation(string s1, string s2) {
+		std::sort(s1.begin(), s1.end());
+		std::sort(s2.begin(), s2.end());
+		return s1 == s2;
+	}
+
 	//1748. 唯一元素的和
 	/*执行用时：
 		0 ms
