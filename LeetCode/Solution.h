@@ -1849,6 +1849,30 @@ public:
 		return s1 == s2;
 	}
 
+	//面试题 08.03. 魔术索引
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		89.19%
+		的用户
+		内存消耗：
+		12.5 MB
+		, 在所有 C++ 提交中击败了
+		71.03%
+		的用户*/
+	int findMagicIndex(vector<int>& nums) {
+		for (int i = 0; i < (int)nums.size();)
+		{
+			if (nums[i] == i)
+				return i;
+			else if (nums[i] > i)
+				i += (nums[i] - i);
+			else
+				i++;
+		}
+		return -1;
+	}
+
 	//1748. 唯一元素的和
 	/*执行用时：
 		0 ms
