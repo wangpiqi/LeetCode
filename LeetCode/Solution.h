@@ -1831,6 +1831,33 @@ public:
 		}
 		return count;
 	}
+
+	//1748. 唯一元素的和
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		7.9 MB
+		, 在所有 C++ 提交中击败了
+		5.19%
+		的用户*/
+	int sumOfUnique(vector<int>& nums) {
+		std::map<int, int> map;
+		for (auto n : nums)
+		{
+			++map[n];
+		}
+
+		int sum{};
+		for (auto p : map)
+		{
+			if (p.second == 1)
+				sum += p.first;
+		}
+		return sum;
+	}
 };
 
 //1114. 按序打印
