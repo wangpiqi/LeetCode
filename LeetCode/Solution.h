@@ -86,6 +86,33 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 16.11. 跳水板
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		88.49%
+		的用户
+		内存消耗：
+		19.6 MB
+		, 在所有 C++ 提交中击败了
+		71.43%
+		的用户*/
+	vector<int> divingBoard(int shorter, int longer, int k) {
+		vector<int> result;
+		if (k <= 0)
+			return result;
+
+		result.emplace_back(shorter * k);
+
+		int length = (longer - shorter);
+		if (length <= 0)
+			return result;
+
+		for (int i = 0; i < k; i++)
+			result.emplace_back(*result.rbegin() + length);
+		return result;
+	}
+
 	//925. 长按键入
 	/*执行用时：
 		0 ms
