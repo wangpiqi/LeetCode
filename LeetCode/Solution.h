@@ -86,6 +86,37 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//599. 两个列表的最小索引总和
+	/*执行用时：
+		232 ms
+		, 在所有 C++ 提交中击败了
+		7.22%
+		的用户
+		内存消耗：
+		29.4 MB
+		, 在所有 C++ 提交中击败了
+		96.53%
+		的用户*/
+	vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
+		vector<string> ret;
+		int lastSum{ INT_MAX };
+		for (int i = 0; i < (int)list1.size(); i++)
+		{
+			for (int j = 0; j < (int)list2.size(); j++) 
+			{
+				int indexSum = i + j;
+				if (list1[i] == list2[j] && indexSum <= lastSum)
+				{
+					if (indexSum < lastSum)
+						ret.clear();
+					ret.emplace_back(list1[i]);
+					lastSum = indexSum;
+				}
+			}
+		}
+		return ret;
+	}
+
 	//面试题 16.11. 跳水板
 	/*执行用时：
 		16 ms
