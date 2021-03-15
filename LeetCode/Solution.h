@@ -86,6 +86,32 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1773. 统计匹配检索规则的物品数量
+	/*执行用时：
+		80 ms
+		, 在所有 C++ 提交中击败了
+		86.82%
+		的用户
+		内存消耗：
+		30.1 MB
+		, 在所有 C++ 提交中击败了
+		66.63%
+		的用户*/
+	int countMatches(vector<vector<string>>& items, string ruleKey, string ruleValue) {
+		int ret{};
+		int index{};
+		if (ruleKey == "color")
+			index = 1;
+		else if (ruleKey == "name")
+			index = 2;
+		for (const auto& item : items)
+		{
+			if (item[index] == ruleValue)
+				++ret;
+		}
+		return ret;
+	}
+
 	//599. 两个列表的最小索引总和
 	/*执行用时：
 		232 ms
