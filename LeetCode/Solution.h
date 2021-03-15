@@ -86,6 +86,35 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1768. 交替合并字符串
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		54.38%
+		的用户*/
+	string mergeAlternately(string word1, string word2) {
+		string ret;
+		int index{};
+		while (index < word1.length() || index < word2.length())
+		{
+			if (index < word1.length())
+			{
+				ret.push_back(word1[index]);
+			}
+			if (index < word2.length())
+			{
+				ret.push_back(word2[index]);
+			}
+			++index;
+		}
+		return ret;
+	}
+
 	//1773. 统计匹配检索规则的物品数量
 	/*执行用时：
 		80 ms
