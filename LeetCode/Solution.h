@@ -15,6 +15,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -86,6 +87,31 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1614. 括号的最大嵌套深度
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		80.02%
+		的用户*/
+	int maxDepth(string s) {
+		int stack{};
+		int ret{};
+		for (const char& c : s)
+		{
+			if (c == '(')
+				++stack;
+			else if (c == ')')
+				--stack;
+			ret = std::max(stack, ret);
+		}
+		return ret;
+	}
+
 	//191. 位1的个数
 	/*执行用时：
 		0 ms
