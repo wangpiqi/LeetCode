@@ -86,6 +86,22 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//191. 位1的个数
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		91.58%
+		的用户*/
+	int hammingWeight(uint32_t n) {
+		std::bitset<32> bs(n);
+		return bs.count();
+	}
+
 	//1768. 交替合并字符串
 	/*执行用时：
 		0 ms
@@ -100,13 +116,13 @@ public:
 	string mergeAlternately(string word1, string word2) {
 		string ret;
 		int index{};
-		while (index < word1.length() || index < word2.length())
+		while (index < (int)word1.length() || index < (int)word2.length())
 		{
-			if (index < word1.length())
+			if (index < (int)word1.length())
 			{
 				ret.push_back(word1[index]);
 			}
-			if (index < word2.length())
+			if (index < (int)word2.length())
 			{
 				ret.push_back(word2[index]);
 			}
