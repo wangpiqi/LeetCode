@@ -2113,3 +2113,61 @@ public:
 private:
 	vector<int> m_data{ 0, 0, 0 };
 };
+
+// This is the interface that allows for creating nested lists.
+// You should not implement it, or speculate about its implementation
+class NestedInteger {
+public:
+    // Return true if this NestedInteger holds a single integer, rather than a nested list.
+	bool isInteger() const {};
+
+    // Return the single integer that this NestedInteger holds, if it holds a single integer
+    // The result is undefined if this NestedInteger holds a nested list
+    int getInteger() const {};
+
+    // Return the nested list that this NestedInteger holds, if it holds a nested list
+    // The result is undefined if this NestedInteger holds a single integer
+    const vector<NestedInteger> &getList() const {};
+};
+
+//341. 扁平化嵌套列表迭代器
+//执行用时：
+//8 ms
+//, 在所有 C++ 提交中击败了
+//90.84%
+//的用户
+//内存消耗：
+//13.1 MB
+//, 在所有 C++ 提交中击败了
+//60.70%
+//的用户
+class NestedIterator {
+public:
+	NestedIterator(vector<NestedInteger> &nestedList) {
+		for (const auto& n : nestedList)
+			visit(n);
+	}
+
+	int next() {
+		return m_data[m_index++];
+	}
+
+	bool hasNext() {
+		return m_index < (int)m_data.size();
+	}
+
+private:
+	void visit(const NestedInteger& n)
+	{
+		if (n.isInteger())
+			m_data.emplace_back(n.getInteger());
+		else
+		{
+			for (const auto& n : n.getList())
+				visit(n); 
+		}
+	}
+
+	std::vector<int> m_data;
+	int m_index{ 0 };
+};
