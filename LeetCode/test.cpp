@@ -18,7 +18,9 @@ int main()
 	//s.sortString("aaaabbbbcccc");
 	/*auto temp = stringToIntegerVector("[2, 4, 9, 3]");
 	s.decrypt(temp, -2);*/
-	s.isLongPressedName("alex", "aaleex");
+	//s.isLongPressedName("alex", "aaleex");
+	auto temp = stringToIntegerVector("[-10, -3, 0, 5, 9]"); 
+	s.sortedArrayToBST(temp);
 
 	system("pause");
 	return 0;

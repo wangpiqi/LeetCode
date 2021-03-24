@@ -87,6 +87,31 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 04.02. 最小高度树
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		96.18%
+		的用户
+		内存消耗：
+		23.7 MB
+		, 在所有 C++ 提交中击败了
+		82.70%
+		的用户*/
+	TreeNode* sortedArrayToBST(vector<int>& nums, int first, int last) {
+		if (first > last)
+			return nullptr;
+		int mid = first + (last - first + 1) * 0.5;
+		TreeNode* root = new TreeNode(nums[mid]);
+		root->left = sortedArrayToBST(nums, first, mid - 1);
+		root->right = sortedArrayToBST(nums, mid + 1, last);
+		return root;
+	}
+
+	TreeNode* sortedArrayToBST(vector<int>& nums) {
+		return sortedArrayToBST(nums, 0, nums.size() - 1);
+	}
+
 	//1614. 括号的最大嵌套深度
 	/*执行用时：
 		0 ms
