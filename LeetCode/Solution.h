@@ -87,6 +87,23 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//190. 颠倒二进制位
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		24.63%
+		的用户*/
+	uint32_t reverseBits(uint32_t n) {
+		string&& str = bitset<32>(n).to_string();
+		reverse(str.begin(), str.end());
+		return bitset<32>(str).to_ulong();
+	}
+
 	//面试题 04.02. 最小高度树
 	/*执行用时：
 		16 ms
