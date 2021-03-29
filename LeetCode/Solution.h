@@ -118,7 +118,7 @@ public:
 	TreeNode* sortedArrayToBST(vector<int>& nums, int first, int last) {
 		if (first > last)
 			return nullptr;
-		int mid = first + (last - first + 1) * 0.5;
+		int mid = first + (int)((last - first + 1) * 0.5);
 		TreeNode* root = new TreeNode(nums[mid]);
 		root->left = sortedArrayToBST(nums, first, mid - 1);
 		root->right = sortedArrayToBST(nums, mid + 1, last);
@@ -2212,4 +2212,49 @@ private:
 
 	std::vector<int> m_data;
 	int m_index{ 0 };
+};
+
+//剑指 Offer 09. 用两个栈实现队列
+//执行用时：
+//316 ms
+//, 在所有 C++ 提交中击败了
+//88.60%
+//的用户
+//内存消耗：
+//101.1 MB
+//, 在所有 C++ 提交中击败了
+//64.77%
+//的用户
+class CQueue {
+public:
+	CQueue() {
+		//
+	}
+
+	void appendTail(int value) {
+		m_stack1.push(value);
+	}
+
+	int deleteHead() {
+		if (m_stack2.empty())
+		{
+			while (!m_stack1.empty())
+			{
+				m_stack2.push(m_stack1.top());
+				m_stack1.pop();
+			}
+		}
+
+		int value{ -1 };
+		if (!m_stack2.empty())
+		{
+			value = m_stack2.top();
+			m_stack2.pop();
+		}
+		return value;
+	}
+
+private:
+	std::stack<int> m_stack1;
+	std::stack<int> m_stack2;
 };
