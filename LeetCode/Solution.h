@@ -87,6 +87,34 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//74. 搜索二维矩阵
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00%
+		的用户
+		内存消耗：
+		9.3 MB
+		, 在所有 C++ 提交中击败了
+		48.16%
+		的用户*/
+	bool searchMatrix(vector<vector<int>>& matrix, int target) {
+		for (int i = 0; i < (int)matrix.size(); i++)
+		{
+			for (int j = 0; j < (int)matrix[i].size(); j++) {
+				if (matrix[i][j] == target)
+				{
+					return true;
+				}
+				else if (matrix[i][j] > target)
+				{
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+
 	//190. 颠倒二进制位
 	/*执行用时：
 		0 ms
