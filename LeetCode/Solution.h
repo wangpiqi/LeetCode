@@ -87,6 +87,20 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//27. 移除元素
+	int removeElement(vector<int>& nums, int val) {
+		int size = (int)nums.size();
+		int index = size;
+		for (int i = 0; i < index; i++)
+		{
+			if (nums[i] == val)
+			{
+				//
+			}
+		}
+		return index;
+	}
+
 	//74. 搜索二维矩阵
 	/*执行用时：
 		0 ms
