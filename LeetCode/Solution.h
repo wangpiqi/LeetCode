@@ -88,6 +88,16 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//27. 移除元素
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		8.5 MB
+		, 在所有 C++ 提交中击败了
+		72.86 %
+		的用户*/
 	int removeElement(vector<int>& nums, int val) {
 		if (nums.empty())
 			return 0;
