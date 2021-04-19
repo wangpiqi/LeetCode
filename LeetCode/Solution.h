@@ -99,22 +99,17 @@ public:
 		72.86 %
 		的用户*/
 	int removeElement(vector<int>& nums, int val) {
-		if (nums.empty())
-			return 0;
-
-		int first = 0;
-		int last = (int)nums.size() - 1;
-		while (first < last)
-		{
-			while (last > 0 && nums[last] == val)
-				--last;
-			if (last <= first)
-				break;
-			if (nums[first] == val)
-				swap(nums[first], nums[last]);
-			++first;
+		int left = 0, right = nums.size();
+		while (left < right) {
+			if (nums[left] == val) {
+				nums[left] = nums[right - 1];
+				right--;
+			}
+			else {
+				left++;
+			}
 		}
-		return nums[first] == val ? first : first + 1;
+		return left;
 	}
 
 	//74. 搜索二维矩阵
