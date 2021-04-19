@@ -89,16 +89,22 @@ class Solution {
 public:
 	//27. ÒÆ³ıÔªËØ
 	int removeElement(vector<int>& nums, int val) {
-		int size = (int)nums.size();
-		int index = size;
-		for (int i = 0; i < index; i++)
+		if (nums.empty())
+			return 0;
+
+		int first = 0;
+		int last = (int)nums.size() - 1;
+		while (first < last)
 		{
-			if (nums[i] == val)
-			{
-				//
-			}
+			while (last > 0 && nums[last] == val)
+				--last;
+			if (last <= first)
+				break;
+			if (nums[first] == val)
+				swap(nums[first], nums[last]);
+			++first;
 		}
-		return index;
+		return nums[first] == val ? first : first + 1;
 	}
 
 	//74. ËÑË÷¶şÎ¬¾ØÕó

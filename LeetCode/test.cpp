@@ -19,8 +19,10 @@ int main()
 	/*auto temp = stringToIntegerVector("[2, 4, 9, 3]");
 	s.decrypt(temp, -2);*/
 	//s.isLongPressedName("alex", "aaleex");
-	auto temp = stringToIntegerVector("[-10, -3, 0, 5, 9]"); 
-	s.sortedArrayToBST(temp);
+	/*auto temp = stringToIntegerVector("[-10, -3, 0, 5, 9]");
+	s.sortedArrayToBST(temp);*/
+	auto temp = stringToIntegerVector("[1]");
+	s.removeElement(temp, 1);
 
 	system("pause");
 	return 0;
