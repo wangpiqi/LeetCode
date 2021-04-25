@@ -165,6 +165,12 @@ public:
 		}
 		traverseBST(root->left, result);
 		//cout<<root->val<<endl;
+		if (!result.empty())
+		{
+			auto last = *result.rbegin();
+			last->left = nullptr;
+			last->right = root;
+		}
 		result.emplace_back(root);
 		traverseBST(root->right, result);
 	}
@@ -172,11 +178,11 @@ public:
 	TreeNode* increasingBST(TreeNode* root) {
 		vector<TreeNode*> result;
 		traverseBST(root, result);
-		for (int i = 0; i < (int)result.size(); i++)
+		/*for (int i = 0; i < (int)result.size(); i++)
 		{
 			result[i]->left = nullptr;
 			result[i]->right = i + 1 < (int)result.size() ? result[i + 1] : nullptr;
-		}
+		}*/
 		return *result.begin();
 	}
 
