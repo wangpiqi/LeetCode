@@ -23,7 +23,7 @@ int main()
 	s.sortedArrayToBST(temp);*/
 	/*auto temp = stringToIntegerVector("[1]");
 	s.removeElement(temp, 1);*/
-	s.increasingBST(stringToTreeNode("[5,3,6,2,4,null,8,1,null,null,null,7,9]"));
+	cout<< treeNodeToString(s.increasingBST(stringToTreeNode("[2,1,4,null,null,3]"))) <<endl;;
 
 	system("pause");
 	return 0;
