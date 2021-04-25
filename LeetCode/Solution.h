@@ -158,6 +158,16 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//897. 递增顺序搜索树
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		7.7 MB
+		, 在所有 C++ 提交中击败了
+		50.00 %
+		的用户*/
 	void traverseBST(TreeNode* root, vector<TreeNode*>& result) {
 		if (!root)
 		{
@@ -178,11 +188,9 @@ public:
 	TreeNode* increasingBST(TreeNode* root) {
 		vector<TreeNode*> result;
 		traverseBST(root, result);
-		/*for (int i = 0; i < (int)result.size(); i++)
-		{
-			result[i]->left = nullptr;
-			result[i]->right = i + 1 < (int)result.size() ? result[i + 1] : nullptr;
-		}*/
+		auto last = *result.rbegin();
+		last->left = nullptr;
+		last->right = nullptr;
 		return *result.begin();
 	}
 
