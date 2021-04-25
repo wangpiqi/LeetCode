@@ -21,8 +21,9 @@ int main()
 	//s.isLongPressedName("alex", "aaleex");
 	/*auto temp = stringToIntegerVector("[-10, -3, 0, 5, 9]");
 	s.sortedArrayToBST(temp);*/
-	auto temp = stringToIntegerVector("[1]");
-	s.removeElement(temp, 1);
+	/*auto temp = stringToIntegerVector("[1]");
+	s.removeElement(temp, 1);*/
+	s.increasingBST(stringToTreeNode("[5,3,6,2,4,null,8,1,null,null,null,7,9]"));
 
 	system("pause");
 	return 0;
