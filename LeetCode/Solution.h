@@ -157,6 +157,39 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1832. 判断句子是否为全字母句
+	bool checkIfPangram(string sentence) {
+		std::set<char> setChar;
+		for (auto c : sentence)
+		{
+			setChar.emplace(c);
+		}
+		return setChar.size() == 26;
+	}
+
+	//1822. 数组元素积的符号
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		90.09 %
+		的用户
+		内存消耗：
+		9.9 MB
+		, 在所有 C++ 提交中击败了
+		39.89 %
+		的用户*/
+	int arraySign(vector<int>& nums) {
+		bool ret{ true };
+		for (auto n : nums)
+		{
+			if (n == 0)
+				return 0;
+			else if (n < 0)
+				ret = !ret;
+		}
+		return ret ? 1 : -1;
+	}
+
 	//897. 递增顺序搜索树
 	/*执行用时：
 		0 ms
