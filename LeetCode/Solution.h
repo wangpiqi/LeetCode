@@ -157,6 +157,24 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1812. 判断国际象棋棋盘中一个格子的颜色
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		63.54 %
+		的用户*/
+	bool squareIsWhite(string coordinates) {
+		int value{};
+		value += coordinates[0] - 'a';
+		value += coordinates[1] - '1';
+		return value % 2 != 0;
+	}
+
 	//1827. 最少操作使数组递增
 	/*执行用时：
 		8 ms
