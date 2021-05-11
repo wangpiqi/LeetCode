@@ -157,6 +157,36 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1827. 最少操作使数组递增
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		99.04 %
+		的用户
+		内存消耗：
+		15.4 MB
+		, 在所有 C++ 提交中击败了
+		59.63 %
+		的用户*/
+	int minOperations(vector<int>& nums) {
+		if (nums.size() < 2)
+		{
+			return 0;
+		}
+
+		int ret{};
+		for (int i = 0; i < (int)nums.size() - 1; i++)
+		{
+			if (nums[i] >= nums[i + 1])
+			{
+				int diff = nums[i] - nums[i + 1] + 1;
+				nums[i + 1] += diff;
+				ret += diff;
+			}
+		}
+		return ret;
+	}
+
 	//1844. 将所有数字用字符替换
 	/*执行用时：
 		0 ms
