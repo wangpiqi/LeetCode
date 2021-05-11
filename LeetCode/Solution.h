@@ -158,11 +158,31 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//1832. 判断句子是否为全字母句
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.4 MB
+		, 在所有 C++ 提交中击败了
+		56.36 %
+		的用户*/
 	bool checkIfPangram(string sentence) {
 		std::set<char> setChar;
-		for (auto c : sentence)
+		int length = (int)sentence.length();
+		for (int i = 0; i < length; i++)
 		{
-			setChar.emplace(c);
+			setChar.insert(sentence[i]);
+			int size = (int)setChar.size();
+			if (length - i + 1 < 26 - size)
+			{
+				return false;
+			}
+			else if (size == 26)
+			{
+				return true;
+			}
 		}
 		return setChar.size() == 26;
 	}
