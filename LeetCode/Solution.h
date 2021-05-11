@@ -157,6 +157,25 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1844. 将所有数字用字符替换
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		40.64 %
+		的用户*/
+	string replaceDigits(string s) {
+		for (int i = 1; i < (int)s.length(); i += 2)
+		{
+			s[i] = s[i - 1] + (s[i] - '0');
+		}
+		return s;
+	}
+
 	//1832. 判断句子是否为全字母句
 	/*执行用时：
 		0 ms
