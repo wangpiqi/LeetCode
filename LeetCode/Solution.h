@@ -157,6 +157,19 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 03. 数组中重复的数字
+	int findRepeatNumber(vector<int>& nums) {
+		std::unordered_set<int> set;
+		for (const auto& n : nums)
+		{
+			if (set.find(n) != set.end())
+				return n;
+			else
+				set.emplace(n);
+		}
+		return -1;
+	}
+
 	//剑指 Offer 57. 和为s的两个数字
 	/*执行用时：
 		196 ms
