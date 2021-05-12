@@ -157,6 +157,29 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1816. 截断句子
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		68.42 %
+		的用户*/
+	string truncateSentence(string s, int k) {
+		int i = 0;
+		for (;i < (int)s.length();++i)
+		{
+			if (s[i] == ' ')
+				--k;
+			if (k == 0)
+				break;
+		}
+		return s.substr(0, i);
+	}
+
 	//1812. 判断国际象棋棋盘中一个格子的颜色
 	/*执行用时：
 		0 ms
