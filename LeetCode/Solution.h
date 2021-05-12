@@ -157,6 +157,35 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1848. 到目标元素的最小距离
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		9.4 MB
+		, 在所有 C++ 提交中击败了
+		71.57 %
+		的用户*/
+	int getMinDistance(vector<int>& nums, int target, int start) {
+		int offset{};
+		int size = (int)nums.size();
+		while (start - offset >= 0 || start + offset < size)
+		{
+			if (start - offset >= 0 && nums[start - offset] == target)
+			{
+				return offset;
+			}
+			if (start + offset < size && nums[start + offset] == target)
+			{
+				return offset;
+			}
+			++offset;
+		}
+		return offset;
+	}
+
 	//剑指 Offer 03. 数组中重复的数字
 	/*执行用时：
 		36 ms
