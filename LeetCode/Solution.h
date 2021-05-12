@@ -173,14 +173,14 @@ public:
 		int size = (int)nums.size();
 		while (start - offset >= 0 || start + offset < size)
 		{
-			if (start - offset >= 0 && nums[start - offset] == target)
-			{
+			int left{ start - offset };
+			if (left >= 0 && nums[left] == target)
 				return offset;
-			}
-			if (start + offset < size && nums[start + offset] == target)
-			{
+
+			int right{ start + offset };
+			if (right < size && nums[right] == target)
 				return offset;
-			}
+
 			++offset;
 		}
 		return offset;
