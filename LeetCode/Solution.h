@@ -157,6 +157,33 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//剑指 Offer 57. 和为s的两个数字
+	/*执行用时：
+		196 ms
+		, 在所有 C++ 提交中击败了
+		91.79 %
+		的用户
+		内存消耗：
+		98.1 MB
+		, 在所有 C++ 提交中击败了
+		93.59 %
+		的用户*/
+	vector<int> twoSum(vector<int>& nums, int target) {
+		int first{ 0 };
+		int last{ (int)nums.size() - 1 };
+		while (first < last)
+		{
+			int sum = nums[first] + nums[last];
+			if (sum < target)
+				++first;
+			else if (sum > target)
+				--last;
+			else
+				return { nums[first], nums[last] };
+		}
+		return {};
+	}
+
 	//1816. 截断句子
 	/*执行用时：
 		0 ms
