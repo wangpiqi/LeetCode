@@ -158,14 +158,25 @@ unsigned long long combination(int n, int m)
 class Solution {
 public:
 	//剑指 Offer 03. 数组中重复的数字
+	/*执行用时：
+		36 ms
+		, 在所有 C++ 提交中击败了
+		91.86 %
+		的用户
+		内存消耗：
+		22.9 MB
+		, 在所有 C++ 提交中击败了
+		46.86 %
+		的用户*/
 	int findRepeatNumber(vector<int>& nums) {
-		std::unordered_set<int> set;
+		vector<bool> vector;
+		vector.resize(100000, false);
 		for (const auto& n : nums)
 		{
-			if (set.find(n) != set.end())
+			if (vector[n])
 				return n;
 			else
-				set.emplace(n);
+				vector[n] = true;
 		}
 		return -1;
 	}
