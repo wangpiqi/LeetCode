@@ -157,6 +157,28 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//206. 反转链表
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		66.74 %
+		的用户
+		内存消耗：
+		7.9 MB
+		, 在所有 C++ 提交中击败了
+		95.86 %
+		的用户*/
+	ListNode* reverseList(ListNode* head) {
+		ListNode* prev{ nullptr };
+		while (head) {
+			ListNode* next = head->next;
+			head->next = prev;
+			prev = head;
+			head = next;
+		}
+		return prev;
+	}
+
 	//1848. 到目标元素的最小距离
 	/*执行用时：
 		0 ms
