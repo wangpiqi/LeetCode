@@ -168,16 +168,26 @@ public:
 		, 在所有 C++ 提交中击败了
 		95.86 %
 		的用户*/
-	ListNode* reverseList(ListNode* head) {
-		ListNode* prev{ nullptr };
-		while (head) {
-			ListNode* next = head->next;
+		/*ListNode* reverseList(ListNode* head) {
+			ListNode* prev{ nullptr };
+			while (head) {
+				ListNode* next = head->next;
 
-			head->next = prev;
-			prev = head;
-			head = next;
+				head->next = prev;
+				prev = head;
+				head = next;
+			}
+			return prev;
+		}*/
+
+	ListNode* reverseList(ListNode* head) {
+		if (!head || !head->next) {
+			return head;
 		}
-		return prev;
+		ListNode* newHead = reverseList(head->next);
+		head->next->next = head;
+		head->next = nullptr;
+		return newHead;
 	}
 
 	//1848. 到目标元素的最小距离
