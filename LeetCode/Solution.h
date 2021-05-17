@@ -157,6 +157,40 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1854. 人口最多的年份
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		91.76 %
+		的用户
+		内存消耗：
+		8.3 MB
+		, 在所有 C++ 提交中击败了
+		13.08 %
+		的用户*/
+	int maximumPopulation(vector<vector<int>>& logs) {
+		vector<int> temp;
+		temp.resize(2050, 0);
+
+		int maxNum{};
+		int ret{ 2050 };
+
+		for (const auto& log : logs)
+		{
+			for (int i = log[0]; i < log[1]; ++i)
+			{
+				++temp[i];
+				if (temp[i] > maxNum || (temp[i] == maxNum && i < ret))
+				{
+					maxNum = temp[i];
+					ret = i;
+				}
+			}
+		}
+
+		return ret;
+	}
+
 	//206. 反转链表
 	/*执行用时：
 		8 ms
