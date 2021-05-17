@@ -157,6 +157,42 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//1346. 检查整数及其两倍数是否存在
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		78.73 %
+		的用户
+		内存消耗：
+		11 MB
+		, 在所有 C++ 提交中击败了
+		17.11 %
+		的用户*/
+	bool checkIfExist(vector<int>& arr) {
+		unordered_set<int> temp;
+		for (int n : arr)
+		{
+			if (abs(n) < 2 && temp.find(n) != temp.end())
+				return true;
+			temp.insert(n);
+		}
+
+		temp.erase(0);
+		temp.erase(1);
+		temp.erase(-1);
+
+		for (int i = 0; i < (int)arr.size(); i++)
+		{
+			if ((arr[i] & 1) != 0)
+				continue;
+
+			if (temp.find(arr[i] * 2) != temp.end()
+				|| temp.find(arr[i] * 0.5) != temp.end())
+				return true;
+		}
+		return false;
+	}
+
 	//1854. 人口最多的年份
 	/*执行用时：
 		4 ms
