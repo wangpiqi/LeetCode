@@ -23,7 +23,8 @@ int main()
 	s.sortedArrayToBST(temp);*/
 	/*auto temp = stringToIntegerVector("[1]");
 	s.removeElement(temp, 1);*/
-	cout<< treeNodeToString(s.increasingBST(stringToTreeNode("[2,1,4,null,null,3]"))) <<endl;;
+	//cout<< treeNodeToString(s.increasingBST(stringToTreeNode("[2,1,4,null,null,3]"))) <<endl;
+	splitString("is2 sentence4 This1 a3");
 
 	system("pause");
 	return 0;

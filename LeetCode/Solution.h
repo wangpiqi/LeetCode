@@ -153,6 +153,22 @@ unsigned long long combination(int n, int m)
 	return permutation(n, m) / factorial(m);
 }
 
+vector<string> splitString(const char* s, const char* delim = " ")
+{
+	vector<string> result;
+
+	string temp(s);
+
+	int pos{};
+	while ((pos = temp.find(delim)) != string::npos)
+	{
+		result.emplace_back(temp.substr(0, pos));
+		temp = temp.substr(pos + 1);
+	}
+	result.emplace_back(temp);
+	return result;
+}
+
 #pragma endregion
 
 class Solution {
