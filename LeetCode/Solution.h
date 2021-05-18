@@ -169,6 +169,17 @@ vector<string> splitString(const char* s, const char* delim = " ")
 	return result;
 }
 
+string combinString(const vector<string>& array, const char* delim = " ")
+{
+	string result;
+	for (const auto& str : array)
+	{
+		result += (str + delim);
+	}
+	result = result.substr(0, result.length() - strlen(delim));
+	return result;
+}
+
 #pragma endregion
 
 class Solution {
