@@ -163,7 +163,7 @@ vector<string> splitString(const char* s, const char* delim = " ")
 	while ((pos = temp.find(delim)) != string::npos)
 	{
 		result.emplace_back(temp.substr(0, pos));
-		temp = temp.substr(pos + 1);
+		temp = temp.substr(pos + strlen(delim));
 	}
 	result.emplace_back(temp);
 	return result;
