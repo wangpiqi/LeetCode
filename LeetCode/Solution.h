@@ -157,6 +157,27 @@ unsigned long long combination(int n, int m)
 
 class Solution {
 public:
+	//面试题 16.05. 阶乘尾数
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		47.49 %
+		的用户*/
+	int trailingZeroes(int n) {
+		int res = 0;
+		while (n >= 5)
+		{
+			res += n / 5;
+			n /= 5;
+		}
+		return res;
+	}
+
 	//1346. 检查整数及其两倍数是否存在
 	/*执行用时：
 		8 ms
@@ -187,7 +208,7 @@ public:
 				continue;
 
 			if (temp.find(arr[i] * 2) != temp.end()
-				|| temp.find(arr[i] * 0.5) != temp.end())
+				|| temp.find(int(arr[i] * 0.5)) != temp.end())
 				return true;
 		}
 		return false;
