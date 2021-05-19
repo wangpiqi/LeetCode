@@ -181,9 +181,6 @@ string combinString(const vector<string>& array, const char* delim = " ")
 }
 
 int digitSum(int n) {
-	if (n < 1)
-		return n;
-
 	int ret{};
 	while (n != 0)
 	{
@@ -198,6 +195,16 @@ int digitSum(int n) {
 class Solution {
 public:
 	//1742. 盒子中小球的最大数量
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		90.09 %
+		的用户
+		内存消耗：
+		5.7 MB
+		, 在所有 C++ 提交中击败了
+		97.41 %
+		的用户*/
 	int countBalls(int lowLimit, int highLimit) {
 		vector<int> temp;
 		temp.resize(50, 0);
