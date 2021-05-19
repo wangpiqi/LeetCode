@@ -185,8 +185,11 @@ int digitSum(int n) {
 		return n;
 
 	int ret{};
-	for (const auto& c : to_string(n))
-		ret += (c - '0');
+	while (n != 0)
+	{
+		ret += n % 10;
+		n /= 10;
+	}
 	return ret;
 }
 
