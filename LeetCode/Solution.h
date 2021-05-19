@@ -184,6 +184,32 @@ string combinString(const vector<string>& array, const char* delim = " ")
 
 class Solution {
 public:
+	//1859. 将句子排序
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		31.19 %
+		的用户
+		内存消耗：
+		5.9 MB
+		, 在所有 C++ 提交中击败了
+		97.69 %
+		的用户*/
+	string sortSentence(string s) {
+		auto result = splitString(s.c_str());
+		sort(result.begin(), result.end(), [](const string& a, const string& b) {
+			return *a.rbegin() < *b.rbegin();
+		});
+
+		s = "";
+		for (const auto& word : result)
+		{
+			s += word.substr(0, word.length() - 1) + " ";
+		}
+		s = s.substr(0, s.length() - 1);
+		return s;
+	}
+
 	//面试题 16.05. 阶乘尾数
 	/*执行用时：
 		0 ms
