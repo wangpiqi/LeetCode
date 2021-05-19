@@ -180,10 +180,29 @@ string combinString(const vector<string>& array, const char* delim = " ")
 	return result;
 }
 
+int digitSum(int n) {
+	if (n < 1)
+	{
+		return n;
+	}
+
+	int ret{};
+	for (auto c : to_string(n))
+	{
+		ret += c - '0';
+	}
+	return ret;
+}
+
 #pragma endregion
 
 class Solution {
 public:
+	//1742. 盒子中小球的最大数量
+	int countBalls(int lowLimit, int highLimit) {
+		//
+	}
+
 	//1859. 将句子排序
 	/*执行用时：
 		4 ms

@@ -2,7 +2,7 @@
 
 int main()
 {
-	Solution s;
+	//Solution s;
 
 	//vector<int> temp{ 4,2,1 };
 	//s.minCount(temp);
