@@ -199,20 +199,14 @@ class Solution {
 public:
 	//1742. 盒子中小球的最大数量
 	int countBalls(int lowLimit, int highLimit) {
-		int ret{};
-
-		std::unordered_map<int, int> temp;
+		vector<int> temp;
+		temp.resize(50, 0);
 		for (int i = lowLimit; i <= highLimit; i++)
 		{
 			int index = digitSum(i);
 			++temp[index];
-			if (temp[index] > ret)
-			{
-				ret = temp[index];
-			}
 		}
-
-		return ret;
+		return *max_element(temp.begin(), temp.end());
 	}
 
 	//1859. 将句子排序
