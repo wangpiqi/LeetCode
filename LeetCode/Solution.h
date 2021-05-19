@@ -182,15 +182,11 @@ string combinString(const vector<string>& array, const char* delim = " ")
 
 int digitSum(int n) {
 	if (n < 1)
-	{
 		return n;
-	}
 
 	int ret{};
-	for (auto c : to_string(n))
-	{
-		ret += c - '0';
-	}
+	for (const auto& c : to_string(n))
+		ret += (c - '0');
 	return ret;
 }
 
@@ -200,7 +196,20 @@ class Solution {
 public:
 	//1742. 盒子中小球的最大数量
 	int countBalls(int lowLimit, int highLimit) {
-		//
+		int ret{};
+
+		std::unordered_map<int, int> temp;
+		for (int i = lowLimit; i <= highLimit; i++)
+		{
+			int index = digitSum(i);
+			++temp[index];
+			if (temp[index] > ret)
+			{
+				ret = temp[index];
+			}
+		}
+
+		return ret;
 	}
 
 	//1859. 将句子排序
