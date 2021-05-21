@@ -195,14 +195,22 @@ int digitSum(int n) {
 class Solution {
 public:
 	//剑指 Offer 53 - II. 0～n-1中缺失的数字
-	int missingNumber(vector<int>& nums) {
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		84.23 %
+		的用户
+		内存消耗：
+		16.6 MB
+		, 在所有 C++ 提交中击败了
+		88.02 %
+		的用户*/
+	int missingNumber2(vector<int>& nums) {
 		vector<bool> temp;
 		temp.resize(nums.size() + 1, false);
 		for (auto n : nums)
-		{
 			temp[n] = true;
-		}
-		for (int i = 0; i < temp.size(); i++)
+		for (int i = 0; i < (int)temp.size(); i++)
 		{
 			if (!temp[i])
 				return i;
