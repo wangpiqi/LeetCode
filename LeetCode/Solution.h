@@ -194,6 +194,22 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//剑指 Offer 53 - II. 0～n-1中缺失的数字
+	int missingNumber(vector<int>& nums) {
+		vector<bool> temp;
+		temp.resize(nums.size() + 1, false);
+		for (auto n : nums)
+		{
+			temp[n] = true;
+		}
+		for (int i = 0; i < temp.size(); i++)
+		{
+			if (!temp[i])
+				return i;
+		}
+		return -1;
+	}
+
 	//1742. 盒子中小球的最大数量
 	/*执行用时：
 		8 ms
