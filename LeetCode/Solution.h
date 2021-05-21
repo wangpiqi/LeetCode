@@ -195,11 +195,21 @@ int digitSum(int n) {
 class Solution {
 public:
 	//1796. 字符串中第二大的数字
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		22.30 %
+		的用户
+		内存消耗：
+		9.1 MB
+		, 在所有 C++ 提交中击败了
+		5.08 %
+		的用户*/
 	int secondHighest(string s) {
 		std::set<int> temp;
 		for (const char& c : s)
 		{
-			if (c >= '0' && c <= '9')
+			if (isdigit(c))
 				temp.emplace(c - '0');
 		}
 		return temp.size() > 1 ? *(++temp.rbegin()) : -1;
