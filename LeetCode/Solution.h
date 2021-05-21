@@ -194,6 +194,17 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//1796. 字符串中第二大的数字
+	int secondHighest(string s) {
+		std::set<int> temp;
+		for (const char& c : s)
+		{
+			if (c >= '0' && c <= '9')
+				temp.emplace(c - '0');
+		}
+		return temp.size() > 1 ? *(++temp.rbegin()) : -1;
+	}
+
 	//剑指 Offer 53 - II. 0～n-1中缺失的数字
 	/*执行用时：
 		16 ms
