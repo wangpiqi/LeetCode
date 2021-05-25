@@ -2916,14 +2916,14 @@ private:
 
 //1656. 设计有序流
 //执行用时：
-//132 ms
+//112 ms
 //, 在所有 C++ 提交中击败了
-//68.94 %
+//96.72 %
 //的用户
 //内存消耗：
-//81.5 MB
+//81.6 MB
 //, 在所有 C++ 提交中击败了
-//91.16 %
+//82.83 %
 //的用户
 class OrderedStream {
 public:
@@ -2939,8 +2939,7 @@ public:
 		{
 			if (m_data[m_ptr] == "")
 				break;
-			else
-				ret.emplace_back(m_data[m_ptr]);
+			ret.emplace_back(m_data[m_ptr]);
 		}
 		return ret;
 	}
