@@ -6,6 +6,12 @@ using namespace std;
 
 class Solution {
 public:
+	//LCP 29. 乐团站位
+	int orchestraLayout(int num, int xPos, int yPos) {
+		auto matrix = initMatrix(num, num);
+		return 0;
+	}
+
 	//1828. 统计一个圆中点的数目
 	/*执行用时：
 		104 ms

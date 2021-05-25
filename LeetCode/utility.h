@@ -224,4 +224,13 @@ bool pointInCircle(const vector<int>& point, const vector<int>& circle)
 	return pow(diffX, 2) + pow(diffY, 2) <= radius * radius;
 }
 
+vector<vector<int>> initMatrix(int m, int n)
+{
+	vector<vector<int>> matrix;
+	matrix.resize(m);
+	for (auto& row : matrix)
+		row.resize(n, 0);
+	return std::move(matrix);
+}
+
 #pragma endregion
