@@ -6,6 +6,11 @@ using namespace std;
 
 class Solution {
 public:
+	//1828. 统计一个圆中点的数目
+	vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+		//
+	}
+
 	//面试题 16.01. 交换数字
 	/*执行用时：
 		0 ms

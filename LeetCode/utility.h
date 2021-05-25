@@ -211,4 +211,14 @@ void swap3(int& a, int& b)
 	a ^= b;
 }
 
+bool pointInCircle(const vector<int>& point, const vector<int>& circle)
+{
+	int x1 = point[0];
+	int y1 = point[1];
+	int x0 = circle[0];
+	int y0 = circle[1];
+	int radius = circle[2];
+	return pow(x1 - x0, 2) + pow(y1 - y0, 2) <= radius * radius;
+}
+
 #pragma endregion
