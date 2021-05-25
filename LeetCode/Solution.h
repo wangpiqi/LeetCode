@@ -194,6 +194,27 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//1837. K 进制表示下的各位数字总和
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.9 MB
+		, 在所有 C++ 提交中击败了
+		30.66 %
+		的用户*/
+	int sumBase(int n, int k) {
+		int ret{};
+		while (n != 0)
+		{
+			ret += (n % k);
+			n /= k;
+		}
+		return ret;
+	}
+
 	//1796. 字符串中第二大的数字
 	/*执行用时：
 		12 ms
