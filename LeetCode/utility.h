@@ -213,14 +213,14 @@ void swap3(int& a, int& b)
 
 bool pointInCircle(const vector<int>& point, const vector<int>& circle)
 {
-	int x1 = point[0];
-	int y1 = point[1];
-	int x0 = circle[0];
-	int y0 = circle[1];
-	int radius = circle[2];
+	const int& x1 = point[0];
+	const int& y1 = point[1];
+	const int& x0 = circle[0];
+	const int& y0 = circle[1];
+	const int& radius = circle[2];
 
-	int diffX = x1 - x0;
-	int diffY = y1 - y0;
+	const int& diffX = x1 - x0;
+	const int& diffY = y1 - y0;
 	if (diffX > radius || diffY > radius)
 	{
 		return false;
