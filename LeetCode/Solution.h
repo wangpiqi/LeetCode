@@ -194,6 +194,39 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//剑指 Offer 57 - II. 和为s的连续正数序列
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		61.75 %
+		的用户
+		内存消耗：
+		6.4 MB
+		, 在所有 C++ 提交中击败了
+		97.62 %
+		的用户*/
+	vector<vector<int>> findContinuousSequence(int target) {
+		vector<vector<int>> ret;
+		for (int i = 1; i <= target * 0.5; i++)
+		{
+			int sum{};
+			int n{ i };
+			while (sum < target)
+				sum += n++;
+
+			if (sum == target)
+			{
+				vector<int> temp;
+				for (int j = i; j < n ; j++)
+				{
+					temp.emplace_back(j);
+				}
+				ret.emplace_back(temp);
+			}
+		}
+		return ret;
+	}
+
 	//338. 比特位计数
 	/*执行用时：
 		4 ms
