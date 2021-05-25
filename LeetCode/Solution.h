@@ -194,6 +194,22 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//1833. 雪糕的最大数量
+	int maxIceCream(vector<int>& costs, int coins) {
+		sort(costs.begin(), costs.end());
+
+		int i = 0;
+		for (; i < (int)costs.size(); i++)
+		{
+			coins -= costs[i];
+			if (coins == 0)
+				return i + 1;
+			if (coins < 0)
+				return i;
+		}
+		return i;
+	}
+
 	//剑指 Offer 64. 求1+2+…+n
 	/*执行用时：
 		0 ms

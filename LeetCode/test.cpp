@@ -2,7 +2,7 @@
 
 int main()
 {
-	//Solution s;
+	Solution s;
 
 	//vector<int> temp{ 4,2,1 };
 	//s.minCount(temp);
@@ -24,7 +24,9 @@ int main()
 	/*auto temp = stringToIntegerVector("[1]");
 	s.removeElement(temp, 1);*/
 	//cout<< treeNodeToString(s.increasingBST(stringToTreeNode("[2,1,4,null,null,3]"))) <<endl;
-	combinString(splitString("is2  sentence4  This1  a3", "  "), ",");
+	//combinString(splitString("is2  sentence4  This1  a3", "  "), ",");
+	auto temp = stringToIntegerVector("[1,6,3,1,2,5]");
+	s.maxIceCream(temp, 20);
 
 	system("pause");
 	return 0;
