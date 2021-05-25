@@ -194,6 +194,23 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//剑指 Offer 64. 求1+2+…+n
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		63.71 %
+		的用户*/
+	int sumNums(int n) {
+		if (n == 1)
+			return 1;
+		return n + sumNums(n - 1);
+	}
+
 	//剑指 Offer 57 - II. 和为s的连续正数序列
 	/*执行用时：
 		4 ms
