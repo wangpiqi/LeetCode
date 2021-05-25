@@ -2,7 +2,7 @@
 
 int main()
 {
-	Solution s;
+	//Solution s;
 
 	//vector<int> temp{ 4,2,1 };
 	//s.minCount(temp);
@@ -29,7 +29,8 @@ int main()
 	s.maxIceCream(temp, 20);*/
 	/*auto temp = stringToIntegerVector("[5,2]");
 	s.swapNumbers(temp);*/
-	s.orchestraLayout(3, 0, 2);
+	auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
+	bubble_sort(temp);
 
 	system("pause");
 	return 0;

@@ -233,4 +233,15 @@ vector<vector<int>> initMatrix(int m, int n)
 	return std::move(matrix);
 }
 
+//ц╟ещеепР
+void bubble_sort(vector<int>& array)
+{
+	for (int i = 0; i < (int)array.size() - 1; i++) {
+		for (int j = 0; j < (int)array.size() - 1 - i; j++) {
+			if (array[j] > array[j + 1])
+				swap(array[j], array[j + 1]);
+		}
+	}
+}
+
 #pragma endregion
