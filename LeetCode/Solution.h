@@ -8,7 +8,18 @@ class Solution {
 public:
 	//1828. 统计一个圆中点的数目
 	vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
-		//
+		vector<int> ret;
+		for (const auto& querie : queries)
+		{
+			int count{};
+			for (const auto& point : points)
+			{
+				if (pointInCircle(point, querie))
+					++count;
+			}
+			ret.emplace_back(count);
+		}
+		return ret;
 	}
 
 	//面试题 16.01. 交换数字
