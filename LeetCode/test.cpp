@@ -27,7 +27,7 @@ int main()
 	//combinString(splitString("is2  sentence4  This1  a3", "  "), ",");
 	/*auto temp = stringToIntegerVector("[1,6,3,1,2,5]");
 	s.maxIceCream(temp, 20);*/
-	auto temp = stringToIntegerVector("[1,2]");
+	auto temp = stringToIntegerVector("[5,2]");
 	s.swapNumbers(temp);
 
 	system("pause");
