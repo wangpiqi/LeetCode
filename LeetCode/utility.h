@@ -218,7 +218,15 @@ bool pointInCircle(const vector<int>& point, const vector<int>& circle)
 	int x0 = circle[0];
 	int y0 = circle[1];
 	int radius = circle[2];
-	return pow(x1 - x0, 2) + pow(y1 - y0, 2) <= radius * radius;
+
+	int diffX = x1 - x0;
+	int diffY = y1 - y0;
+	if (diffX > radius || diffY > radius)
+	{
+		return false;
+	}
+
+	return pow(diffX, 2) + pow(diffY, 2) <= radius * radius;
 }
 
 #pragma endregion

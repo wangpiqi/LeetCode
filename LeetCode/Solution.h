@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//1828. 统计一个圆中点的数目
+	/*执行用时：
+		104 ms
+		, 在所有 C++ 提交中击败了
+		72.42 %
+		的用户
+		内存消耗：
+		15.7 MB
+		, 在所有 C++ 提交中击败了
+		91.26 %
+		的用户*/
 	vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
 		vector<int> ret;
 		for (const auto& querie : queries)
