@@ -194,6 +194,27 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//338. 比特位计数
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		95.07 %
+		的用户
+		内存消耗：
+		8.3 MB
+		, 在所有 C++ 提交中击败了
+		15.15 %
+		的用户*/
+	vector<int> countBits(int n) {
+		vector<int> ret;
+		for (int i = 0; i <= n ; i++)
+		{
+			bitset<32> bs(i);
+			ret.emplace_back(bs.count());
+		}
+		return ret;
+	}
+
 	//1837. K 进制表示下的各位数字总和
 	/*执行用时：
 		0 ms
