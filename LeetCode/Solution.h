@@ -2914,6 +2914,48 @@ private:
 	int m_index{ 0 };
 };
 
+//1656. 设计有序流
+//执行用时：
+//132 ms
+//, 在所有 C++ 提交中击败了
+//68.94 %
+//的用户
+//内存消耗：
+//81.5 MB
+//, 在所有 C++ 提交中击败了
+//91.16 %
+//的用户
+class OrderedStream {
+public:
+	OrderedStream(int n) {
+		m_data.resize(n, "");
+	}
+
+	vector<string> insert(int idKey, string value) {
+		m_data[idKey - 1] = value;
+
+		vector<string> ret;
+		for (; m_ptr < (int)m_data.size(); m_ptr++)
+		{
+			if (m_data[m_ptr] == "")
+				break;
+			else
+				ret.emplace_back(m_data[m_ptr]);
+		}
+		return ret;
+	}
+
+private:
+	vector<string> m_data;
+	int m_ptr{};
+};
+
+/**
+ * Your OrderedStream object will be instantiated and called as such:
+ * OrderedStream* obj = new OrderedStream(n);
+ * vector<string> param_1 = obj->insert(idKey,value);
+ */
+
 //剑指 Offer 09. 用两个栈实现队列
 //执行用时：
 //316 ms
