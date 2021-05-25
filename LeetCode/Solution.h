@@ -6,28 +6,6 @@ using namespace std;
 
 class Solution {
 public:
-	//LCP 29. 乐团站位
-	int orchestraLayout(int num, int xPos, int yPos) {
-		auto&& matrix = initMatrix(num, num);
-
-		auto&& move = [&matrix](int& i, int& j) {
-			//
-		};
-
-		int i{ 0 };
-		int j{ 0 };
-		int value{ 1 };
-
-		do 
-		{
-			matrix[i][j] = value++;
-			value = value > 9 ? 1 : value;
-			move(i, j);
-		} while (i != xPos || j != yPos);
-
-		return 0;
-	}
-
 	//1828. 统计一个圆中点的数目
 	/*执行用时：
 		104 ms
