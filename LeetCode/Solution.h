@@ -194,7 +194,33 @@ int digitSum(int n) {
 
 class Solution {
 public:
+	//面试题 16.01. 交换数字
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		7 MB
+		, 在所有 C++ 提交中击败了
+		75.13 %
+		的用户*/
+	vector<int> swapNumbers(vector<int>& numbers) {
+		swap(numbers[0], numbers[1]);
+		return numbers;
+	}
+
 	//1833. 雪糕的最大数量
+	/*执行用时：
+		168 ms
+		, 在所有 C++ 提交中击败了
+		84.23 %
+		的用户
+		内存消耗：
+		74.7 MB
+		, 在所有 C++ 提交中击败了
+		20.70 %
+		的用户*/
 	int maxIceCream(vector<int>& costs, int coins) {
 		sort(costs.begin(), costs.end());
 
