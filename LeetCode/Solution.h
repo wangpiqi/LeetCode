@@ -218,9 +218,7 @@ public:
 			{
 				vector<int> temp;
 				for (int j = i; j < n ; j++)
-				{
 					temp.emplace_back(j);
-				}
 				ret.emplace_back(temp);
 			}
 		}
