@@ -204,4 +204,11 @@ void swap2(int& a, int& b)
 	a /= b;
 }
 
+void swap3(int& a, int& b)
+{
+	a ^= b;
+	b = a ^ b;
+	a ^= b;
+}
+
 #pragma endregion
