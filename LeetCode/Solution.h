@@ -18,7 +18,7 @@ public:
 		75.13 %
 		µÄÓÃ»§*/
 	vector<int> swapNumbers(vector<int>& numbers) {
-		swap(numbers[0], numbers[1]);
+		swap1(numbers[0], numbers[1]);
 		return numbers;
 	}
 

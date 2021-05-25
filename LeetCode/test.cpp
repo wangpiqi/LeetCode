@@ -25,8 +25,10 @@ int main()
 	s.removeElement(temp, 1);*/
 	//cout<< treeNodeToString(s.increasingBST(stringToTreeNode("[2,1,4,null,null,3]"))) <<endl;
 	//combinString(splitString("is2  sentence4  This1  a3", "  "), ",");
-	auto temp = stringToIntegerVector("[1,6,3,1,2,5]");
-	s.maxIceCream(temp, 20);
+	/*auto temp = stringToIntegerVector("[1,6,3,1,2,5]");
+	s.maxIceCream(temp, 20);*/
+	auto temp = stringToIntegerVector("[1,2]");
+	s.swapNumbers(temp);
 
 	system("pause");
 	return 0;
