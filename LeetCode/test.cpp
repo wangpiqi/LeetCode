@@ -35,7 +35,8 @@ int main()
 	String s1("Hello World!");
 	String s2 = (s1);
 	String s3;
-	s3 = s1 + s2;
+	s2 += s1;
+	s3 = s1 + s1;
 	cout<<s3.c_str()<<endl;
 
 	system("pause");

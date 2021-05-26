@@ -41,13 +41,15 @@ const char* mystrcpy(char* desc, const char* src)
 	return ret;
 }
 
-void mystrcat(char* desc, const char* src)
+const char* mystrcat(char* desc, const char* src)
 {
+	const char* ret = desc;
 	if (!desc || !src)
-		return;
+		return ret;
 	while (*desc != '\0')
 		++desc;
 	while ((*desc++ = *src++) != '\0');
+	return ret;
 }
 
 class String
@@ -55,15 +57,13 @@ class String
 public:
 	String(const char* str = "") noexcept
 	{
-		int len = mystrlen(str) + 1;
-		m_data = new char[len];
+		m_data = new char[mystrlen(str) + 1];
 		mystrcpy(m_data, str);
 	};
 
 	String(String& other) noexcept
 	{
-		int len = mystrlen(other.m_data) + 1;
-		m_data = new char[len];
+		m_data = new char[mystrlen(other.m_data) + 1];
 		mystrcpy(m_data, other.m_data);
 	}
 
@@ -75,8 +75,11 @@ public:
 
 	String& operator=(String& other) noexcept
 	{
-		int len = mystrlen(other.m_data) + 1;
-		m_data = new char[len];
+		if (this == &other)
+			return *this;
+
+		delete[] m_data;
+		m_data = new char[mystrlen(other.m_data) + 1];
 		mystrcpy(m_data, other.m_data);
 		return *this;
 	}
@@ -88,10 +91,20 @@ public:
 		return *this;
 	}
 
-	String& operator+(String& other) noexcept
+	String operator+(String& other) noexcept
+	{
+		String sum;
+		delete[] sum.m_data;
+		sum.m_data = new char[mystrlen(m_data) + mystrlen(other.m_data) + 1];
+		mystrcpy(sum.m_data, m_data);
+		mystrcat(sum.m_data, other.m_data);
+		return std::move(sum);
+	}
+
+	String& operator+=(String& other) noexcept
 	{
 		char* old = m_data;
-		m_data = new char[mystrlen(m_data) + mystrlen(other.m_data) + 1];
+		m_data = new char[mystrlen(old) + mystrlen(other.m_data) + 1];
 		mystrcpy(m_data, old);
 		mystrcat(m_data, other.m_data);
 		delete[] old;
