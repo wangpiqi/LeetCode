@@ -244,4 +244,19 @@ void bubble_sort(vector<int>& array)
 	}
 }
 
+//—°‘Ò≈≈–Ú
+void selection_sort(vector<int>& array)
+{
+	for (int i = 0; i < (int)array.size() - 1; i++)
+	{
+		int index{ i };
+		for (int j = i + 1; j < (int)array.size(); j++)
+		{
+			if (array[j] < array[index])
+				index = j;
+		}
+		swap(array[i], array[index]);
+	}
+}
+
 #pragma endregion

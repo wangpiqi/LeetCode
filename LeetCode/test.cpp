@@ -30,7 +30,7 @@ int main()
 	/*auto temp = stringToIntegerVector("[5,2]");
 	s.swapNumbers(temp);*/
 	auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
-	bubble_sort(temp);
+	selection_sort(temp);
 
 	system("pause");
 	return 0;
