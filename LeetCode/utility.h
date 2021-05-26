@@ -20,6 +20,98 @@
 using namespace std;
 
 #pragma region
+
+int mystrlen(const char* str)
+{
+	if (!str)
+		return 0;
+
+	int len{};
+	while (*str++ != '\0')
+		++len;
+	return len;
+}
+
+const char* mystrcpy(char* desc, const char* src)
+{
+	const char* ret = desc;
+	if (!desc || !src)
+		return ret;
+	while ((*desc++ = *src++) != '\0');
+	return ret;
+}
+
+void mystrcat(char* desc, const char* src)
+{
+	if (!desc || !src)
+		return;
+	while (*desc != '\0')
+		++desc;
+	while ((*desc++ = *src++) != '\0');
+}
+
+class String
+{
+public:
+	String(const char* str = "") noexcept
+	{
+		int len = mystrlen(str) + 1;
+		m_data = new char[len];
+		mystrcpy(m_data, str);
+	};
+
+	String(String& other) noexcept
+	{
+		int len = mystrlen(other.m_data) + 1;
+		m_data = new char[len];
+		mystrcpy(m_data, other.m_data);
+	}
+
+	String(String&& other) noexcept
+	{
+		m_data = other.m_data;
+		other.m_data = nullptr;
+	}
+
+	String& operator=(String& other) noexcept
+	{
+		int len = mystrlen(other.m_data) + 1;
+		m_data = new char[len];
+		mystrcpy(m_data, other.m_data);
+		return *this;
+	}
+
+	String& operator=(String&& other) noexcept
+	{
+		m_data = other.m_data;
+		other.m_data = nullptr;
+		return *this;
+	}
+
+	String& operator+(String& other) noexcept
+	{
+		char* old = m_data;
+		m_data = new char[mystrlen(m_data) + mystrlen(other.m_data) + 1];
+		mystrcpy(m_data, old);
+		mystrcat(m_data, other.m_data);
+		delete[] old;
+		return *this;
+	}
+
+	~String() noexcept
+	{
+		delete[] m_data;
+	}
+
+	const char* c_str() noexcept
+	{
+		return m_data;
+	}
+
+private:
+	char* m_data{ nullptr };
+};
+
 struct ListNode {
 	int val;
 	ListNode* next;

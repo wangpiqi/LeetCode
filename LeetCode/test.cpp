@@ -29,8 +29,14 @@ int main()
 	s.maxIceCream(temp, 20);*/
 	/*auto temp = stringToIntegerVector("[5,2]");
 	s.swapNumbers(temp);*/
-	auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
-	selection_sort(temp);
+	/*auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
+	selection_sort(temp);*/
+
+	String s1("Hello World!");
+	String s2 = (s1);
+	String s3;
+	s3 = s1 + s2;
+	cout<<s3.c_str()<<endl;
 
 	system("pause");
 	return 0;
