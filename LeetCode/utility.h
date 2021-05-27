@@ -16,10 +16,25 @@
 #include <unordered_map>
 #include <queue>
 #include <stack>
+#include <fstream>
 
 using namespace std;
 
 #pragma region
+
+string readDataFile()
+{
+	ifstream file("./data.txt");
+	if (!file.is_open())
+	{
+		return "";
+	}
+
+	string temp;
+	getline(file, temp);
+	file.close();
+	return std::move(temp);
+}
 
 int mystrlen(const char* str)
 {

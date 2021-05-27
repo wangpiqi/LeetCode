@@ -6,6 +6,45 @@ using namespace std;
 
 class Solution {
 public:
+	//477. 汉明距离总和
+	/*执行用时：
+		40 ms
+		, 在所有 C++ 提交中击败了
+		95.65 %
+		的用户
+		内存消耗：
+		18.6 MB
+		, 在所有 C++ 提交中击败了
+		7.61 %
+		的用户*/
+	int totalHammingDistance(vector<int>& nums) {
+		int ans = 0, n = nums.size();
+		for (int i = 0; i < 30; ++i) {
+			int c = 0;
+			for (int val : nums) {
+				c += (val >> i) & 1;
+			}
+			ans += c * (n - c);
+		}
+		return ans;
+	}
+
+	//461. 汉明距离
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		47.70 %
+		的用户*/
+	int hammingDistance(int x, int y) {
+		bitset<32> bs(x ^ y);
+		return bs.count();
+	}
+
 	//1828. 统计一个圆中点的数目
 	/*执行用时：
 		104 ms

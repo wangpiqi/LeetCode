@@ -2,7 +2,7 @@
 
 int main()
 {
-	//Solution s;
+	Solution s;
 
 	//vector<int> temp{ 4,2,1 };
 	//s.minCount(temp);
@@ -31,13 +31,16 @@ int main()
 	s.swapNumbers(temp);*/
 	/*auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
 	selection_sort(temp);*/
+	string data = readDataFile();
+	auto temp = stringToIntegerVector(data);
+	s.totalHammingDistance(temp);
 
-	String s1("Hello World!");
+	/*String s1("Hello World!");
 	String s2 = (s1);
 	String s3;
 	s2 += s1;
 	s3 = s1 + s1;
-	cout<<s3.c_str()<<endl;
+	cout<<s3.c_str()<<endl;*/
 
 	system("pause");
 	return 0;
