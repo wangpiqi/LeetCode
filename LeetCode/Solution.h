@@ -6,6 +6,33 @@ using namespace std;
 
 class Solution {
 public:
+	//1576. 替换所有的问号
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		20.04 %
+		的用户*/
+	string modifyString(string s) {
+		for (int i = 0; i < (int)s.length(); i++)
+		{
+			if (s[i] == '?')
+			{
+				char prev = i > 0 ? s[i - 1] : '/0';
+				char next = i < (int)s.length() - 1 ? s[i + 1] : '/0';
+				char c = 'a';
+				while (c == prev || c == next)
+					++c;
+				s[i] = c;
+			}
+		}
+		return std::move(s);
+	}
+
 	//477. 汉明距离总和
 	/*执行用时：
 		40 ms
