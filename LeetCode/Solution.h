@@ -6,6 +6,16 @@ using namespace std;
 
 class Solution {
 public:
+	//剑指 Offer 11. 旋转数组的最小数字
+	int minArray(vector<int>& numbers) {
+		for (int i = 0; i < (int)numbers.size() - 1; i++)
+		{
+			if (numbers[i] > numbers[i + 1])
+				return numbers[i + 1];
+		}
+		return numbers[0];
+	}
+
 	//1869. 哪种连续子字符串更长
 	/*执行用时：
 		0 ms
