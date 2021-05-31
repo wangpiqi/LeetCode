@@ -21,7 +21,7 @@ public:
 		std::unordered_map<string, int> temp;
 		for (int i = 0; i < (int)words.size(); i++)
 			temp[words[i]] = i + 1;
-		return temp[s] == 0 ? -1 : temp[s] - 1;
+		return temp[s] - 1;
 	}
 
 	//面试题 01.04. 回文排列
