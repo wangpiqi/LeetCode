@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//剑指 Offer 11. 旋转数组的最小数字
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		92.24 %
+		的用户
+		内存消耗：
+		11.8 MB
+		, 在所有 C++ 提交中击败了
+		22.04 %
+		的用户*/
 	int minArray(vector<int>& numbers) {
 		for (int i = 0; i < (int)numbers.size() - 1; i++)
 		{
