@@ -6,6 +6,33 @@ using namespace std;
 
 class Solution {
 public:
+	//1422. 分割字符串的最大得分
+	int maxScore(string s) {
+		int left{};
+		int right{};
+
+		int ptr{ 1 };
+		for (int i = 0; i < (int)s.length(); i++)
+		{
+			if (i < ptr && s[i] == '0')
+				++left;
+			if (i >= ptr && s[i] == '1')
+				++right;
+		}
+
+		int ret{ left + right };
+		int score{ left + right };
+		for (int i = ptr; i < (int)s.length() - 1; i++)
+		{
+			if (s[i] == '0')
+				++score;
+			else
+				--score;
+			ret = std::max(score, ret);
+		}
+		return ret;
+	}
+
 	//面试题 10.05. 稀疏数组搜索
 	/*执行用时：
 		8 ms
