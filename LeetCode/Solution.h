@@ -8,6 +8,11 @@ class Solution {
 public:
 	//√Ê ‘Ã‚ 08.10. —’…´ÃÓ≥‰
 	void floodFill(vector<vector<int>>& image, int sr, int sc, int oldColor, int newColor) {
+		if ((sr < 0 || sr >= (int)image.size()) || (sc < 0 || sc >= (int)image[0].size()))
+		{
+			return;
+		}
+
 		floodFill(image, sr, sc + 1, image[sr][sc], newColor);
 		floodFill(image, sr, sc - 1, image[sr][sc], newColor);
 		floodFill(image, sr - 1, sc, image[sr][sc], newColor);
