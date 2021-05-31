@@ -13,7 +13,7 @@ public:
 			return;
 		}
 
-		if (image[sr][sc] != oldColor)
+		if (image[sr][sc] != oldColor || image[sr][sc] == newColor)
 		{
 			return;
 		}

@@ -37,7 +37,9 @@ int main()
 	/*auto commands = stringToIntegerVector("[4,-1,3]");
 	vector<vector<int>> obstacles = { {} };
 	s.robotSim(commands, obstacles);*/
-	s.checkZeroOnes("111000");
+	//s.checkZeroOnes("111000");
+	vector<vector<int>> image = { {1, 1, 1} ,{1, 1, 0},{1, 0, 1} };
+	s.floodFill(image, 1, 1, 2);
 
 	/*String s1("Hello World!");
 	String s2 = (s1);
