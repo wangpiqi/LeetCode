@@ -6,6 +6,31 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 01.06. 字符串压缩
+	string compressString(string S) {
+		std::stack<char> s;
+
+		string ret;
+		for (int i = 0; i < (int)S.size() ; i++)
+		{
+			if (!s.empty() && s.top() != S[i])
+			{
+				ret.push_back(s.top());
+				ret += to_string(s.size());
+				clearContainer(s);
+			}
+			s.push(S[i]);
+		}
+
+		if (!s.empty())
+		{
+			ret.push_back(s.top());
+			ret += to_string(s.size());
+		}
+
+		return ret.length() < S.length() ? ret : S;
+	}
+
 	//面试题 02.06. 回文链表
 	/*执行用时：
 		16 ms
