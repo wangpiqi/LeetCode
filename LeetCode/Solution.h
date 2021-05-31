@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//1422. 分割字符串的最大得分
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		62.22 %
+		的用户*/
 	int maxScore(string s) {
 		int left{};
 		int right{};
@@ -20,14 +30,15 @@ public:
 				++right;
 		}
 
-		int ret{ left + right };
 		int score{ left + right };
+		int ret{ score };
 		for (int i = ptr; i < (int)s.length() - 1; i++)
 		{
 			if (s[i] == '0')
 				++score;
 			else
 				--score;
+
 			ret = std::max(score, ret);
 		}
 		return ret;
