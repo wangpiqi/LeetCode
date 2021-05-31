@@ -6,6 +6,28 @@ using namespace std;
 
 class Solution {
 public:
+	//1455. 检查单词是否为句中其他单词的前缀
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		56.76 %
+		的用户*/
+	int isPrefixOfWord(string sentence, string searchWord) {
+		auto words = splitString(sentence.c_str());
+		for (int i = 0; i < (int)words.size(); i++)
+		{
+			int pos = words[i].find(searchWord);
+			if (pos == 0)
+				return i + 1;
+		}
+		return -1;
+	}
+
 	//696. 计数二进制子串
 	/*执行用时：
 		20 ms
