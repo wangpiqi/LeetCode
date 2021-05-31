@@ -13,10 +13,17 @@ public:
 			return;
 		}
 
+		if (image[sr][sc] != oldColor)
+		{
+			return;
+		}
+
 		floodFill(image, sr, sc + 1, image[sr][sc], newColor);
 		floodFill(image, sr, sc - 1, image[sr][sc], newColor);
 		floodFill(image, sr - 1, sc, image[sr][sc], newColor);
 		floodFill(image, sr + 1, sc, image[sr][sc], newColor);
+
+		image[sr][sc] = newColor;
 	}
 
 	vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
