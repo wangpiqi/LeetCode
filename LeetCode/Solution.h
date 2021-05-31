@@ -6,6 +6,31 @@ using namespace std;
 
 class Solution {
 public:
+	//342. 4的幂
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.9 MB
+		, 在所有 C++ 提交中击败了
+		22.30 %
+		的用户*/
+	bool isPowerOfFour(int n) {
+		if (n <= 0)
+			return false;
+
+		while (n > 1)
+		{
+			if (n % 4 != 0)
+				return false;
+			n >>= 2;
+		};
+
+		return true;
+	}
+
 	//1576. 替换所有的问号
 	/*执行用时：
 		0 ms
