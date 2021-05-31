@@ -300,6 +300,13 @@ string combinString(const vector<string>& array, const char* delim = " ")
 	return result;
 }
 
+bool isPalindrome(const string& str)
+{
+	string temp(str);
+	reverse(temp.begin(), temp.end());
+	return str == temp;
+}
+
 int digitSum(int n) {
 	int ret{};
 	while (n != 0)

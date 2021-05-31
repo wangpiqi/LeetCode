@@ -6,6 +6,27 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 02.06. 回文链表
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		79.83 %
+		的用户
+		内存消耗：
+		13.5 MB
+		, 在所有 C++ 提交中击败了
+		55.77 %
+		的用户*/
+	bool isPalindrome(ListNode* head) {
+		string str;
+		while (head)
+		{
+			str.push_back(head->val + '0');
+			head = head->next;
+		}
+		return ::isPalindrome(str);
+	}
+
 	//1380. 矩阵中的幸运数
 	/*执行用时：
 		24 ms
