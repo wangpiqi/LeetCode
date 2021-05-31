@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//面试题 08.10. 颜色填充
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		84.22 %
+		的用户
+		内存消耗：
+		13.2 MB
+		, 在所有 C++ 提交中击败了
+		44.01 %
+		的用户*/
 	void floodFill(vector<vector<int>>& image, int sr, int sc, int oldColor, int newColor) {
 		if ((sr < 0 || sr >= (int)image.size()) || (sc < 0 || sc >= (int)image[0].size()))
 		{
@@ -18,12 +28,12 @@ public:
 			return;
 		}
 
-		floodFill(image, sr, sc + 1, image[sr][sc], newColor);
-		floodFill(image, sr, sc - 1, image[sr][sc], newColor);
-		floodFill(image, sr - 1, sc, image[sr][sc], newColor);
-		floodFill(image, sr + 1, sc, image[sr][sc], newColor);
-
 		image[sr][sc] = newColor;
+
+		floodFill(image, sr, sc + 1, oldColor, newColor);
+		floodFill(image, sr, sc - 1, oldColor, newColor);
+		floodFill(image, sr - 1, sc, oldColor, newColor);
+		floodFill(image, sr + 1, sc, oldColor, newColor);
 	}
 
 	vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
