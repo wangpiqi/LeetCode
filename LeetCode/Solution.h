@@ -6,6 +6,88 @@ using namespace std;
 
 class Solution {
 public:
+	//874. 模拟行走机器人
+	int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
+		enum Direction
+		{
+			North = 0,
+			East = 1,
+			South = 2,
+			West = 3,
+		};
+
+		vector<int> pos{ 0, 0 };
+		int dir = Direction::North;
+
+		auto changeDir = [&dir](int command) {
+			switch (command)
+			{
+			case -2:
+				--dir;
+				break;
+			case -1:
+				++dir;
+				break;
+			default:
+				break;
+			}
+			
+			if (dir == -1)
+				dir = West;
+			else if (dir == 4)
+				dir = North;
+		};
+
+		auto isCollision = [&obstacles](const vector<int>& pos) {
+			return find(obstacles.begin(), obstacles.end(), pos) != obstacles.end();
+		};
+
+		auto doMove = [&pos, &dir, &obstacles, &isCollision](int command) {
+			for (int i = 0; i < command ; i++)
+			{
+				vector<int> temp(pos);
+				switch (dir)
+				{
+				case North:
+					++temp[1];
+					break;
+				case East:
+					++temp[0];
+					break;
+				case South:
+					--temp[1];
+					break;
+				case West:
+					--temp[0];
+					break;
+				default:
+					break;
+				}
+
+				if (!isCollision(temp))
+					pos = std::move(temp);
+				else
+					break;
+			}
+		};
+
+		for (int i = 0; i < (int)commands.size(); i++)
+		{
+			switch (commands[i])
+			{
+			case -2:
+			case -1:
+				changeDir(commands[i]);
+				break;
+			default:
+				doMove(commands[i]);
+				break;
+			}
+		}
+
+		return pos[0] * pos[0] + pos[1] * pos[1];
+	}
+
 	//342. 4的幂
 	/*执行用时：
 		0 ms

@@ -31,9 +31,12 @@ int main()
 	s.swapNumbers(temp);*/
 	/*auto temp = stringToIntegerVector("[5,2,3,7,4,6]");
 	selection_sort(temp);*/
-	string data = readDataFile();
+	/*string data = readDataFile();
 	auto temp = stringToIntegerVector(data);
-	s.totalHammingDistance(temp);
+	s.totalHammingDistance(temp);*/
+	auto commands = stringToIntegerVector("[4,-1,3]");
+	vector<vector<int>> obstacles = { {} };
+	s.robotSim(commands, obstacles);
 
 	/*String s1("Hello World!");
 	String s2 = (s1);
