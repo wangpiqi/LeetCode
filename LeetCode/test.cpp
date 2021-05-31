@@ -34,9 +34,10 @@ int main()
 	/*string data = readDataFile();
 	auto temp = stringToIntegerVector(data);
 	s.totalHammingDistance(temp);*/
-	auto commands = stringToIntegerVector("[4,-1,3]");
+	/*auto commands = stringToIntegerVector("[4,-1,3]");
 	vector<vector<int>> obstacles = { {} };
-	s.robotSim(commands, obstacles);
+	s.robotSim(commands, obstacles);*/
+	s.checkZeroOnes("111000");
 
 	/*String s1("Hello World!");
 	String s2 = (s1);

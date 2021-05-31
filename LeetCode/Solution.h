@@ -6,6 +6,41 @@ using namespace std;
 
 class Solution {
 public:
+	//1869. 哪种连续子字符串更长
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.9 MB
+		, 在所有 C++ 提交中击败了
+		62.44 %
+		的用户*/
+	bool checkZeroOnes(string s) {
+		char last{};
+		int size{};
+
+		vector<int> ret{ 0, 0 };
+		for (int i = 0; i < (int)s.size(); i++)
+		{
+			if (last != '\0' && s[i] != last)
+			{
+				int index = (last == '1' ? 1 : 0);
+				ret[index] = std::max(size, ret[index]);
+				size = 0;
+			}
+			last = s[i];
+			++size;
+		}
+		if (size != 0)
+		{
+			int index = (last == '1' ? 1 : 0);
+			ret[index] = std::max(size, ret[index]);
+		}
+		return ret[1] > ret[0];
+	}
+
 	//面试题 01.06. 字符串压缩
 	/*执行用时：
 		8 ms
