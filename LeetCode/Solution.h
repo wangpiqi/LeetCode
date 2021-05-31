@@ -6,6 +6,23 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 01.09. 字符串轮转
+	/*执行用时：
+		4 ms
+		, 在所有 C++ 提交中击败了
+		91.36 %
+		的用户
+		内存消耗：
+		7.6 MB
+		, 在所有 C++ 提交中击败了
+		73.31 %
+		的用户*/
+	bool isFlipedString(string s1, string s2) {
+		if (s1.length() != s2.length())
+			return false;
+		return (s2 + s2).find(s1) != string::npos;
+	}
+
 	//面试题 08.10. 颜色填充
 	/*执行用时：
 		8 ms
