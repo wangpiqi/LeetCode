@@ -6,6 +6,41 @@ using namespace std;
 
 class Solution {
 public:
+	//1380. 矩阵中的幸运数
+	/*执行用时：
+		24 ms
+		, 在所有 C++ 提交中击败了
+		79.18 %
+		的用户
+		内存消耗：
+		11.3 MB
+		, 在所有 C++ 提交中击败了
+		22.43 %
+		的用户*/
+	vector<int> luckyNumbers(vector<vector<int>>& matrix) {
+		vector<int> columnMax;
+		columnMax.resize((int)matrix[0].size(), 0);
+
+		auto getColumnMax = [&matrix, &columnMax](int col) {
+			if (columnMax[col] == 0)
+			{
+				for (int i = 0; i < (int)matrix.size(); i++)
+					columnMax[col] = std::max(matrix[i][col], columnMax[col]);
+			}
+			return columnMax[col];
+		};
+
+		vector<int> ret;
+		for (int i = 0; i < (int)matrix.size(); i++)
+		{
+			auto it = min_element(matrix[i].begin(), matrix[i].end());
+			int j = distance(matrix[i].begin(), it);
+			if (*it == getColumnMax(j))
+				ret.emplace_back(*it);
+		}
+		return ret;
+	}
+
 	//1455. 检查单词是否为句中其他单词的前缀
 	/*执行用时：
 		0 ms
