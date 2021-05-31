@@ -6,6 +6,19 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 08.10. 颜色填充
+	void floodFill(vector<vector<int>>& image, int sr, int sc, int oldColor, int newColor) {
+		floodFill(image, sr, sc + 1, image[sr][sc], newColor);
+		floodFill(image, sr, sc - 1, image[sr][sc], newColor);
+		floodFill(image, sr - 1, sc, image[sr][sc], newColor);
+		floodFill(image, sr + 1, sc, image[sr][sc], newColor);
+	}
+
+	vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
+		floodFill(image, sr, sc, image[sr][sc], newColor);
+		return image;
+	}
+
 	//剑指 Offer 11. 旋转数组的最小数字
 	/*执行用时：
 		4 ms
