@@ -6,6 +6,37 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 01.04. 回文排列
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.1 MB
+		, 在所有 C++ 提交中击败了
+		64.75 %
+		的用户*/
+	bool canPermutePalindrome(string s) {
+		std::unordered_map<char, int> temp;
+		for (auto c : s)
+		{
+			++temp[c];
+		}
+
+		int flag{};
+		for (const auto& p : temp)
+		{
+			if (p.second % 2 != 0)
+			{
+				++flag;
+				if (flag > 1)
+					return false;
+			}
+		}
+		return true;
+	}
+
 	//面试题 10.01. 合并排序的数组
 	/*执行用时：
 		0 ms
