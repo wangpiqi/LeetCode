@@ -317,6 +317,13 @@ int digitSum(int n) {
 	return ret;
 }
 
+template <class T>
+void clearContainer(T& container)
+{
+	T temp{};
+	container.swap(temp);
+}
+
 void swap1(int& a, int& b)
 {
 	a += b;
