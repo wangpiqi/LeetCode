@@ -7,18 +7,29 @@ using namespace std;
 class Solution {
 public:
 	//696. 计数二进制子串
+	/*执行用时：
+		20 ms
+		, 在所有 C++ 提交中击败了
+		86.11 %
+		的用户
+		内存消耗：
+		10.2 MB
+		, 在所有 C++ 提交中击败了
+		75.84 %
+		的用户*/
 	int countBinarySubstrings(string s) {
-		auto isBinarySubstrings = [&s](int start) {
-			return false;
-		};
-
-		int ret{};
-		for (int i = 0; i < (int)s.length() ; i++)
-		{
-			if (isBinarySubstrings(i))
-				++ret;
+		int ptr = 0, n = s.size(), last = 0, ans = 0;
+		while (ptr < n) {
+			char c = s[ptr];
+			int count = 0;
+			while (ptr < n && s[ptr] == c) {
+				++ptr;
+				++count;
+			}
+			ans += min(count, last);
+			last = count;
 		}
-		return ret;
+		return ans;
 	}
 
 	//874. 模拟行走机器人
