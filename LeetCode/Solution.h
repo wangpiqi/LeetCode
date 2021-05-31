@@ -8,24 +8,26 @@ class Solution {
 public:
 	//ÃæÊÔÌâ 01.06. ×Ö·û´®Ñ¹Ëõ
 	string compressString(string S) {
-		std::vector<char> temp;
+		char last{ '0' };
+		int size{};
 
 		string ret;
-		for (int i = 0; i < (int)S.size() ; i++)
+		for (int i = 0; i < (int)S.size(); i++)
 		{
-			if (!temp.empty() && temp[0] != S[i])
+			if (last != '0' && last != S[i])
 			{
-				ret.push_back(temp[0]);
-				ret += to_string(temp.size());
-				clearContainer(temp);
+				ret.push_back(last);
+				ret += to_string(size);
+				size = 0;
 			}
-			temp.emplace_back(S[i]);
+			last = S[i];
+			++size;
 		}
 
-		if (!temp.empty())
+		if (size != 0)
 		{
-			ret.push_back(temp[0]);
-			ret += to_string(temp.size());
+			ret.push_back(last);
+			ret += to_string(size);
 		}
 
 		return ret.length() < S.length() ? ret : S;
