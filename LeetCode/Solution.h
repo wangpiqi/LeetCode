@@ -6,6 +6,45 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 10.01. 合并排序的数组
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		8.9 MB
+		, 在所有 C++ 提交中击败了
+		8.37 %
+		的用户*/
+	void merge(vector<int>& A, int m, vector<int>& B, int n) {
+		vector<int> temp;
+		temp.reserve(m + n);
+
+		int i = 0, j = 0;
+		while (i < m && j < n)
+		{
+			if (A[i] < B[j])
+			{
+				temp.emplace_back(A[i]);
+				++i;
+			}
+			else
+			{
+				temp.emplace_back(B[j]);
+				++j;
+			}
+		}
+
+		for (; i < m ; i++)
+			temp.emplace_back(A[i]);
+
+		for (; j < n; j++)
+			temp.emplace_back(B[j]);
+
+		A = std::move(temp);
+	}
+
 	//面试题 01.09. 字符串轮转
 	/*执行用时：
 		4 ms
