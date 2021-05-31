@@ -6,6 +6,24 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 10.05. 稀疏数组搜索
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		86.81 %
+		的用户
+		内存消耗：
+		11.7 MB
+		, 在所有 C++ 提交中击败了
+		5.07 %
+		的用户*/
+	int findString(vector<string>& words, string s) {
+		std::unordered_map<string, int> temp;
+		for (int i = 0; i < (int)words.size(); i++)
+			temp[words[i]] = i + 1;
+		return temp[s] == 0 ? -1 : temp[s] - 1;
+	}
+
 	//面试题 01.04. 回文排列
 	/*执行用时：
 		0 ms
