@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//面试题 01.06. 字符串压缩
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		90.43 %
+		的用户
+		内存消耗：
+		7.1 MB
+		, 在所有 C++ 提交中击败了
+		90.81 %
+		的用户*/
 	string compressString(string S) {
 		char last{ '0' };
 		int size{};
