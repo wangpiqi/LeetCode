@@ -6,6 +6,21 @@ using namespace std;
 
 class Solution {
 public:
+	//696. 计数二进制子串
+	int countBinarySubstrings(string s) {
+		auto isBinarySubstrings = [&s](int start) {
+			return false;
+		};
+
+		int ret{};
+		for (int i = 0; i < (int)s.length() ; i++)
+		{
+			if (isBinarySubstrings(i))
+				++ret;
+		}
+		return ret;
+	}
+
 	//874. 模拟行走机器人
 	int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
 		enum Direction
