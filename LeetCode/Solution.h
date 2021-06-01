@@ -3441,3 +3441,61 @@ private:
 	std::stack<int> m_stack1;
 	std::stack<int> m_stack2;
 };
+
+//面试题 03.01. 三合一
+//执行用时：
+//72 ms
+//, 在所有 C++ 提交中击败了
+//88.51 %
+//的用户
+//内存消耗：
+//32.2 MB
+//, 在所有 C++ 提交中击败了
+//54.39 %
+//的用户
+class TripleInOne {
+public:
+	TripleInOne(int stackSize) {
+		m_data.resize(stackSize * 3, 0);
+		m_stackSize = stackSize;
+	}
+
+	void push(int stackNum, int value) {
+		if (m_ptr[stackNum] == m_stackSize)
+			return;
+		m_data[stackNum * m_stackSize + m_ptr[stackNum]] = value;
+		++m_ptr[stackNum];
+	}
+
+	int pop(int stackNum) {
+		if (isEmpty(stackNum))
+			return -1;
+		int value = m_data[stackNum * m_stackSize + m_ptr[stackNum] - 1];
+		--m_ptr[stackNum];
+		return value;
+	}
+
+	int peek(int stackNum) {
+		if (isEmpty(stackNum))
+			return -1;
+		return m_data[stackNum * m_stackSize + m_ptr[stackNum] - 1];
+	}
+
+	bool isEmpty(int stackNum) {
+		return m_ptr[stackNum] == 0;
+	}
+
+private:
+	vector<int> m_data;
+	vector<int> m_ptr{ 0, 0, 0 };
+	int m_stackSize{};
+};
+
+/**
+ * Your TripleInOne object will be instantiated and called as such:
+ * TripleInOne* obj = new TripleInOne(stackSize);
+ * obj->push(stackNum,value);
+ * int param_2 = obj->pop(stackNum);
+ * int param_3 = obj->peek(stackNum);
+ * bool param_4 = obj->isEmpty(stackNum);
+ */
