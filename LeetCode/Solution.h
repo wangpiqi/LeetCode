@@ -6,6 +6,29 @@ using namespace std;
 
 class Solution {
 public:
+	//剑指 Offer 53 - I. 在排序数组中查找数字 I
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		80.67 %
+		的用户
+		内存消耗：
+		12.8 MB
+		, 在所有 C++ 提交中击败了
+		72.45 %
+		的用户*/
+	int search(vector<int>& nums, int target) {
+		int ret{};
+		for (auto n : nums)
+		{
+			if (n > target)
+				break;
+			if (n == target)
+				++ret;
+		}
+		return ret;
+	}
+
 	//523. 连续的子数组和
 	/*执行用时：
 		176 ms
