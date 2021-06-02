@@ -7,18 +7,28 @@ using namespace std;
 class Solution {
 public:
 	//523. 连续的子数组和
+	/*执行用时：
+		176 ms
+		, 在所有 C++ 提交中击败了
+		64.91 %
+		的用户
+		内存消耗：
+		94.3 MB
+		, 在所有 C++ 提交中击败了
+		32.67 %
+		的用户*/
 	bool checkSubarraySum(vector<int>& nums, int k) {
-		if (nums.size() < 2)
+		int size = (int)nums.size();
+		if (size < 2)
 			return false;
 
 		unordered_map<int, int> remainder;
 
 		int sum{ 0 };
-		for (int i = 0; i < (int)nums.size(); i++)
+		for (int i = 0; i < size; i++)
 		{
 			sum += nums[i]; //sum[0,i]
 			int mod = (sum % k);
-			//cout<< i << " " << sum << " " << mod <<endl;
 			if (i > 0 && mod == 0)
 				return true;
 			else if (remainder.find(mod) == remainder.end())
