@@ -8,14 +8,14 @@ class Solution {
 public:
 	//1629. 按键持续时间最长的键
 	/*执行用时：
-		8 ms
+		4 ms
 		, 在所有 C++ 提交中击败了
-		84.21 %
+		99.65 %
 		的用户
 		内存消耗：
-		10.4 MB
+		10.3 MB
 		, 在所有 C++ 提交中击败了
-		64.21 %
+		87.02 %
 		的用户*/
 	char slowestKey(vector<int>& releaseTimes, string keysPressed) {
 		vector<int> temp;
@@ -30,7 +30,7 @@ public:
 		}
 		
 		auto it = max_element(temp.rbegin(), temp.rend());
-		return 25 - distance(temp.rbegin(), it) + 'a';
+		return distance(temp.begin(), (++it).base()) + 'a';
 	}
 
 	//剑指 Offer 53 - I. 在排序数组中查找数字 I
