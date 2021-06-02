@@ -11,18 +11,18 @@ public:
 		if (nums.size() < 2)
 			return false;
 
-		vector<int> remainder;
-		remainder.resize(k, -1);
+		unordered_map<int, int> remainder;
 
 		int sum{ 0 };
 		for (int i = 0; i < (int)nums.size(); i++)
 		{
 			sum += nums[i]; //sum[0,i]
 			int mod = (sum % k);
+			//cout<< i << " " << sum << " " << mod <<endl;
 			if (i > 0 && mod == 0)
 				return true;
-			else if (remainder[mod] == -1)
-				remainder[mod] = i;
+			else if (remainder.find(mod) == remainder.end())
+				remainder.insert({ mod, i });
 			else if (i - remainder[mod] > 1)
 				return true;
 		}

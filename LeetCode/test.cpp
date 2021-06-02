@@ -40,7 +40,7 @@ int main()
 	//s.checkZeroOnes("111000");
 	/*vector<vector<int>> image = { {1, 1, 1} ,{1, 1, 0},{1, 0, 1} };
 	s.floodFill(image, 1, 1, 2);*/
-	auto temp = stringToIntegerVector("[0,1,0,3,0,4,0,4,0]"); 
+	auto temp = stringToIntegerVector("[1,2,3]"); 
 	s.checkSubarraySum(temp, 5);
 
 	/*TripleInOne* obj = new TripleInOne(1);
