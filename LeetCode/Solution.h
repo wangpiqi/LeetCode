@@ -6,6 +6,33 @@ using namespace std;
 
 class Solution {
 public:
+	//1629. 按键持续时间最长的键
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		84.21 %
+		的用户
+		内存消耗：
+		10.4 MB
+		, 在所有 C++ 提交中击败了
+		64.21 %
+		的用户*/
+	char slowestKey(vector<int>& releaseTimes, string keysPressed) {
+		vector<int> temp;
+		temp.resize(26, 0);
+
+		int pressTime{};
+		for (int i = 0; i < (int)keysPressed.length(); i++)
+		{
+			char key = keysPressed[i];
+			temp[key - 'a'] = std::max(releaseTimes[i] - pressTime, temp[key - 'a']);
+			pressTime = releaseTimes[i];
+		}
+		
+		auto it = max_element(temp.rbegin(), temp.rend());
+		return 25 - distance(temp.rbegin(), it) + 'a';
+	}
+
 	//剑指 Offer 53 - I. 在排序数组中查找数字 I
 	/*执行用时：
 		8 ms
