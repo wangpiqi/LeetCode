@@ -6,6 +6,29 @@ using namespace std;
 
 class Solution {
 public:
+	//523. 连续的子数组和
+	bool checkSubarraySum(vector<int>& nums, int k) {
+		if (nums.size() < 2)
+			return false;
+
+		vector<int> remainder;
+		remainder.resize(k, -1);
+
+		int sum{ 0 };
+		for (int i = 0; i < (int)nums.size(); i++)
+		{
+			sum += nums[i]; //sum[0,i]
+			int mod = (sum % k);
+			if (i > 0 && mod == 0)
+				return true;
+			else if (remainder[mod] == -1)
+				remainder[mod] = i;
+			else if (i - remainder[mod] > 1)
+				return true;
+		}
+		return false;
+	}
+
 	//1422. 分割字符串的最大得分
 	/*执行用时：
 		0 ms

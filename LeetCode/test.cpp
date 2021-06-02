@@ -2,7 +2,7 @@
 
 int main()
 {
-	//Solution s;
+	Solution s;
 
 	//vector<int> temp{ 4,2,1 };
 	//s.minCount(temp);
@@ -40,15 +40,17 @@ int main()
 	//s.checkZeroOnes("111000");
 	/*vector<vector<int>> image = { {1, 1, 1} ,{1, 1, 0},{1, 0, 1} };
 	s.floodFill(image, 1, 1, 2);*/
+	auto temp = stringToIntegerVector("[0,1,0,3,0,4,0,4,0]"); 
+	s.checkSubarraySum(temp, 5);
 
-	TripleInOne* obj = new TripleInOne(1);
+	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);
 	obj->push(0, 2);
 	int param_1 = obj->pop(0);
 	int param_2 = obj->pop(0);
 	int param_3 = obj->pop(0);
-	//int param_3 = obj->peek(stackNum);
-	bool param_4 = obj->isEmpty(0);
+	int param_3 = obj->peek(stackNum);
+	bool param_4 = obj->isEmpty(0);*/
 
 	/*String s1("Hello World!");
 	String s2 = (s1);
