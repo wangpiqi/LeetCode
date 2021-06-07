@@ -6,6 +6,28 @@ using namespace std;
 
 class Solution {
 public:
+	//1668. 最大重复子字符串
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.2 MB
+		, 在所有 C++ 提交中击败了
+		14.45 %
+		的用户*/
+	int maxRepeating(string sequence, string word) {
+		int result{};
+		string temp{ word };
+		while (sequence.find(temp) != string::npos)
+		{
+			++result;
+			temp += word;
+		}
+		return result;
+	}
+
 	//1629. 按键持续时间最长的键
 	/*执行用时：
 		4 ms

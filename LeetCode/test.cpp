@@ -42,8 +42,10 @@ int main()
 	s.floodFill(image, 1, 1, 2);*/
 	/*auto temp = stringToIntegerVector("[1,2,3]");
 	s.checkSubarraySum(temp, 5);*/
-	auto temp = stringToIntegerVector("[9, 29, 49, 50]"); 
-	s.slowestKey(temp, "cbcd");
+	/*auto temp = stringToIntegerVector("[9, 29, 49, 50]"); 
+	s.slowestKey(temp, "cbcd");*/
+	s.maxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba",
+		"aaaba");
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);
