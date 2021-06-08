@@ -6,6 +6,30 @@ using namespace std;
 
 class Solution {
 public:
+	//1876. 长度为三且各字符不同的子字符串
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6 MB
+		, 在所有 C++ 提交中击败了
+		59.53 %
+		的用户*/
+	int countGoodSubstrings(string s) {
+		int result{};
+		for (int i = 0; i < (int)s.length() - 2; i++)
+		{
+			char a = s[i];
+			char b = s[i + 1];
+			char c = s[i + 2];
+			if (a != b && a != c && b != c)
+				++result;
+		}
+		return result;
+	}
+
 	//1668. 最大重复子字符串
 	/*执行用时：
 		0 ms
