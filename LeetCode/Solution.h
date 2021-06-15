@@ -6,6 +6,29 @@ using namespace std;
 
 class Solution {
 public:
+	//852. 山脉数组的峰顶索引
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		94.97 %
+		的用户
+		内存消耗：
+		11.3 MB
+		, 在所有 C++ 提交中击败了
+		23.53 %
+		的用户*/
+	int peakIndexInMountainArray(vector<int>& arr) {
+		for (int i = 0; i < (int)arr.size() - 2; i++)
+		{
+			const int& a = arr[i];
+			const int& b = arr[i + 1];
+			const int& c = arr[i + 2];
+			if (b > a && b > c)
+				return i + 1;
+		}
+		return -1;
+	}
+
 	//1876. 长度为三且各字符不同的子字符串
 	/*执行用时：
 		0 ms
