@@ -6,6 +6,31 @@ using namespace std;
 
 class Solution {
 public:
+	//401. 二进制手表
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.3 MB
+		, 在所有 C++ 提交中击败了
+		58.60 %
+		的用户*/
+	vector<string> readBinaryWatch(int turnedOn) {
+		vector<string> ans;
+		for (int h = 0; h < 12; ++h) {
+			for (int m = 0; m < 60; ++m) {
+				std::bitset<4> hour(h);
+				std::bitset<6> minute(m);
+				if (hour.count() + minute.count() == turnedOn) {
+					ans.push_back(to_string(h) + ":" + (m < 10 ? "0" : "") + to_string(m));
+				}
+			}
+		}
+		return ans;
+	}
+
 	//852. 山脉数组的峰顶索引
 	/*执行用时：
 		8 ms
