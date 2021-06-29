@@ -6,6 +6,29 @@ using namespace std;
 
 class Solution {
 public:
+	//168. Excel表列名称
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		5.8 MB
+		, 在所有 C++ 提交中击败了
+		55.45 %
+		的用户*/
+	string convertToTitle(int n) {
+		string result;
+		while (n != 0)
+		{
+			int mod = (n - 1) % 26; //[0,25]
+			n = (n - 1) / 26;
+			result += ('A' + mod);
+		}
+		reverse(result.begin(), result.end());
+		return result;
+	}
+
 	//401. 二进制手表
 	/*执行用时：
 		0 ms
