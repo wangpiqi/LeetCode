@@ -6,6 +6,30 @@ using namespace std;
 
 class Solution {
 public:
+	//面试题 17.10. 主要元素
+	/*执行用时：
+		16 ms
+		, 在所有 C++ 提交中击败了
+		91.20 %
+		的用户
+		内存消耗：
+		18.4 MB
+		, 在所有 C++ 提交中击败了
+		17.51 %
+		的用户*/
+	int majorityElement(vector<int>& nums) {
+		std::unordered_map<int, int> temp;
+		int half{ (int)nums.size() / 2 };
+		for (auto n : nums)
+		{
+			int& value = temp[n];
+			++value;
+			if (value > half)
+				return n;
+		}
+		return -1;
+	}
+
 	//168. Excel表列名称
 	/*执行用时：
 		0 ms
