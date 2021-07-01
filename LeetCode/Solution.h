@@ -6,6 +6,11 @@ using namespace std;
 
 class Solution {
 public:
+	//LCP 07. 传递信息
+	int numWays(int n, vector<vector<int>>& relation, int k) {
+		//
+	}
+
 	//面试题 17.10. 主要元素
 	/*执行用时：
 		16 ms
@@ -171,7 +176,7 @@ public:
 		}
 		
 		auto it = max_element(temp.rbegin(), temp.rend());
-		return distance(temp.begin(), (++it).base()) + 'a';
+		return (char)distance(temp.begin(), (++it).base()) + 'a';
 	}
 
 	//剑指 Offer 53 - I. 在排序数组中查找数字 I
@@ -549,7 +554,7 @@ public:
 		for (int i = 0; i < (int)matrix.size(); i++)
 		{
 			auto it = min_element(matrix[i].begin(), matrix[i].end());
-			int j = distance(matrix[i].begin(), it);
+			int j = (int)distance(matrix[i].begin(), it);
 			if (*it == getColumnMax(j))
 				ret.emplace_back(*it);
 		}
@@ -571,7 +576,7 @@ public:
 		auto words = splitString(sentence.c_str());
 		for (int i = 0; i < (int)words.size(); i++)
 		{
-			int pos = words[i].find(searchWord);
+			size_t pos = words[i].find(searchWord);
 			if (pos == 0)
 				return i + 1;
 		}
@@ -590,7 +595,7 @@ public:
 		75.84 %
 		的用户*/
 	int countBinarySubstrings(string s) {
-		int ptr = 0, n = s.size(), last = 0, ans = 0;
+		int ptr = 0, n = (int)s.size(), last = 0, ans = 0;
 		while (ptr < n) {
 			char c = s[ptr];
 			int count = 0;
@@ -750,7 +755,7 @@ public:
 		7.61 %
 		的用户*/
 	int totalHammingDistance(vector<int>& nums) {
-		int ans = 0, n = nums.size();
+		int ans = 0, n = (int)nums.size();
 		for (int i = 0; i < 30; ++i) {
 			int c = 0;
 			for (int val : nums) {
@@ -774,7 +779,7 @@ public:
 		的用户*/
 	int hammingDistance(int x, int y) {
 		bitset<32> bs(x ^ y);
-		return bs.count();
+		return (int)bs.count();
 	}
 
 	//1828. 统计一个圆中点的数目
@@ -907,7 +912,7 @@ public:
 		for (int i = 0; i <= n ; i++)
 		{
 			bitset<32> bs(i);
-			ret.emplace_back(bs.count());
+			ret.emplace_back((int)bs.count());
 		}
 		return ret;
 	}
@@ -1412,7 +1417,7 @@ public:
 		72.86 %
 		的用户*/
 	int removeElement(vector<int>& nums, int val) {
-		int left = 0, right = nums.size();
+		int left = 0, right = (int)nums.size();
 		while (left < right) {
 			if (nums[left] == val) {
 				nums[left] = nums[right - 1];
@@ -1492,7 +1497,7 @@ public:
 	}
 
 	TreeNode* sortedArrayToBST(vector<int>& nums) {
-		return sortedArrayToBST(nums, 0, nums.size() - 1);
+		return sortedArrayToBST(nums, 0, (int)nums.size() - 1);
 	}
 
 	//1614. 括号的最大嵌套深度
@@ -1533,7 +1538,7 @@ public:
 		的用户*/
 	int hammingWeight(uint32_t n) {
 		std::bitset<32> bs(n);
-		return bs.count();
+		return (int)bs.count();
 	}
 
 	//1768. 交替合并字符串
@@ -1979,8 +1984,8 @@ public:
 		的用户*/
 	vector<int> sortByBits(vector<int>& arr) {
 		sort(arr.begin(), arr.end(), [](int a, int b) {
-			int countA = bitset<14>(a).count();
-			int countB = bitset<14>(b).count();
+			int countA = (int)bitset<14>(a).count();
+			int countB = (int)bitset<14>(b).count();
 			if (countA == countB)
 				return a < b;
 			else
@@ -2029,8 +2034,8 @@ public:
 		};
 
 		int length = (int)s.length() >> 1;
-		int a = count_if(s.begin(), s.begin() + length, func);
-		int b = count_if(s.begin() + length, s.end(), func);
+		int a = (int)count_if(s.begin(), s.begin() + length, func);
+		int b = (int)count_if(s.begin() + length, s.end(), func);
 		return a == b;
 	}
 

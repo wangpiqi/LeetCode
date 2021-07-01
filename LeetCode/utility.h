@@ -280,7 +280,7 @@ vector<string> splitString(const char* s, const char* delim = " ")
 
 	string temp(s);
 
-	int pos{};
+	size_t pos{ 0 };
 	while ((pos = temp.find(delim)) != string::npos)
 	{
 		result.emplace_back(temp.substr(0, pos));
