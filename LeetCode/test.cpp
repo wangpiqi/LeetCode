@@ -44,8 +44,10 @@ int main()
 	s.checkSubarraySum(temp, 5);*/
 	/*auto temp = stringToIntegerVector("[9, 29, 49, 50]"); 
 	s.slowestKey(temp, "cbcd");*/
-	s.maxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba",
-		"aaaba");
+	/*s.maxRepeating("aaabaaaabaaabaaaabaaaabaaaabaaaaba",
+		"aaaba");*/
+	vector<vector<int>> relation = { {0, 2} ,{2, 1},{3, 4},{2, 3},{1, 4},{2, 0},{0, 4} };
+	s.numWays(5, relation, 3);
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);
