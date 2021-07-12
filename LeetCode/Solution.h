@@ -6,6 +6,30 @@ using namespace std;
 
 class Solution {
 public:
+	//1646. 获取生成数组中的最大值
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.1 MB
+		, 在所有 C++ 提交中击败了
+		51.00 %
+		的用户*/
+	int getMaximumGenerated(int n) {
+		if (n < 2)
+			return n;
+
+		vector<int> result{ 0, 1 };
+		for (int i = 2; i <= n; i++)
+		{
+			int value = (i % 2 == 0) ? result[i / 2] : (result[(i - 1) / 2] + result[(i - 1) / 2 + 1]);
+			result.emplace_back(value);
+		}
+		return *max_element(result.begin(), result.end());
+	}
+
 	//LCP 07. 传递信息
 	/*执行用时：
 		4 ms
