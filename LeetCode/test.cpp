@@ -48,7 +48,9 @@ int main()
 		"aaaba");*/
 	/*vector<vector<int>> relation = { {0, 2} ,{2, 1},{3, 4},{2, 3},{1, 4},{2, 0},{0, 4} };
 	s.numWays(5, relation, 3);*/
-	s.getMaximumGenerated(11);
+	//s.getMaximumGenerated(11);
+	vector<int> arr = stringToIntegerVector("[40,10,20,30]");
+	s.arrayRankTransform(arr);
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);

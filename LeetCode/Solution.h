@@ -6,6 +6,32 @@ using namespace std;
 
 class Solution {
 public:
+	//1331. 数组序号转换
+	/*执行用时：
+		132 ms
+		, 在所有 C++ 提交中击败了
+		74.58 %
+		的用户
+		内存消耗：
+		46.9 MB
+		, 在所有 C++ 提交中击败了
+		20.67 %
+		的用户*/
+	vector<int> arrayRankTransform(vector<int>& arr) {
+		std::map<int, vector<int>> temp;
+		for (int i = 0; i < (int)arr.size(); ++i)
+			temp[arr[i]].emplace_back(i);
+
+		int index{ 1 };
+		for (const auto& p : temp)
+		{
+			for (const auto& n : p.second)
+				arr[n] = index;
+			++index;
+		}
+		return arr;
+	}
+
 	//1646. 获取生成数组中的最大值
 	/*执行用时：
 		0 ms
