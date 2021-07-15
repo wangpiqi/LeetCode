@@ -6,6 +6,28 @@ using namespace std;
 
 class Solution {
 public:
+	//1846. 减小和重新排列数组后的最大元素
+	/*执行用时：
+		88 ms
+		, 在所有 C++ 提交中击败了
+		98.68 %
+		的用户
+		内存消耗：
+		50.1 MB
+		, 在所有 C++ 提交中击败了
+		52.48 %
+		的用户*/
+	int maximumElementAfterDecrementingAndRearranging(vector<int>& arr) {
+		sort(arr.begin(), arr.end());
+		arr[0] = 1;
+		for (int i = 1; i < arr.size() - 1; i++)
+		{
+			if (arr[i + 1] > arr[i])
+				arr[i + 1] = arr[i] + 1;
+		}
+		return std::min(*arr.rbegin(), (int)arr.size());
+	}
+
 	//1331. 数组序号转换
 	/*执行用时：
 		132 ms
