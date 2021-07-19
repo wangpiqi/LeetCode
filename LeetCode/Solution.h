@@ -6,6 +6,15 @@ using namespace std;
 
 class Solution {
 public:
+	//53. 最大子序和
+	/*执行用时：4 ms, 在所有 C++ 提交中击败了95.21 % 的用户
+		内存消耗：12.7 MB, 在所有 C++ 提交中击败了89.34 % 的用户*/
+	int maxSubArray(vector<int>& nums) {
+		for (int i = 1; i < (int)nums.size(); i++)
+			nums[i] = max(nums[i - 1] + nums[i], nums[i]);
+		return *max_element(nums.begin(), nums.end());
+	}
+
 	//1846. 减小和重新排列数组后的最大元素
 	/*执行用时：
 		88 ms
