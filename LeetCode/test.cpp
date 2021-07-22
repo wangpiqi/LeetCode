@@ -51,9 +51,12 @@ int main()
 	//s.getMaximumGenerated(11);
 	/*vector<int> arr = stringToIntegerVector("[40,10,20,30]");
 	s.arrayRankTransform(arr);*/
+	/*string data = readDataFile();
+	auto temp = stringToIntegerVector(data);
+	s.maximumElementAfterDecrementingAndRearranging(temp);*/
 	string data = readDataFile();
 	auto temp = stringToIntegerVector(data);
-	s.maximumElementAfterDecrementingAndRearranging(temp);
+	auto result = s.twoSum(temp, 7828670);
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);

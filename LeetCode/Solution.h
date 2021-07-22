@@ -6,6 +6,21 @@ using namespace std;
 
 class Solution {
 public:
+	//1. 两数之和
+	/*执行用时：8 ms, 在所有 C++ 提交中击败了85.15 % 的用户
+	内存消耗：10.5 MB, 在所有 C++ 提交中击败了30.84 % 的用户*/
+	vector<int> twoSum(vector<int>& nums, int target) {
+		unordered_map<int, int> hashtable;
+		for (int i = 0; i < nums.size(); ++i) {
+			auto it = hashtable.find(target - nums[i]);
+			if (it != hashtable.end()) {
+				return { it->second, i };
+			}
+			hashtable[nums[i]] = i;
+		}
+		return {};
+	}
+
 	//53. 最大子序和
 	/*执行用时：4 ms, 在所有 C++ 提交中击败了95.21 % 的用户
 		内存消耗：12.7 MB, 在所有 C++ 提交中击败了89.34 % 的用户*/
@@ -1329,21 +1344,21 @@ public:
 		, 在所有 C++ 提交中击败了
 		93.59 %
 		的用户*/
-	vector<int> twoSum(vector<int>& nums, int target) {
-		int first{ 0 };
-		int last{ (int)nums.size() - 1 };
-		while (first < last)
-		{
-			int sum = nums[first] + nums[last];
-			if (sum < target)
-				++first;
-			else if (sum > target)
-				--last;
-			else
-				return { nums[first], nums[last] };
-		}
-		return {};
-	}
+		/*vector<int> twoSum(vector<int>& nums, int target) {
+			int first{ 0 };
+			int last{ (int)nums.size() - 1 };
+			while (first < last)
+			{
+				int sum = nums[first] + nums[last];
+				if (sum < target)
+					++first;
+				else if (sum > target)
+					--last;
+				else
+					return { nums[first], nums[last] };
+			}
+			return {};
+		}*/
 
 	//1816. 截断句子
 	/*执行用时：
