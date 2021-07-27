@@ -6,6 +6,18 @@ using namespace std;
 
 class Solution {
 public:
+	//350. 两个数组的交集 II
+	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00 % 的用户
+	内存消耗：9.8 MB, 在所有 C++ 提交中击败了63.37 % 的用户*/
+	vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+		std::sort(nums1.begin(), nums1.end());
+		std::sort(nums2.begin(), nums2.end());
+
+		std::vector<int> v_intersection;
+		std::set_intersection(nums1.begin(), nums1.end(), nums2.begin(), nums2.end(), std::back_inserter(v_intersection));
+		return v_intersection;
+	}
+
 	//88. 合并两个有序数组
 	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00 % 的用户
 	内存消耗：8.8 MB, 在所有 C++ 提交中击败了73.45 % 的用户*/
