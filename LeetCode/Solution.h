@@ -6,6 +6,37 @@ using namespace std;
 
 class Solution {
 public:
+	//88. 合并两个有序数组
+	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00 % 的用户
+	内存消耗：8.8 MB, 在所有 C++ 提交中击败了73.45 % 的用户*/
+	void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+		vector<int> temp;
+		temp.reserve(m + n);
+
+		int i = 0, j = 0;
+		while (i < m && j < n)
+		{
+			if (nums1[i] < nums2[j])
+			{
+				temp.emplace_back(nums1[i]);
+				++i;
+			}
+			else
+			{
+				temp.emplace_back(nums2[j]);
+				++j;
+			}
+		}
+
+		for (; i < m; i++)
+			temp.emplace_back(nums1[i]);
+
+		for (; j < n; j++)
+			temp.emplace_back(nums2[j]);
+
+		nums1 = std::move(temp);
+	}
+
 	//1. 两数之和
 	/*执行用时：8 ms, 在所有 C++ 提交中击败了85.15 % 的用户
 	内存消耗：10.5 MB, 在所有 C++ 提交中击败了30.84 % 的用户*/
@@ -458,33 +489,33 @@ public:
 		, 在所有 C++ 提交中击败了
 		8.37 %
 		的用户*/
-	void merge(vector<int>& A, int m, vector<int>& B, int n) {
-		vector<int> temp;
-		temp.reserve(m + n);
+		/*void merge(vector<int>& A, int m, vector<int>& B, int n) {
+			vector<int> temp;
+			temp.reserve(m + n);
 
-		int i = 0, j = 0;
-		while (i < m && j < n)
-		{
-			if (A[i] < B[j])
+			int i = 0, j = 0;
+			while (i < m && j < n)
 			{
+				if (A[i] < B[j])
+				{
+					temp.emplace_back(A[i]);
+					++i;
+				}
+				else
+				{
+					temp.emplace_back(B[j]);
+					++j;
+				}
+			}
+
+			for (; i < m ; i++)
 				temp.emplace_back(A[i]);
-				++i;
-			}
-			else
-			{
+
+			for (; j < n; j++)
 				temp.emplace_back(B[j]);
-				++j;
-			}
-		}
 
-		for (; i < m ; i++)
-			temp.emplace_back(A[i]);
-
-		for (; j < n; j++)
-			temp.emplace_back(B[j]);
-
-		A = std::move(temp);
-	}
+			A = std::move(temp);
+		}*/
 
 	//面试题 01.09. 字符串轮转
 	/*执行用时：
