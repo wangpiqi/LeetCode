@@ -6,6 +6,36 @@ using namespace std;
 
 class Solution {
 public:
+	//566. 重塑矩阵
+	/*执行用时：
+		8 ms
+		, 在所有 C++ 提交中击败了
+		91.90 %
+		的用户
+		内存消耗：
+		10.5 MB
+		, 在所有 C++ 提交中击败了
+		29.79 %
+		的用户*/
+	vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+		if (mat.empty() || mat[0].empty())
+			return mat;
+
+		int row = (int)mat.size();
+		int col = (int)mat[0].size();
+		if (row * col != r * c)
+			return mat;
+
+		vector<vector<int>> result;
+		result.resize(r);
+		for (int i = 0; i < row; i++)
+		{
+			for (int j = 0; j < col; j++)
+				result[(i * col + j) / c].emplace_back(mat[i][j]);
+		}
+		return result;
+	}
+
 	//350. 两个数组的交集 II
 	/*执行用时：0 ms, 在所有 C++ 提交中击败了100.00 % 的用户
 	内存消耗：9.8 MB, 在所有 C++ 提交中击败了63.37 % 的用户*/
