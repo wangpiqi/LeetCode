@@ -54,9 +54,10 @@ int main()
 	/*string data = readDataFile();
 	auto temp = stringToIntegerVector(data);
 	s.maximumElementAfterDecrementingAndRearranging(temp);*/
-	string data = readDataFile();
+	/*string data = readDataFile();
 	auto temp = stringToIntegerVector(data);
-	auto result = s.twoSum(temp, 7828670);
+	auto result = s.twoSum(temp, 7828670);*/
+	s.generate(5);
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);

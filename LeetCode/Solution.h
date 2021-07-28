@@ -6,6 +6,35 @@ using namespace std;
 
 class Solution {
 public:
+	//118. 杨辉三角
+	/*执行用时：
+		0 ms
+		, 在所有 C++ 提交中击败了
+		100.00 %
+		的用户
+		内存消耗：
+		6.5 MB
+		, 在所有 C++ 提交中击败了
+		14.46 %
+		的用户*/
+	vector<vector<int>> generate(int numRows) {
+		vector<vector<int>> result;
+		result.resize(numRows);
+		result[0] = { 1 };
+
+		for (int row = 2; row <= numRows; row++)
+		{
+			for (int col = 0; col < row; col++)
+			{
+				if (col == 0 || col == row - 1)
+					result[row - 1].emplace_back(1);
+				else
+					result[row - 1].emplace_back(result[row - 2][col - 1] + result[row - 2][col]);
+			}
+		}
+		return result;
+	}
+
 	//566. 重塑矩阵
 	/*执行用时：
 		8 ms
