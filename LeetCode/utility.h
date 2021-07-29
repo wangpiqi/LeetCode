@@ -31,10 +31,12 @@ string readDataFile()
 		return "";
 	}
 
-	string temp;
-	getline(file, temp);
-	file.close();
-	return std::move(temp);
+	ostringstream buf;
+	char ch{};
+	while (buf && file.get(ch))
+		buf.put(ch);
+
+	return buf.str();
 }
 
 int mystrlen(const char* str)
@@ -181,6 +183,50 @@ vector<int> stringToIntegerVector(string input) {
 	char delim = ',';
 	while (getline(ss, item, delim)) {
 		output.push_back(stoi(item));
+	}
+	return output;
+}
+
+vector<char> stringToCharVector(string input) {
+	vector<char> output;
+	trimLeftTrailingSpaces(input);
+	trimRightTrailingSpaces(input);
+	input = input.substr(1, input.length() - 2);
+	stringstream ss;
+	ss.str(input);
+	string item;
+	char delim = ',';
+	while (getline(ss, item, delim)) {
+		output.push_back(item[1]);
+	}
+	return output;
+}
+
+vector<vector<int>> stringToIntegerVectorVector(string input) {
+	vector<vector<int>> output;
+	trimLeftTrailingSpaces(input);
+	trimRightTrailingSpaces(input);
+	input = input.substr(1, input.length() - 2);
+	stringstream ss;
+	ss.str(input);
+	string item;
+	char delim = ',';
+	while (getline(ss, item, delim)) {
+		output.push_back(stringToIntegerVector(item));
+	}
+	return output;
+}
+
+vector<vector<char>> stringToCharVectorVector(string input, char delim = ',') {
+	vector<vector<char>> output;
+	trimLeftTrailingSpaces(input);
+	trimRightTrailingSpaces(input);
+	input = input.substr(1, input.length() - 2);
+	stringstream ss;
+	ss.str(input);
+	string item;
+	while (getline(ss, item, delim)) {
+		output.push_back(stringToCharVector(item));
 	}
 	return output;
 }

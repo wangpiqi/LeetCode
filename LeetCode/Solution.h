@@ -6,6 +6,56 @@ using namespace std;
 
 class Solution {
 public:
+	//36. 有效的数独
+	bool isValidSudoku(vector<vector<char>>& board) {
+		//check row
+		for (int i = 0; i < 9; i++)
+		{
+			bool hashtable[9] = { false };
+			for (int j = 0; j < 9; j++)
+			{
+				if (board[i][j] == '.') continue;
+				if (hashtable[board[i][j] - '1']) 
+					return false;
+				hashtable[board[i][j] - '1'] = true;
+			}
+		}
+
+		//check col
+		for (int i = 0; i < 9; i++)
+		{
+			bool hashtable[9] = { false };
+			for (int j = 0; j < 9; j++)
+			{
+				if (board[j][i] == '.') continue;
+				if (hashtable[board[j][i] - '1']) 
+					return false;
+				hashtable[board[j][i] - '1'] = true;
+			}
+		}
+
+		//check 3X3
+		for (int i = 0; i < 9; i += 3)
+		{
+			for (int j = 0; j < 9; j += 3)
+			{
+				bool hashtable[9] = { false };
+				for (int m = i; m < i + 3; m++)
+				{
+					for (int n = j; n < j + 3; n++)
+					{
+						if (board[m][n] == '.') continue;
+						if (hashtable[board[m][n] - '1']) 
+							return false;
+						hashtable[board[m][n] - '1'] = true;
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+
 	//118. 杨辉三角
 	/*执行用时：
 		0 ms
