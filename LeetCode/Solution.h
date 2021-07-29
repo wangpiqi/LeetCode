@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//36. 有效的数独
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		98.63 %
+		的用户
+		内存消耗：
+		17.4 MB
+		, 在所有 C++ 提交中击败了
+		93.39 %
+		的用户*/
 	bool isValidSudoku(vector<vector<char>>& board) {
 		//check row
 		for (int i = 0; i < 9; i++)
