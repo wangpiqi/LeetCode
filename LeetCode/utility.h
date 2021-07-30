@@ -184,7 +184,7 @@ vector<int> stringToIntegerVector(string input) {
 	while (getline(ss, item, delim)) {
 		output.push_back(stoi(item));
 	}
-	return output;
+	return std::move(output);
 }
 
 vector<char> stringToCharVector(string input) {
@@ -199,10 +199,10 @@ vector<char> stringToCharVector(string input) {
 	while (getline(ss, item, delim)) {
 		output.push_back(item[1]);
 	}
-	return output;
+	return std::move(output);
 }
 
-vector<vector<int>> stringToIntegerVectorVector(string input) {
+vector<vector<int>> stringToIntegerVectorVector(string input, char delim = ',') {
 	vector<vector<int>> output;
 	trimLeftTrailingSpaces(input);
 	trimRightTrailingSpaces(input);
@@ -210,11 +210,10 @@ vector<vector<int>> stringToIntegerVectorVector(string input) {
 	stringstream ss;
 	ss.str(input);
 	string item;
-	char delim = ',';
 	while (getline(ss, item, delim)) {
 		output.push_back(stringToIntegerVector(item));
 	}
-	return output;
+	return std::move(output);
 }
 
 vector<vector<char>> stringToCharVectorVector(string input, char delim = ',') {
@@ -228,7 +227,7 @@ vector<vector<char>> stringToCharVectorVector(string input, char delim = ',') {
 	while (getline(ss, item, delim)) {
 		output.push_back(stringToCharVector(item));
 	}
-	return output;
+	return std::move(output);
 }
 
 TreeNode* stringToTreeNode(string input) {

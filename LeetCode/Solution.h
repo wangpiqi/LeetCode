@@ -6,6 +6,54 @@ using namespace std;
 
 class Solution {
 public:
+	//73. 矩阵置零
+	/*执行用时：
+		12 ms
+		, 在所有 C++ 提交中击败了
+		88.19 %
+		的用户
+		内存消耗：
+		13.1 MB
+		, 在所有 C++ 提交中击败了
+		6.97 %
+		的用户*/
+	void setZeroes(vector<vector<int>>& matrix) {
+		int m = (int)matrix.size();
+		int n = (int)matrix[0].size();
+
+		unordered_set<int> row;
+		for (int i = 0; i < m; i++)
+		{
+			auto it = std::find(matrix[i].begin(), matrix[i].end(), 0);
+			if (it != matrix[i].end())
+				row.emplace(i);
+		}
+
+		unordered_set<int> col;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				if (matrix[j][i] == 0)
+				{
+					col.emplace(i);
+					break;
+				}
+			}
+		}
+
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				if (matrix[i][j] == 0)
+					continue;
+				if (row.find(i) != row.end() || col.find(j) != col.end())
+					matrix[i][j] = 0;
+			}
+		}
+	}
+
 	//36. 有效的数独
 	/*执行用时：
 		12 ms

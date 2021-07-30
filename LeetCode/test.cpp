@@ -58,9 +58,11 @@ int main()
 	auto temp = stringToIntegerVector(data);
 	auto result = s.twoSum(temp, 7828670);*/
 	//s.generate(5);
-	string data = readDataFile();
+	/*string data = readDataFile();
 	auto temp = stringToCharVectorVector(data, '@');
-	cout<< "isValidSudoku " << s.isValidSudoku(temp) << endl;
+	cout<< "isValidSudoku " << s.isValidSudoku(temp) << endl;*/
+	auto temp = stringToIntegerVectorVector("[[1,1,1]@[1,0,1]@[1,1,1]]", '@');
+	s.setZeroes(temp);
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);
