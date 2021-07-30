@@ -61,8 +61,9 @@ int main()
 	/*string data = readDataFile();
 	auto temp = stringToCharVectorVector(data, '@');
 	cout<< "isValidSudoku " << s.isValidSudoku(temp) << endl;*/
-	auto temp = stringToIntegerVectorVector("[[1,1,1]@[1,0,1]@[1,1,1]]", '@');
-	s.setZeroes(temp);
+	/*auto temp = stringToIntegerVectorVector("[[1,1,1]@[1,0,1]@[1,1,1]]", '@');
+	s.setZeroes(temp);*/
+	s.firstUniqChar("leetcode");
 
 	/*TripleInOne* obj = new TripleInOne(1);
 	obj->push(0, 1);

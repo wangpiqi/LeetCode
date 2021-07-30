@@ -8,31 +8,25 @@ class Solution {
 public:
 	//387. 字符串中的第一个唯一字符
 	/*执行用时：
-		28 ms
+		8 ms
 		, 在所有 C++ 提交中击败了
-		71.03 %
+		100.00 %
 		的用户
 		内存消耗：
-		10.6 MB
+		10.3 MB
 		, 在所有 C++ 提交中击败了
-		19.56 %
+		94.15 %
 		的用户*/
 	int firstUniqChar(string s) {
-		std::unordered_map<char, int> hashtable;
+		int hashtable[26] = { 0 };
 		for (int i = 0; i < (int)s.length() ; i++)
+			++hashtable[s[i] - 'a'];
+		for (int i = 0; i < (int)s.length(); i++)
 		{
-			const char& c = s[i];
-			auto it = hashtable.find(c);
-			if (it != hashtable.end())
-				it->second = INT_MAX;
-			else
-				hashtable.insert({ c, i });
+			if (hashtable[s[i] - 'a'] == 1)
+				return i;
 		}
-
-		int result{ INT_MAX };
-		for (const auto& p : hashtable)
-			result = min(p.second, result);
-		return result != INT_MAX ? result : -1;
+		return -1;
 	}
 
 	//73. 矩阵置零
