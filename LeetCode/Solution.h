@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
 	//387. 字符串中的第一个唯一字符
+	/*执行用时：
+		28 ms
+		, 在所有 C++ 提交中击败了
+		71.03 %
+		的用户
+		内存消耗：
+		10.6 MB
+		, 在所有 C++ 提交中击败了
+		19.56 %
+		的用户*/
 	int firstUniqChar(string s) {
 		std::unordered_map<char, int> hashtable;
 		for (int i = 0; i < (int)s.length() ; i++)
@@ -14,17 +24,14 @@ public:
 			const char& c = s[i];
 			auto it = hashtable.find(c);
 			if (it != hashtable.end())
-				it->second = -1;
+				it->second = INT_MAX;
 			else
 				hashtable.insert({ c, i });
 		}
 
 		int result{ INT_MAX };
 		for (const auto& p : hashtable)
-		{
-			if (p.second != -1)
-				result = min(p.second, result);
-		}
+			result = min(p.second, result);
 		return result != INT_MAX ? result : -1;
 	}
 
