@@ -6,6 +6,28 @@ using namespace std;
 
 class Solution {
 public:
+	//387. 字符串中的第一个唯一字符
+	int firstUniqChar(string s) {
+		std::unordered_map<char, int> hashtable;
+		for (int i = 0; i < (int)s.length() ; i++)
+		{
+			const char& c = s[i];
+			auto it = hashtable.find(c);
+			if (it != hashtable.end())
+				it->second = -1;
+			else
+				hashtable.insert({ c, i });
+		}
+
+		int result{ INT_MAX };
+		for (const auto& p : hashtable)
+		{
+			if (p.second != -1)
+				result = min(p.second, result);
+		}
+		return result != INT_MAX ? result : -1;
+	}
+
 	//73. 矩阵置零
 	/*执行用时：
 		12 ms
